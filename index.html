@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:         #141414;
+      --ink-mid:     #3a3a3a;
+      --ink-soft:    #6e6e6e;
+      --ink-faint:   #a0a0a0;
+      --paper:       #faf9f7;
+      --paper-warm:  #f3f0ea;
+      --paper-mid:   #e8e3d9;
+      --line:        #ddd8ce;
+      --accent:      #b84c1e;
+      --accent-light:#e8836a;
+      --blue:        #1e4d8c;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── GRAIN OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── LAYOUT ── */
+    main {
+      flex: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.9rem;
+    }
+
+    h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--ink-mid);
+    }
+
+    .bio {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      max-width: 520px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 2.5rem 0;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.15s ease forwards;
+    }
+
+    /* ── CARDS ── */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      background: var(--paper-warm);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1.5rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .card:nth-child(1) { animation: fadeUp 0.5s 0.25s ease forwards; }
+    .card:nth-child(2) { animation: fadeUp 0.5s 0.38s ease forwards; }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: var(--paper-mid);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .card-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .card:nth-child(2) .card-tag {
+      color: var(--blue);
+    }
+    .card:nth-child(2)::before {
+      background: var(--blue);
+    }
+
+    .card-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.45rem;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .card-arrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+      transition: color 0.2s, letter-spacing 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .card:hover .card-arrow {
+      color: var(--ink-mid);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── ANIMATION ── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      main { padding: 3.5rem 1.4rem 3rem; }
+      .card { padding: 1.25rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <header class="site-header">
+      <p class="eyebrow">pconpiee.github.io</p>
+      <h1>Pat Conpiee<br><em>Tools for thinking clearly.</em></h1>
+      <p class="bio">
+        A small collection of tools I've built for career clarity and startup strategy.
+        Free to use — built for practitioners, not for polish.
+      </p>
+    </header>
+
+    <div class="divider"></div>
+
+    <div class="cards">
+
+      <a class="card" href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener">
+        <span class="card-tag">Career Toolkit</span>
+        <div class="card-title">CV &amp; Application Guide</div>
+        <p class="card-desc">
+          A structured guide to writing CVs and cover letters that get read.
+          Covers positioning, formatting, and the common mistakes that filter good candidates out.
+        </p>
+        <span class="card-arrow">Open guide →</span>
+      </a>
+
+      <a class="card" href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener">
+        <span class="card-tag">Strategy Simulator</span>
+        <div class="card-title">PMF Lab — Parallax Earth</div>
+        <p class="card-desc">
+          A product-market fit simulator for the space industry. Play as a deep-tech startup
+          with 90 days and €120K to find your beachhead segment before the runway runs out.
+        </p>
+        <span class="card-arrow">Launch simulator →</span>
+      </a>
+
+    </div>
+
+  </main>
+
+  <footer>
+    Built by Pat
+  </footer>
+
+</body>
+</html>
