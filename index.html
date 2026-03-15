@@ -1,268 +1,1026 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pat</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ink:         #141414;
-      --ink-mid:     #3a3a3a;
-      --ink-soft:    #6e6e6e;
-      --ink-faint:   #a0a0a0;
-      --paper:       #faf9f7;
-      --paper-warm:  #f3f0ea;
-      --paper-mid:   #e8e3d9;
-      --line:        #ddd8ce;
-      --accent:      #b84c1e;
-      --accent-light:#e8836a;
-      --blue:        #1e4d8c;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pat — I see you. Your story isn't finished.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf7f2;
+  --warm-white: #f5f0e8;
+  --parchment: #ede5d4;
+  --sand: #d4c9b0;
+  --bark: #5c4a32;
+  --coal: #2a2118;
+  --coal2: #1a1410;
+  --ember: #c45c2a;
+  --ember-soft: #e8956a;
+  --ember-pale: #f5d4c0;
+  --smoke: #9a9080;
+  --sage: #6b7c5c;
+  --sky: #4a6c8c;
+  --radius: 4px;
+  --shadow: rgba(42,33,24,0.10);
+  --shadow-deep: rgba(42,33,24,0.22);
+}
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'DM Sans',sans-serif;background:var(--coal2);color:var(--cream);overflow-x:hidden;}
 
-    html { font-size: 16px; }
+/* ── GRAIN ── */
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:256px 256px;}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+/* ══════════════════════════════════
+   HERO
+══════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--coal2);
+}
 
-    /* ── GRAIN OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-    }
+.hero-glow {
+  position: absolute;
+  bottom: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 600px;
+  background: radial-gradient(ellipse at center bottom,
+    rgba(196,92,42,0.18) 0%,
+    rgba(196,92,42,0.06) 40%,
+    transparent 70%);
+  pointer-events: none;
+}
 
-    /* ── LAYOUT ── */
-    main {
-      flex: 1;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 5rem 2rem 4rem;
-      position: relative;
-      z-index: 1;
-    }
+.hero-glow-2 {
+  position: absolute;
+  top: -50px; left: 20%;
+  width: 400px; height: 400px;
+  background: radial-gradient(ellipse,rgba(74,108,140,0.06),transparent 70%);
+  pointer-events: none;
+}
 
-    /* ── HEADER ── */
-    .site-header {
-      margin-bottom: 3.5rem;
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.6s ease forwards;
-    }
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ember-soft);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.2s forwards;
+}
 
-    .eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 0.9rem;
-    }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--warm-white);
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+  opacity: 0;
+  animation: fadeUp 1s 0.4s forwards;
+}
 
-    h1 {
-      font-family: 'Libre Baskerville', serif;
-      font-size: clamp(2.2rem, 5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
+.hero-title em {
+  font-style: italic;
+  color: var(--ember-soft);
+}
 
-    h1 em {
-      font-style: italic;
-      color: var(--ink-mid);
-    }
+.hero-title .line-2 {
+  display: block;
+  color: rgba(250,247,242,0.45);
+  font-style: italic;
+}
 
-    .bio {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--ink-soft);
-      max-width: 520px;
-    }
+.hero-title .line-3 {
+  display: block;
+  color: rgba(250,247,242,0.85);
+}
 
-    /* ── DIVIDER ── */
-    .divider {
-      height: 1px;
-      background: var(--line);
-      margin: 2.5rem 0;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.15s ease forwards;
-    }
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(250,247,242,0.4);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.65s forwards;
+}
 
-    /* ── CARDS ── */
-    .cards {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp 1s 0.85s forwards;
+}
 
-    .card {
-      display: block;
-      text-decoration: none;
-      background: var(--paper-warm);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 1.5rem 1.75rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      opacity: 0;
-      transform: translateY(10px);
-    }
+.btn-primary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  background: var(--ember);
+  color: var(--warm-white);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.btn-primary:hover{background:var(--ember-soft);transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,92,42,0.3);}
 
-    .card:nth-child(1) { animation: fadeUp 0.5s 0.25s ease forwards; }
-    .card:nth-child(2) { animation: fadeUp 0.5s 0.38s ease forwards; }
+.btn-ghost {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: rgba(250,247,242,0.45);
+  border: 1px solid rgba(250,247,242,0.15);
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(250,247,242,0.4);color:rgba(250,247,242,0.75);}
 
-    .card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--accent);
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform 0.25s ease;
-    }
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0;
+  animation: fadeUp 1s 1.2s forwards;
+}
+.hero-scroll span{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,247,242,0.2);}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(196,92,42,0.5),transparent);animation:scrollPulse 2s infinite;}
+@keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.1);}}
 
-    .card:hover {
-      border-color: var(--paper-mid);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
+/* ══════════════════════════════════
+   STORY SECTION
+══════════════════════════════════ */
+.story-section {
+  background: var(--coal);
+  padding: 7rem 2rem;
+  position: relative;
+}
 
-    .card:hover::before {
-      transform: scaleY(1);
-    }
+.story-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(196,92,42,0.3), transparent);
+}
 
-    .card-tag {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
+.story-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
 
-    .card:nth-child(2) .card-tag {
-      color: var(--blue);
-    }
-    .card:nth-child(2)::before {
-      background: var(--blue);
-    }
+.story-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(196,92,42,0.2);
+}
 
-    .card-title {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 0.45rem;
-      line-height: 1.3;
-    }
+.story-graf {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(250,247,242,0.75);
+  margin-bottom: 1.75rem;
+}
 
-    .card-desc {
-      font-size: 0.875rem;
-      color: var(--ink-soft);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
+.story-graf strong {
+  font-weight: 500;
+  color: var(--warm-white);
+}
 
-    .card-arrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--ink-faint);
-      letter-spacing: 0.05em;
-      transition: color 0.2s, letter-spacing 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
+.story-graf em {
+  font-style: italic;
+  color: var(--ember-soft);
+}
 
-    .card:hover .card-arrow {
-      color: var(--ink-mid);
-      letter-spacing: 0.08em;
-    }
+.story-pull {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--warm-white);
+  border-left: 2px solid var(--ember);
+  padding: 1rem 0 1rem 2rem;
+  margin: 3rem 0;
+}
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.72rem;
-      color: var(--ink-faint);
-      letter-spacing: 0.06em;
-      position: relative;
-      z-index: 1;
-    }
+.story-locations {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 2.5rem 0;
+}
 
-    /* ── ANIMATION ── */
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+.loc-chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(250,247,242,0.1);
+  color: rgba(250,247,242,0.35);
+  border-radius: 2px;
+}
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 480px) {
-      main { padding: 3.5rem 1.4rem 3rem; }
-      .card { padding: 1.25rem 1.4rem; }
-    }
-  </style>
+/* ══════════════════════════════════
+   THE FOUR ROOMS
+══════════════════════════════════ */
+.rooms-section {
+  background: var(--cream);
+  padding: 7rem 2rem;
+  position: relative;
+}
+
+.rooms-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(196,92,42,0.2), transparent);
+}
+
+.rooms-header {
+  max-width: 680px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--coal);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.section-title em {font-style:italic;color:var(--ember);}
+
+.section-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--smoke);
+  line-height: 1.65;
+}
+
+.rooms-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.room-card {
+  background: var(--warm-white);
+  border: 1px solid var(--parchment);
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-decoration: none;
+  display: block;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid transparent;
+}
+
+.room-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle at bottom right, var(--room-glow), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--shadow-deep);
+}
+
+.room-card:hover::before { opacity: 1; }
+
+.room-card.vocation {
+  border-top-color: var(--ember);
+  --room-glow: rgba(196,92,42,0.08);
+}
+.room-card.career {
+  border-top-color: var(--bark);
+  --room-glow: rgba(92,74,50,0.08);
+}
+.room-card.think {
+  border-top-color: var(--sky);
+  --room-glow: rgba(74,108,140,0.08);
+}
+.room-card.lead {
+  border-top-color: var(--sage);
+  --room-glow: rgba(107,124,92,0.08);
+}
+
+.room-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+}
+
+.room-card.vocation .room-tag{background:rgba(196,92,42,0.1);color:var(--ember);}
+.room-card.career .room-tag{background:rgba(92,74,50,0.1);color:var(--bark);}
+.room-card.think .room-tag{background:rgba(74,108,140,0.1);color:var(--sky);}
+.room-card.lead .room-tag{background:rgba(107,124,92,0.1);color:var(--sage);}
+
+.room-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+  line-height: 1;
+}
+
+.room-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--coal);
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+
+.room-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--smoke);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.room-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.room-tool {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--bark);
+  text-decoration: none;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius);
+  background: var(--cream);
+  transition: all 0.15s;
+}
+
+.room-tool:hover {
+  background: var(--parchment);
+  transform: translateX(3px);
+}
+
+.room-tool-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.room-card.vocation .room-tool-dot{background:var(--ember);}
+.room-card.career .room-tool-dot{background:var(--bark);}
+.room-card.think .room-tool-dot{background:var(--sky);}
+.room-card.lead .room-tool-dot{background:var(--sage);}
+
+.room-tool-name {font-weight:500;color:var(--coal);}
+.room-tool-desc {font-size:0.75rem;color:var(--smoke);margin-left:auto;white-space:nowrap;}
+
+.room-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.15s;
+}
+
+.room-card:hover .room-cta {color: var(--coal);}
+.room-cta::after{content:'→';transition:transform 0.15s;}
+.room-card:hover .room-cta::after{transform:translateX(4px);}
+
+/* ══════════════════════════════════
+   THE INVITATION STRIP
+══════════════════════════════════ */
+.invitation {
+  background: var(--coal);
+  padding: 7rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.invitation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(196,92,42,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.invitation-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.invitation-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--ember);
+  margin: 0 auto 2.5rem;
+  opacity: 0.6;
+}
+
+.invitation-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--warm-white);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.invitation-title em {
+  font-style: italic;
+  color: var(--ember-soft);
+  display: block;
+}
+
+.invitation-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(250,247,242,0.5);
+  line-height: 1.75;
+  margin-bottom: 3rem;
+}
+
+.invitation-doors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(250,247,242,0.06);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.inv-door {
+  background: rgba(250,247,242,0.03);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.inv-door:hover { background: rgba(250,247,242,0.07); }
+
+.inv-door-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ember);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.inv-door-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,247,242,0.3);
+}
+
+.inv-door-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(250,247,242,0.55);
+  margin-top: 0.25rem;
+}
+
+/* ══════════════════════════════════
+   TESTIMONIAL
+══════════════════════════════════ */
+.testimony {
+  background: var(--warm-white);
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.testimony::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--parchment), transparent);
+}
+
+.testimony-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.testimony-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimony-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--ember);
+}
+
+.testimony-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--bark);
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid var(--ember);
+}
+
+.testimony-quote strong {
+  font-weight: 500;
+  color: var(--coal);
+  font-style: normal;
+}
+
+.testimony-source {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--smoke);
+  margin-left: 2rem;
+}
+
+/* ══════════════════════════════════
+   WHERE
+══════════════════════════════════ */
+.where-section {
+  background: var(--coal);
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.where-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(196,92,42,0.25), transparent);
+}
+
+.where-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.where-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: rgba(250,247,242,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.where-item {
+  background: rgba(250,247,242,0.02);
+  padding: 2rem 1.5rem;
+}
+
+.where-place {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--warm-white);
+  margin-bottom: 0.4rem;
+}
+
+.where-what {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(250,247,242,0.35);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+.footer {
+  background: var(--coal2);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(250,247,242,0.05);
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(250,247,242,0.4);
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand em {font-style:italic;color:var(--ember-soft);}
+
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(250,247,242,0.2);
+  margin-bottom: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,247,242,0.2);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-link:hover { color: var(--ember-soft); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .rooms-grid{grid-template-columns:1fr;}
+  .invitation-doors{grid-template-columns:1fr;}
+  .room-tool-desc{display:none;}
+}
+
+@media(max-width:480px){
+  .hero-title{font-size:2.6rem;}
+  .story-pull{padding-left:1.25rem;}
+}
+</style>
 </head>
 <body>
 
-  <main>
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
 
-    <header class="site-header">
-      <p class="eyebrow">pconpiee.github.io</p>
-      <h1>Pat's<br><em>Tools for thinking clearly.</em></h1>
-      <p class="bio">
-        A small collection of tools I've built for career clarity and startup strategy.
-        Free to use — built for practitioners, not for polish.
-      </p>
-    </header>
+  <p class="hero-eyebrow">Pat · Builder · Teacher · Servant</p>
 
-    <div class="divider"></div>
+  <h1 class="hero-title">
+    I see <em>you.</em>
+    <span class="line-2">Your story isn&rsquo;t finished.</span>
+    <span class="line-3">Here is the door.</span>
+  </h1>
 
-    <div class="cards">
+  <p class="hero-sub">Tools for the person who senses that the frameworks they have been given are not quite reaching the question they actually have.</p>
 
-      <a class="card" href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener">
-        <span class="card-tag">Career Toolkit</span>
-        <div class="card-title">CV &amp; Application Guide</div>
-        <p class="card-desc">
-          A structured guide to writing CVs and cover letters that get read.
-          Covers positioning, formatting, and the common mistakes that filter good candidates out.
-        </p>
-        <span class="card-arrow">Open guide →</span>
-      </a>
+  <div class="hero-cta">
+    <a href="#rooms" class="btn-primary">Find Your Door</a>
+    <a href="#story" class="btn-ghost">Who is this for?</a>
+  </div>
 
-      <a class="card" href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener">
-        <span class="card-tag">Strategy Simulator</span>
-        <div class="card-title">PMF Lab — Parallax Earth</div>
-        <p class="card-desc">
-          A product-market fit simulator for the space industry. Play as a deep-tech startup
-          with 90 days and €120K to find your beachhead segment before the runway runs out.
-        </p>
-        <span class="card-arrow">Launch simulator →</span>
-      </a>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
 
+<!-- ══ STORY ══ -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <p class="story-label">The Conviction Behind Everything</p>
+
+    <p class="story-graf">There is a question underneath most career questions, most leadership questions, most life questions. It is not &ldquo;how do I get the job?&rdquo; or &ldquo;how do I lead the team?&rdquo; It is older and harder than that:</p>
+
+    <div class="story-pull">&ldquo;Is my life adding up to something that matters &mdash; and if not, is it too late?&rdquo;</div>
+
+    <p class="story-graf">I have sat across from <strong>engineers who were brilliant and invisible</strong>, students who could not answer &ldquo;what should I be when I grow up?&rdquo;, missionaries who were told they had no value, mid-career professionals who had built something impressive and felt completely empty.</p>
+
+    <p class="story-graf">I have prayed with Uber drivers in Addis Ababa &mdash; master&rsquo;s degree holders, circumstance-displaced, driving strangers through a city that had not made room for them. I asked their name. Their family. Their dream. Their detour &mdash; literal and figurative. And then I prayed over them before they drove away.</p>
+
+    <p class="story-graf">Every single one of them was the same person. <em>Gifted. Displaced. Not yet fully seen.</em> Not yet told that their story was not finished.</p>
+
+    <div class="story-locations">
+      <span class="loc-chip">Addis Ababa</span>
+      <span class="loc-chip">Strasbourg</span>
+      <span class="loc-chip">The Air Force</span>
+      <span class="loc-chip">Leanspace</span>
+      <span class="loc-chip">ISU</span>
+      <span class="loc-chip">Friday nights</span>
+      <span class="loc-chip">10&ndash;20 nations</span>
     </div>
 
-  </main>
+    <p class="story-graf">The tools on this site &mdash; the formation guides, the career resources, the strategy simulators &mdash; are not the ministry. They are the <strong>excuse for presence</strong>. The door into the conversation that actually matters. Someone comes for a CV. They leave having been seen.</p>
 
-  <footer>
-    Built by Pat
-  </footer>
+    <p class="story-graf">I am not here to optimise your career. I am here because Jesus left the 99 for the 1 &mdash; and the 1 is usually the most qualified person in the room who does not believe they belong there.</p>
+  </div>
+</section>
+
+<!-- ══ ROOMS ══ -->
+<section class="rooms-section" id="rooms">
+  <div class="rooms-header">
+    <p class="section-eyebrow">Four Doors</p>
+    <h2 class="section-title">Where do you <em>need</em> to begin?</h2>
+    <p class="section-sub">Each door opens a different part of the same journey. Most people find they need more than one.</p>
+  </div>
+
+  <div class="rooms-grid">
+
+    <!-- VOCATION -->
+    <div class="room-card vocation">
+      <span class="room-tag">Know Yourself</span>
+      <span class="room-icon">🔥</span>
+      <h3 class="room-title">Vocation</h3>
+      <p class="room-question">&ldquo;Who were you made to be &mdash; and are you becoming it?&rdquo;</p>
+      <div class="room-tools">
+        <a href="the-table.html" class="room-tool">
+          <div class="room-tool-dot"></div>
+          <span class="room-tool-name">The Table</span>
+          <span class="room-tool-desc">Four conversations</span>
+        </a>
+        <a href="the-way.html" class="room-tool">
+          <div class="room-tool-dot"></div>
+          <span class="room-tool-name">The Way</span>
+          <span class="room-tool-desc">Twelve weeks</span>
+        </a>
+      </div>
+      <div class="room-cta">Begin here if you feel stuck or unseen</div>
+    </div>
+
+    <!-- CAREER -->
+    <div class="room-card career">
+      <span class="room-tag">Articulate Yourself</span>
+      <span class="room-icon">✍️</span>
+      <h3 class="room-title">Career</h3>
+      <p class="room-question">&ldquo;How do you tell your story and get in the room?&rdquo;</p>
+      <div class="room-tools">
+        <a href="cv-guide.html" class="room-tool">
+          <div class="room-tool-dot"></div>
+          <span class="room-tool-name">CV Guide</span>
+          <span class="room-tool-desc">ATS, bullets, format</span>
+        </a>
+        <a href="interview-prep.html" class="room-tool">
+          <div class="room-tool-dot"></div>
+          <span class="room-tool-name">Interview Prep</span>
+          <span class="room-tool-desc">STAR-L stories</span>
+        </a>
+      </div>
+      <div class="room-cta">Begin here if you need to get hired</div>
+    </div>
+
+    <!-- THINK -->
+    <div class="room-card think">
+      <span class="room-tag">Think Clearly</span>
+      <span class="room-icon">🌍</span>
+      <h3 class="room-title">Strategy</h3>
+      <p class="room-question">&ldquo;How do you reason well about the world you&rsquo;re sent into?&rdquo;</p>
+      <div class="room-tools">
+        <a href="https://pconpiee.github.io/space-pmf/" class="room-tool">
+          <div class="room-tool-dot"></div>
+          <span class="room-tool-name">PMF Lab</span>
+          <span class="room-tool-desc">Parallax Earth</span>
+        </a>
+        <div class="room-tool" style="opacity:0.4;cursor:default;">
+          <div class="room-tool-dot"></div>
+          <span class="room-tool-name">More coming</span>
+          <span class="room-tool-desc">2025</span>
+        </div>
+      </div>
+      <div class="room-cta">Begin here if you need to think harder</div>
+    </div>
+
+    <!-- LEAD -->
+    <div class="room-card lead">
+      <span class="room-tag">Lead &amp; Love Well</span>
+      <span class="room-icon">🕊️</span>
+      <h3 class="room-title">Formation</h3>
+      <p class="room-question">&ldquo;How do you build a life and bring others with you?&rdquo;</p>
+      <div class="room-tools">
+        <a href="https://pconpiee.github.io/TICOS/leadership-formation.html" class="room-tool">
+          <div class="room-tool-dot"></div>
+          <span class="room-tool-name">Leader Formation</span>
+          <span class="room-tool-desc">Six sessions</span>
+        </a>
+        <a href="https://pconpiee.github.io/TICOS/premarriage-counseling.html" class="room-tool">
+          <div class="room-tool-dot"></div>
+          <span class="room-tool-name">Pre-Marriage</span>
+          <span class="room-tool-desc">Six sessions</span>
+        </a>
+      </div>
+      <div class="room-cta">Begin here if you are raising up others</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ INVITATION ══ -->
+<section class="invitation">
+  <div class="invitation-inner">
+    <div class="invitation-rule"></div>
+    <h2 class="invitation-title">
+      Most people start somewhere
+      <em>in the middle.</em>
+    </h2>
+    <p class="invitation-body">You do not need to begin at the beginning. You need to begin where you actually are. These three paths meet most people where they are.</p>
+
+    <div class="invitation-doors">
+      <a href="the-table.html" class="inv-door">
+        <div class="inv-door-num">I</div>
+        <div class="inv-door-label">If you feel lost</div>
+        <div class="inv-door-name">The Table</div>
+      </a>
+      <a href="cv-guide.html" class="inv-door">
+        <div class="inv-door-num">II</div>
+        <div class="inv-door-label">If you need a job</div>
+        <div class="inv-door-name">CV Guide</div>
+      </a>
+      <a href="the-way.html" class="inv-door">
+        <div class="inv-door-num">III</div>
+        <div class="inv-door-label">If you know but aren&rsquo;t yet</div>
+        <div class="inv-door-name">The Way</div>
+      </a>
+    </div>
+
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-style:italic;color:rgba(250,247,242,0.2);letter-spacing:0.03em;">Everything here is free. No login. No account. Your reflections stay on your device.</p>
+  </div>
+</section>
+
+<!-- ══ TESTIMONY ══ -->
+<section class="testimony">
+  <div class="testimony-inner">
+    <div class="testimony-label">A Voice Note, Received</div>
+
+    <div class="testimony-quote">
+      &ldquo;When we were at the company &mdash; you know, outrageously American CV training stuff &mdash; you taught me to look into my strengths and play into them. It was super, super helpful, and it still pays off. I just did a big presentation to the product department&hellip; the CPO was extremely happy. <strong>And I said: yeah, I did it. I&rsquo;ll take credit for it. That&rsquo;s fine.</strong> I know that&rsquo;s because you helped me get there.&rdquo;
+    </div>
+    <div class="testimony-source">Ukrainian product owner &middot; Space software &middot; Now thriving in Paris</div>
+
+    <div style="margin-top:3rem;padding-top:3rem;border-top:1px solid var(--parchment);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;color:var(--smoke);line-height:1.7;max-width:520px;">
+        &ldquo;The place God calls you to is the place where your deep gladness and the world&rsquo;s deep hunger meet.&rdquo;
+      </p>
+      <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sand);margin-top:0.6rem;">Frederick Buechner</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHERE ══ -->
+<section class="where-section">
+  <div class="where-inner">
+    <div style="text-align:center;margin-bottom:1rem;">
+      <p class="section-eyebrow" style="color:var(--ember);">Where This Has Happened</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--warm-white);font-style:italic;">The streets where wisdom cries out</h2>
+    </div>
+    <div class="where-grid">
+      <div class="where-item">
+        <div class="where-place">Addis Ababa</div>
+        <div class="where-what">Praying with master&rsquo;s-degree Ride drivers. Asking names, stories, dreams, detours. Every day for two months.</div>
+      </div>
+      <div class="where-item">
+        <div class="where-place">Leanspace</div>
+        <div class="where-what">40 people, 20 countries, space software. Career coaching, life conversations, prayer with a quarter of the team.</div>
+      </div>
+      <div class="where-item">
+        <div class="where-place">ISU Strasbourg</div>
+        <div class="where-what">International Space University. Executive courses, strategic partnerships, lecturing on mission, product, and calling.</div>
+      </div>
+      <div class="where-item">
+        <div class="where-place">Friday Nights</div>
+        <div class="where-what">10&ndash;20 people from 6&ndash;13 nations. Dinner, worship, whiteboard, breakout, prayer pairs. Every week.</div>
+      </div>
+      <div class="where-item">
+        <div class="where-place">The Air Force</div>
+        <div class="where-what">Where the discipline was built. Where the calling became clear. Where leaving was the first act of obedience.</div>
+      </div>
+      <div class="where-item">
+        <div class="where-place">Your Screen</div>
+        <div class="where-what">Right now. Wherever you are. The tools travel. The question is the same everywhere: what were you made for?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-brand">Pat &mdash; <em>Tools for becoming</em></div>
+  <p class="footer-tagline">I see you. Your story isn&rsquo;t finished. Here is the door.</p>
+  <div class="footer-links">
+    <a href="the-table.html" class="footer-link">The Table</a>
+    <a href="the-way.html" class="footer-link">The Way</a>
+    <a href="cv-guide.html" class="footer-link">CV Guide</a>
+    <a href="interview-prep.html" class="footer-link">Interview Prep</a>
+    <a href="https://pconpiee.github.io/space-pmf/" class="footer-link">PMF Lab</a>
+    <a href="https://pconpiee.github.io/TICOS/" class="footer-link">TICOS</a>
+  </div>
+</footer>
 
 </body>
 </html>
