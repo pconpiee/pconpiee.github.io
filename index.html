@@ -3,765 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pat — I see you. Your story isn't finished.</title>
+<title>J. Patrick Connolly — builder, teacher, servant · free tools for the journey</title>
+<meta name="description" content="Free, no-login tools by J. Patrick Connolly — a deep-tech operator and follower of Jesus. Vocation, career, founding, and formation guides built across the military, the space industry, and the local church.">
+<meta name="author" content="J. Patrick Connolly">
+<link rel="canonical" href="https://pconpiee.github.io/">
+
+<!-- Open Graph / sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pconpiee.github.io/">
+<meta property="og:title" content="J. Patrick Connolly — builder, teacher, servant">
+<meta property="og:description" content="Free, no-login tools for vocation, career, founding, and formation — built across the military, deep-tech, and the local church.">
+<meta name="twitter:card" content="summary">
+
+<!-- Person schema (discoverability) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "J. Patrick Connolly",
+  "jobTitle": "Deep-tech operator · Builder · Teacher",
+  "url": "https://pconpiee.github.io/",
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "United States Air Force Academy" },
+    { "@type": "CollegeOrUniversity", "name": "Tel Aviv University — Coller Deep-Tech MBA" }
+  ],
+  "worksFor": { "@type": "Organization", "name": "International Space University" },
+  "knowsAbout": ["space operations", "deep-tech venture", "product-market fit", "go-to-market strategy", "career transition", "Christian formation"],
+  "sameAs": [
+    "https://www.linkedin.com/in/patrick-connolly-bs487",
+    "https://github.com/pconpiee"
+  ]
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream: #faf7f2;
-  --warm-white: #f5f0e8;
-  --parchment: #ede5d4;
-  --sand: #d4c9b0;
-  --bark: #5c4a32;
-  --coal: #2a2118;
-  --coal2: #1a1410;
-  --ember: #c45c2a;
-  --ember-soft: #e8956a;
-  --ember-pale: #f5d4c0;
-  --smoke: #9a9080;
-  --sage: #6b7c5c;
-  --sky: #4a6c8c;
-  --radius: 4px;
-  --shadow: rgba(42,33,24,0.10);
-  --shadow-deep: rgba(42,33,24,0.22);
+  --paper: #fbfaf7;
+  --paper-2: #f4efe6;
+  --paper-3: #efe8db;
+  --card: #ffffff;
+  --ink: #23201b;
+  --ink-body: #4a443b;
+  --ink-soft: #7d7568;
+  --ember: #c0552a;
+  --ember-deep: #a8461e;
+  --ember-tint: #f3e2d6;
+  --bark: #6b5840;
+  --sky: #3f6585;
+  --sage: #5f7150;
+  --gold: #9b7a32;
+  --wine: #8a4a52;
+  --line: #e7dfd1;
+  --line-soft: #efe9dd;
+  --radius: 6px;
+  --shadow: rgba(35,32,27,0.07);
+  --shadow-deep: rgba(35,32,27,0.13);
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;font-size:16px;}
-body{font-family:'DM Sans',sans-serif;background:var(--coal2);color:var(--cream);overflow-x:hidden;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--paper);
+  color:var(--ink-body);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.7;
+}
 
-/* ── GRAIN ── */
-body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.03;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* faint paper grain */
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.02;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:256px 256px;}
 
-/* ══════════════════════════════════
-   HERO
-══════════════════════════════════ */
+a{color:inherit;}
+
+.eyebrow {
+  font-family:'DM Mono',monospace;
+  font-size:0.64rem;
+  letter-spacing:0.26em;
+  text-transform:uppercase;
+  color:var(--ember-deep);
+}
+
+/* ══ HERO ══ */
 .hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 6rem 2rem 5rem;
-  position: relative;
-  overflow: hidden;
-  background: var(--coal2);
+  min-height: 92vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center;
+  padding: 7rem 2rem 6rem;
+  position:relative; overflow:hidden;
 }
-
 .hero-glow {
-  position: absolute;
-  bottom: -100px; left: 50%;
-  transform: translateX(-50%);
-  width: 900px; height: 600px;
-  background: radial-gradient(ellipse at center bottom,
-    rgba(196,92,42,0.18) 0%,
-    rgba(196,92,42,0.06) 40%,
-    transparent 70%);
-  pointer-events: none;
+  position:absolute; top:30%; left:50%; transform:translate(-50%,-50%);
+  width:760px; height:520px;
+  background:radial-gradient(ellipse at center, rgba(192,85,42,0.07) 0%, transparent 70%);
+  pointer-events:none;
 }
-
-.hero-glow-2 {
-  position: absolute;
-  top: -50px; left: 20%;
-  width: 400px; height: 400px;
-  background: radial-gradient(ellipse,rgba(74,108,140,0.06),transparent 70%);
-  pointer-events: none;
-}
-
-.hero-eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ember-soft);
-  margin-bottom: 2.5rem;
-  opacity: 0;
-  animation: fadeUp 1s 0.2s forwards;
-}
-
+.hero-eyebrow { margin-bottom:2.75rem; opacity:0; animation:fadeUp 1s 0.2s forwards; }
 .hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 9vw, 7.5rem);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: -0.025em;
-  color: var(--warm-white);
-  margin-bottom: 1.5rem;
-  max-width: 900px;
-  opacity: 0;
-  animation: fadeUp 1s 0.4s forwards;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.9rem,8.5vw,6.8rem);
+  font-weight:300; line-height:1.02; letter-spacing:-0.02em;
+  color:var(--ink); margin-bottom:1.75rem; max-width:14em;
+  opacity:0; animation:fadeUp 1s 0.4s forwards;
 }
-
-.hero-title em {
-  font-style: italic;
-  color: var(--ember-soft);
-}
-
-.hero-title .line-2 {
-  display: block;
-  color: rgba(250,247,242,0.45);
-  font-style: italic;
-}
-
-.hero-title .line-3 {
-  display: block;
-  color: rgba(250,247,242,0.85);
-}
-
+.hero-title em { font-style:italic; color:var(--ember); }
+.hero-title .line-2 { display:block; color:var(--ink-soft); font-style:italic; }
+.hero-title .line-3 { display:block; color:var(--ink); }
 .hero-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(250,247,242,0.4);
-  max-width: 520px;
-  line-height: 1.75;
-  margin-bottom: 3.5rem;
-  opacity: 0;
-  animation: fadeUp 1s 0.65s forwards;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.15rem,2.5vw,1.5rem); font-weight:400; font-style:italic;
+  color:var(--ink-soft); max-width:34em; line-height:1.65; margin-bottom:3rem;
+  opacity:0; animation:fadeUp 1s 0.65s forwards;
 }
-
-.hero-cta {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  opacity: 0;
-  animation: fadeUp 1s 0.85s forwards;
-}
+.hero-cta { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; opacity:0; animation:fadeUp 1s 0.85s forwards; }
 
 .btn-primary {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.9rem 2rem;
-  background: var(--ember);
-  color: var(--warm-white);
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s;
+  font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:0.95rem 2.1rem; background:var(--ember); color:#fff;
+  border:none; border-radius:var(--radius); cursor:pointer; text-decoration:none;
+  display:inline-block; transition:all 0.2s;
 }
-.btn-primary:hover{background:var(--ember-soft);transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,92,42,0.3);}
-
+.btn-primary:hover{ background:var(--ember-deep); transform:translateY(-2px); box-shadow:0 10px 28px rgba(192,85,42,0.22); }
 .btn-ghost {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.9rem 2rem;
-  background: transparent;
-  color: rgba(250,247,242,0.45);
-  border: 1px solid rgba(250,247,242,0.15);
-  border-radius: var(--radius);
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s;
+  font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:500;
+  letter-spacing:0.08em; text-transform:uppercase;
+  padding:0.95rem 2.1rem; background:transparent; color:var(--ink-body);
+  border:1px solid var(--line); border-radius:var(--radius); cursor:pointer; text-decoration:none;
+  display:inline-block; transition:all 0.2s;
 }
-.btn-ghost:hover{border-color:rgba(250,247,242,0.4);color:rgba(250,247,242,0.75);}
+.btn-ghost:hover{ border-color:var(--ink-soft); color:var(--ink); }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  opacity: 0;
-  animation: fadeUp 1s 1.2s forwards;
-}
-.hero-scroll span{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,247,242,0.2);}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(196,92,42,0.5),transparent);animation:scrollPulse 2s infinite;}
-@keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.1);}}
+.hero-scroll { position:absolute; bottom:2.25rem; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:0.4rem; opacity:0; animation:fadeUp 1s 1.2s forwards; }
+.hero-scroll span{ font-family:'DM Mono',monospace; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-soft); }
+.scroll-line{ width:1px; height:38px; background:linear-gradient(to bottom,var(--ember),transparent); opacity:0.5; }
 
-/* ══════════════════════════════════
-   STORY SECTION
-══════════════════════════════════ */
-.story-section {
-  background: var(--coal);
-  padding: 7rem 2rem;
-  position: relative;
-}
-
-.story-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(196,92,42,0.3), transparent);
-}
-
-.story-inner {
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.story-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--ember);
-  margin-bottom: 2.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(196,92,42,0.2);
-}
-
-.story-graf {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
-  font-weight: 300;
-  line-height: 1.75;
-  color: rgba(250,247,242,0.75);
-  margin-bottom: 1.75rem;
-}
-
-.story-graf strong {
-  font-weight: 500;
-  color: var(--warm-white);
-}
-
-.story-graf em {
-  font-style: italic;
-  color: var(--ember-soft);
-}
-
-.story-pull {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.4;
-  color: var(--warm-white);
-  border-left: 2px solid var(--ember);
-  padding: 1rem 0 1rem 2rem;
-  margin: 3rem 0;
-}
-
-.story-locations {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin: 2.5rem 0;
-}
-
-.loc-chip {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.85rem;
-  border: 1px solid rgba(250,247,242,0.1);
-  color: rgba(250,247,242,0.35);
-  border-radius: 2px;
-}
-
-/* ══════════════════════════════════
-   THE FOUR ROOMS
-══════════════════════════════════ */
-.rooms-section {
-  background: var(--cream);
-  padding: 7rem 2rem;
-  position: relative;
-}
-
-.rooms-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(196,92,42,0.2), transparent);
-}
-
-.rooms-header {
-  max-width: 680px;
-  margin: 0 auto 4rem;
-  text-align: center;
-}
-
-.section-eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--ember);
-  margin-bottom: 1.25rem;
-}
-
+/* shared section bits */
+.section { padding: 8rem 2rem; position:relative; }
+.divider-top::before{ content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:min(1080px,90%); height:1px; background:var(--line); }
+.section-eyebrow { margin-bottom:1.25rem; }
 .section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 300;
-  line-height: 1.05;
-  color: var(--coal);
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
+  font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4.5vw,3.2rem);
+  font-weight:300; line-height:1.08; color:var(--ink); letter-spacing:-0.015em; margin-bottom:1rem;
+}
+.section-title em{ font-style:italic; color:var(--ember); }
+.section-sub { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:400; font-style:italic; color:var(--ink-soft); line-height:1.6; }
+
+/* ══ THREAD ══ */
+.thread { background:var(--paper); }
+.thread-inner { max-width: 660px; margin:0 auto; }
+.thread-inner .eyebrow { display:block; margin-bottom:2.5rem; padding-bottom:0.85rem; border-bottom:1px solid var(--line); }
+.story-graf {
+  font-family:'Cormorant Garamond',serif; font-size:clamp(1.25rem,2.4vw,1.5rem);
+  font-weight:400; line-height:1.7; color:var(--ink-body); margin-bottom:1.6rem;
+}
+.story-graf strong{ font-weight:600; color:var(--ink); }
+.story-graf em{ font-style:italic; color:var(--ember-deep); }
+.story-pull {
+  font-family:'Cormorant Garamond',serif; font-size:clamp(1.6rem,3.4vw,2.3rem);
+  font-weight:300; font-style:italic; line-height:1.35; color:var(--ink);
+  border-left:2px solid var(--ember); padding:0.5rem 0 0.5rem 1.75rem; margin:2.5rem 0;
+}
+.story-locations{ display:flex; gap:0.5rem; flex-wrap:wrap; margin:2.5rem 0; }
+.loc-chip{
+  font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase;
+  padding:0.4rem 0.85rem; border:1px solid var(--line); color:var(--ink-soft); border-radius:2px;
 }
 
-.section-title em {font-style:italic;color:var(--ember);}
+/* ══ THE ROAD ══ */
+.arc { background:var(--paper-2); }
+.arc-inner { max-width: 1000px; margin:0 auto; }
+.arc-header { text-align:center; max-width:640px; margin:0 auto 3.5rem; }
+.arc-header h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:300; font-style:italic; color:var(--ink); line-height:1.12; }
+.arc-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+.arc-item { background:var(--card); padding:1.9rem 1.85rem; }
+.arc-when { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--ember-deep); margin-bottom:0.6rem; }
+.arc-place { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:500; font-style:italic; color:var(--ink); margin-bottom:0.5rem; line-height:1.15; }
+.arc-what { font-size:0.88rem; font-weight:300; color:var(--ink-body); line-height:1.6; }
+.arc-now { background:#fffdf9; }
+.arc-now .arc-place { color:var(--ember-deep); }
 
-.section-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--smoke);
-  line-height: 1.65;
-}
-
-.rooms-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
+/* ══ THE TOOLS ══ */
+.rooms { background:var(--paper); }
+.rooms-header { max-width:680px; margin:0 auto 4rem; text-align:center; }
+.rooms-grid { max-width:1080px; margin:0 auto; display:grid; grid-template-columns:repeat(2,1fr); gap:1.75rem; }
 
 .room-card {
-  background: var(--warm-white);
-  border: 1px solid var(--parchment);
-  border-radius: 10px;
-  padding: 2.5rem;
-  text-decoration: none;
-  display: block;
-  transition: all 0.25s;
-  position: relative;
-  overflow: hidden;
-  border-top: 3px solid transparent;
+  background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:2.5rem 2.4rem; position:relative; overflow:hidden; transition:all 0.25s;
+  border-top:3px solid var(--rc,#ccc);
 }
+.room-card:hover{ transform:translateY(-4px); box-shadow:0 16px 44px var(--shadow-deep); }
+.room-card.vocation { --rc:var(--ember); }
+.room-card.career   { --rc:var(--bark); }
+.room-card.crossings{ --rc:var(--sky); }
+.room-card.strategy { --rc:var(--sage); }
+.room-card.founding { --rc:var(--gold); }
+.room-card.formation{ --rc:var(--wine); }
 
-.room-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0; right: 0;
-  width: 120px; height: 120px;
-  background: radial-gradient(circle at bottom right, var(--room-glow), transparent 70%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.room-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px var(--shadow-deep);
-}
-
-.room-card:hover::before { opacity: 1; }
-
-.room-card.vocation {
-  border-top-color: var(--ember);
-  --room-glow: rgba(196,92,42,0.08);
-}
-.room-card.career {
-  border-top-color: var(--bark);
-  --room-glow: rgba(92,74,50,0.08);
-}
-.room-card.think {
-  border-top-color: var(--sky);
-  --room-glow: rgba(74,108,140,0.08);
-}
-.room-card.lead {
-  border-top-color: var(--sage);
-  --room-glow: rgba(107,124,92,0.08);
-}
-
-.room-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  display: inline-block;
-  padding: 0.25rem 0.6rem;
-  border-radius: 2px;
-}
-
-.room-card.vocation .room-tag{background:rgba(196,92,42,0.1);color:var(--ember);}
-.room-card.career .room-tag{background:rgba(92,74,50,0.1);color:var(--bark);}
-.room-card.think .room-tag{background:rgba(74,108,140,0.1);color:var(--sky);}
-.room-card.lead .room-tag{background:rgba(107,124,92,0.1);color:var(--sage);}
-
-.room-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  display: block;
-  line-height: 1;
-}
-
-.room-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.75rem;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--coal);
-  margin-bottom: 0.5rem;
-  line-height: 1.15;
-}
-
-.room-question {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--smoke);
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
-}
-
-.room-tools {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.75rem;
-}
-
+.room-top { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem; }
+.room-tag { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); }
+.room-num { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:400; font-style:italic; color:var(--rc); line-height:1; }
+.room-title { font-family:'Cormorant Garamond',serif; font-size:1.85rem; font-weight:500; font-style:italic; color:var(--ink); margin-bottom:0.4rem; line-height:1.1; }
+.room-question { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; color:var(--ink-soft); margin-bottom:1.4rem; line-height:1.5; }
+.room-tools { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.6rem; }
 .room-tool {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.82rem;
-  font-weight: 400;
-  color: var(--bark);
-  text-decoration: none;
-  padding: 0.6rem 0.75rem;
-  border-radius: var(--radius);
-  background: var(--cream);
-  transition: all 0.15s;
+  display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; color:var(--ink-body);
+  text-decoration:none; padding:0.65rem 0.8rem; border-radius:var(--radius);
+  background:var(--paper); transition:all 0.15s;
 }
+.room-tool:hover{ background:var(--paper-3); transform:translateX(3px); }
+.room-tool-dot{ width:6px; height:6px; border-radius:50%; flex-shrink:0; background:var(--rc); }
+.room-tool-name{ font-weight:500; color:var(--ink); }
+.room-tool-desc{ font-size:0.74rem; color:var(--ink-soft); margin-left:auto; white-space:nowrap; }
+.room-cta { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-soft); }
 
-.room-tool:hover {
-  background: var(--parchment);
-  transform: translateX(3px);
+/* ══ LEGACY ══ */
+.legacy { background:var(--paper); padding:0 2rem 8rem; }
+.legacy-inner { max-width:1080px; margin:0 auto; }
+.legacy-card {
+  display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;
+  background:var(--card); border:1px solid var(--line); border-left:3px solid var(--sage);
+  border-radius:12px; padding:2rem 2.25rem; text-decoration:none; transition:all 0.2s;
 }
+.legacy-card:hover{ box-shadow:0 12px 32px var(--shadow); transform:translateY(-2px); }
+.legacy-text{ flex:1; min-width:240px; }
+.legacy-kicker{ font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--sage); margin-bottom:0.5rem; }
+.legacy-name{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:1.4rem; color:var(--ink); margin-bottom:0.35rem; }
+.legacy-desc{ font-size:0.86rem; color:var(--ink-body); line-height:1.6; }
+.legacy-go{ font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--sage); white-space:nowrap; }
 
-.room-tool-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+/* ══ INVITATION ══ */
+.invitation { background:var(--paper-2); text-align:center; }
+.invitation-inner { max-width:640px; margin:0 auto; }
+.invitation-rule { width:40px; height:1px; background:var(--ember); margin:0 auto 2.5rem; }
+.invitation-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:300; line-height:1.12; color:var(--ink); margin-bottom:1.5rem; }
+.invitation-title em { font-style:italic; color:var(--ember); display:block; }
+.invitation-body { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:400; font-style:italic; color:var(--ink-soft); line-height:1.65; margin-bottom:3rem; }
+.invitation-doors { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:2.5rem; }
+.inv-door { background:var(--card); padding:1.75rem 1rem; text-decoration:none; transition:background 0.2s; }
+.inv-door:hover{ background:var(--paper); }
+.inv-door-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; font-style:italic; color:var(--ember); line-height:1; margin-bottom:0.4rem; }
+.inv-door-label { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); }
+.inv-door-name { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; color:var(--ink); margin-top:0.3rem; }
+.invitation-fine { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.06em; color:var(--ink-soft); }
 
-.room-card.vocation .room-tool-dot{background:var(--ember);}
-.room-card.career .room-tool-dot{background:var(--bark);}
-.room-card.think .room-tool-dot{background:var(--sky);}
-.room-card.lead .room-tool-dot{background:var(--sage);}
+/* ══ TESTIMONY ══ */
+.testimony { background:var(--paper); }
+.testimony-inner { max-width:640px; margin:0 auto; text-align:center; }
+.testimony-quote { font-family:'Cormorant Garamond',serif; font-size:clamp(1.4rem,3vw,1.95rem); font-weight:300; font-style:italic; line-height:1.5; color:var(--ink); margin-bottom:1.25rem; }
+.testimony-source { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--ember-deep); }
 
-.room-tool-name {font-weight:500;color:var(--coal);}
-.room-tool-desc {font-size:0.75rem;color:var(--smoke);margin-left:auto;white-space:nowrap;}
-
-.room-cta {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--smoke);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.15s;
-}
-
-.room-card:hover .room-cta {color: var(--coal);}
-.room-cta::after{content:'→';transition:transform 0.15s;}
-.room-card:hover .room-cta::after{transform:translateX(4px);}
-
-/* ══════════════════════════════════
-   THE INVITATION STRIP
-══════════════════════════════════ */
-.invitation {
-  background: var(--coal);
-  padding: 7rem 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.invitation::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(196,92,42,0.1) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.invitation-inner {
-  max-width: 640px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.invitation-rule {
-  width: 40px;
-  height: 1px;
-  background: var(--ember);
-  margin: 0 auto 2.5rem;
-  opacity: 0.6;
-}
-
-.invitation-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--warm-white);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.01em;
-}
-
-.invitation-title em {
-  font-style: italic;
-  color: var(--ember-soft);
-  display: block;
-}
-
-.invitation-body {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  font-weight: 300;
-  font-style: italic;
-  color: rgba(250,247,242,0.5);
-  line-height: 1.75;
-  margin-bottom: 3rem;
-}
-
-.invitation-doors {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(250,247,242,0.06);
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 3rem;
-}
-
-.inv-door {
-  background: rgba(250,247,242,0.03);
-  padding: 1.5rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.inv-door:hover { background: rgba(250,247,242,0.07); }
-
-.inv-door-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--ember);
-  line-height: 1;
-  margin-bottom: 0.4rem;
-}
-
-.inv-door-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(250,247,242,0.3);
-}
-
-.inv-door-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem;
-  font-style: italic;
-  color: rgba(250,247,242,0.55);
-  margin-top: 0.25rem;
-}
-
-/* ══════════════════════════════════
-   TESTIMONIAL
-══════════════════════════════════ */
-.testimony {
-  background: var(--warm-white);
-  padding: 6rem 2rem;
-  position: relative;
-}
-
-.testimony::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--parchment), transparent);
-}
-
-.testimony-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.testimony-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--smoke);
-  margin-bottom: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.testimony-label::before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--ember);
-}
-
-.testimony-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.7;
-  color: var(--bark);
-  margin-bottom: 2rem;
-  position: relative;
-  padding-left: 2rem;
-  border-left: 2px solid var(--ember);
-}
-
-.testimony-quote strong {
-  font-weight: 500;
-  color: var(--coal);
-  font-style: normal;
-}
-
-.testimony-source {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--smoke);
-  margin-left: 2rem;
-}
-
-/* ══════════════════════════════════
-   WHERE
-══════════════════════════════════ */
-.where-section {
-  background: var(--coal);
-  padding: 6rem 2rem;
-  position: relative;
-}
-
-.where-section::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(196,92,42,0.25), transparent);
-}
-
-.where-inner {
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.where-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1px;
-  background: rgba(250,247,242,0.05);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-top: 3rem;
-}
-
-.where-item {
-  background: rgba(250,247,242,0.02);
-  padding: 2rem 1.5rem;
-}
-
-.where-place {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--warm-white);
-  margin-bottom: 0.4rem;
-}
-
-.where-what {
-  font-size: 0.8rem;
-  font-weight: 300;
-  color: rgba(250,247,242,0.35);
-  line-height: 1.6;
-}
-
-/* ══════════════════════════════════
-   FOOTER
-══════════════════════════════════ */
-.footer {
-  background: var(--coal2);
-  padding: 4rem 2rem;
-  text-align: center;
-  border-top: 1px solid rgba(250,247,242,0.05);
-}
-
-.footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: rgba(250,247,242,0.4);
-  margin-bottom: 0.5rem;
-}
-
-.footer-brand em {font-style:italic;color:var(--ember-soft);}
-
-.footer-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem;
-  font-style: italic;
-  color: rgba(250,247,242,0.2);
-  margin-bottom: 2rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.footer-link {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(250,247,242,0.2);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-
-.footer-link:hover { color: var(--ember-soft); }
+/* ══ FOOTER ══ */
+.footer { background:var(--paper-2); padding:4.5rem 2rem 3.5rem; text-align:center; border-top:1px solid var(--line); }
+.footer-brand { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem; }
+.footer-brand em{ font-style:italic; color:var(--ember); }
+.footer-tagline { font-family:'Cormorant Garamond',serif; font-size:1rem; font-style:italic; color:var(--ink-soft); margin-bottom:2.25rem; }
+.footer-links { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; max-width:760px; margin:0 auto 2rem; }
+.footer-link { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; transition:color 0.15s; }
+.footer-link:hover{ color:var(--ember-deep); }
+.footer-contact { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; padding-top:1.75rem; border-top:1px solid var(--line); }
+.footer-contact a { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ember-deep); text-decoration:none; }
+.footer-contact a:hover{ color:var(--ember); }
 
 /* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-
-/* ── RESPONSIVE ── */
-@media(max-width:700px){
-  .rooms-grid{grid-template-columns:1fr;}
-  .invitation-doors{grid-template-columns:1fr;}
-  .room-tool-desc{display:none;}
+@keyframes fadeUp{ from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
+  .hero-eyebrow,.hero-title,.hero-sub,.hero-cta,.hero-scroll{opacity:1 !important;}
 }
 
+/* ── RESPONSIVE ── */
+@media(max-width:760px){
+  .section{ padding:5.5rem 1.5rem; }
+  .rooms-grid{ grid-template-columns:1fr; }
+  .arc-grid{ grid-template-columns:1fr; }
+  .invitation-doors{ grid-template-columns:1fr; }
+  .room-tool-desc{ display:none; }
+}
 @media(max-width:480px){
-  .hero-title{font-size:2.6rem;}
-  .story-pull{padding-left:1.25rem;}
+  .hero-title{ font-size:2.7rem; }
+  .story-pull{ padding-left:1.25rem; }
 }
 </style>
 </head>
@@ -770,43 +297,35 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-glow-2"></div>
-
-  <p class="hero-eyebrow">Pat · Builder · Teacher · Servant</p>
-
+  <p class="eyebrow hero-eyebrow">J. Patrick Connolly · Builder · Teacher · Servant</p>
   <h1 class="hero-title">
     I see <em>you.</em>
     <span class="line-2">Your story isn&rsquo;t finished.</span>
     <span class="line-3">Here is the door.</span>
   </h1>
-
-  <p class="hero-sub">Tools for the person who senses that the frameworks they have been given are not quite reaching the question they actually have.</p>
-
+  <p class="hero-sub">Free, no-login tools for people in transition &mdash; built across a life in the military, deep-tech, and the local church.</p>
   <div class="hero-cta">
     <a href="#rooms" class="btn-primary">Find Your Door</a>
-    <a href="#story" class="btn-ghost">Who is this for?</a>
+    <a href="#thread" class="btn-ghost">Who is this?</a>
   </div>
-
   <div class="hero-scroll">
     <div class="scroll-line"></div>
     <span>Scroll</span>
   </div>
 </section>
 
-<!-- ══ STORY ══ -->
-<section class="story-section" id="story">
-  <div class="story-inner">
-    <p class="story-label">The Conviction Behind Everything</p>
+<!-- ══ THE THREAD ══ -->
+<section class="section thread divider-top" id="thread">
+  <div class="thread-inner">
+    <span class="eyebrow">The Thread</span>
 
-    <p class="story-graf">There is a question underneath most career questions, most leadership questions, most life questions. It is not &ldquo;how do I get the job?&rdquo; or &ldquo;how do I lead the team?&rdquo; It is older and harder than that:</p>
+    <p class="story-graf">I grew up far from home &mdash; a German school, club soccer in Italy, a high-school diploma in Alaska. I&rsquo;ve been the foreigner in the room most of my life.</p>
 
-    <div class="story-pull">&ldquo;Is my life adding up to something that matters &mdash; and if not, is it too late?&rdquo;</div>
+    <div class="story-pull">So I feel most at home in international space &mdash; among people who are also far from home.</div>
 
-    <p class="story-graf">I have sat across from <strong>engineers who were brilliant and invisible</strong>, students who could not answer &ldquo;what should I be when I grow up?&rdquo;, missionaries who were told they had no value, mid-career professionals who had built something impressive and felt completely empty.</p>
+    <p class="story-graf">I keep trying to go into full-time ministry. <strong>God keeps sending me back into the work</strong> &mdash; the Air Force, a war-zone hospital in Ethiopia, a startup in Houston, satellite software, the International Space University, a deep-tech MBA, and now venture and mentoring founders. I stopped calling it a detour. <strong>The people I work with are the people I&rsquo;m sent to.</strong></p>
 
-    <p class="story-graf">I have prayed with Uber drivers in Addis Ababa &mdash; master&rsquo;s degree holders, circumstance-displaced, driving strangers through a city that had not made room for them. I asked their name. Their family. Their dream. Their detour &mdash; literal and figurative. And then I prayed over them before they drove away.</p>
-
-    <p class="story-graf">Every single one of them was the same person. <em>Gifted. Displaced. Not yet fully seen.</em> Not yet told that their story was not finished.</p>
+    <p class="story-graf">I&rsquo;d rather you <em>see</em> what I believe than hear me argue it. The teacher I follow was equal to God and still sat with Romans and fishermen, scholars and the overlooked &mdash; each in their own language. Be present, tell the truth, let love carry the rest.</p>
 
     <div class="story-locations">
       <span class="loc-chip">Addis Ababa</span>
@@ -814,106 +333,146 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
       <span class="loc-chip">The Air Force</span>
       <span class="loc-chip">Leanspace</span>
       <span class="loc-chip">ISU</span>
-      <span class="loc-chip">Friday nights</span>
-      <span class="loc-chip">10&ndash;20 nations</span>
+      <span class="loc-chip">Tel Aviv</span>
+      <span class="loc-chip">Friday nights · 10&ndash;20 nations</span>
     </div>
 
-    <p class="story-graf">The tools on this site &mdash; the formation guides, the career resources, the strategy simulators &mdash; are not the ministry. They are the <strong>excuse for presence</strong>. The door into the conversation that actually matters. Someone comes for a CV. They leave having been seen.</p>
-
-    <p class="story-graf">I am not here to optimise your career. I am here because Jesus left the 99 for the 1 &mdash; and the 1 is usually the most qualified person in the room who does not believe they belong there.</p>
+    <p class="story-graf">So these tools aren&rsquo;t the ministry &mdash; they&rsquo;re the <strong>excuse for presence</strong>. Someone comes for a CV or a fundraising plan and leaves having been seen. I build them for free, for the person who&rsquo;s <em>the most capable in the room and the least convinced they belong there.</em></p>
   </div>
 </section>
 
-<!-- ══ ROOMS ══ -->
-<section class="rooms-section" id="rooms">
+<!-- ══ THE ROAD ══ -->
+<section class="section arc" id="road">
+  <div class="arc-inner">
+    <div class="arc-header">
+      <p class="eyebrow section-eyebrow">The Road, So Far</p>
+      <h2>Where the work has taken me</h2>
+    </div>
+    <div class="arc-grid">
+      <div class="arc-item">
+        <div class="arc-when">2012 &ndash; 2016</div>
+        <div class="arc-place">US Air Force Academy</div>
+        <div class="arc-what">Commissioned an officer; B.Sc. in Geospatial Science; competed and instructed on Wings of Blue, the US Air Force Parachute Team. Where the discipline was built and the calling got loud.</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-when">2016 &ndash; 2021</div>
+        <div class="arc-place">Space Operations</div>
+        <div class="arc-what">Five years a Space Operations Officer. Helped run the $17.5B US Space Surveillance Network and trained 240+ operators through the Space Force stand-up.</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-when">2021</div>
+        <div class="arc-place">Ethiopia</div>
+        <div class="arc-what">A teaching hospital in the Tigray war. I went to be a missionary; I came home knowing the field was wider than I&rsquo;d thought.</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-when">2022</div>
+        <div class="arc-place">Houston</div>
+        <div class="arc-what">Co-founded a consulting startup. It failed &mdash; and taught me the difference between a good idea and a viable business better than any win could.</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-when">2023 &ndash; 2025</div>
+        <div class="arc-place">Leanspace</div>
+        <div class="arc-what">Built a French satellite-software startup&rsquo;s US defense business from zero &mdash; launched two product lines, co-authored ~&euro;14.5M in grants, and built the partnerships that became its Series A.</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-when">2025 &ndash; present</div>
+        <div class="arc-place">International Space University</div>
+        <div class="arc-what">Run the commercial side &mdash; sovereign partnerships, executive programs, and new ventures &mdash; for the world&rsquo;s oldest space-education institution.</div>
+      </div>
+      <div class="arc-item arc-now">
+        <div class="arc-when">2026 &ndash; 2027</div>
+        <div class="arc-place">Coller Deep-Tech MBA &mdash; Tel Aviv</div>
+        <div class="arc-what">Inaugural cohort. Moving toward venture, M&amp;A, and mentoring deep-tech founders &mdash; building places great founders come from.</div>
+      </div>
+      <div class="arc-item arc-now">
+        <div class="arc-when">Always</div>
+        <div class="arc-place">The local church</div>
+        <div class="arc-what">Elder at a local church; small-group host. Friday nights: 10&ndash;20 people from 6&ndash;13 nations around one table. The thing the r&eacute;sum&eacute; never quite captures.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE TOOLS ══ -->
+<section class="section rooms" id="rooms">
   <div class="rooms-header">
-    <p class="section-eyebrow">Four Doors</p>
+    <p class="eyebrow section-eyebrow">The Tools · Free · No Login</p>
     <h2 class="section-title">Where do you <em>need</em> to begin?</h2>
-    <p class="section-sub">Each door opens a different part of the same journey. Most people find they need more than one.</p>
+    <p class="section-sub">Each door opens a different part of the same journey. Most people find they need more than one. Everything is free, nothing asks you to log in, and what you write stays on your device.</p>
   </div>
 
   <div class="rooms-grid">
 
-    <!-- VOCATION -->
+    <!-- I VOCATION -->
     <div class="room-card vocation">
-      <span class="room-tag">Know Yourself</span>
-      <span class="room-icon">🔥</span>
+      <div class="room-top"><span class="room-tag">Know Yourself</span><span class="room-num">I</span></div>
       <h3 class="room-title">Vocation</h3>
       <p class="room-question">&ldquo;Who were you made to be &mdash; and are you becoming it?&rdquo;</p>
       <div class="room-tools">
-        <a href="the-table.html" class="room-tool">
-          <div class="room-tool-dot"></div>
-          <span class="room-tool-name">The Table</span>
-          <span class="room-tool-desc">Four conversations</span>
-        </a>
-        <a href="the-way.html" class="room-tool">
-          <div class="room-tool-dot"></div>
-          <span class="room-tool-name">The Way</span>
-          <span class="room-tool-desc">Twelve weeks</span>
-        </a>
+        <a href="the-table.html" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">The Table</span><span class="room-tool-desc">Four conversations</span></a>
+        <a href="the-way.html" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">The Way</span><span class="room-tool-desc">Twelve weeks</span></a>
       </div>
       <div class="room-cta">Begin here if you feel stuck or unseen</div>
     </div>
 
-    <!-- CAREER -->
+    <!-- II CAREER -->
     <div class="room-card career">
-      <span class="room-tag">Articulate Yourself</span>
-      <span class="room-icon">✍️</span>
+      <div class="room-top"><span class="room-tag">Articulate Yourself</span><span class="room-num">II</span></div>
       <h3 class="room-title">Career</h3>
       <p class="room-question">&ldquo;How do you tell your story and get in the room?&rdquo;</p>
       <div class="room-tools">
-        <a href="cv-guide.html" class="room-tool">
-          <div class="room-tool-dot"></div>
-          <span class="room-tool-name">CV Guide</span>
-          <span class="room-tool-desc">ATS, bullets, format</span>
-        </a>
-        <a href="interview-prep.html" class="room-tool">
-          <div class="room-tool-dot"></div>
-          <span class="room-tool-name">Interview Prep</span>
-          <span class="room-tool-desc">STAR-L stories</span>
-        </a>
+        <a href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">CV &amp; Interview Guide</span><span class="room-tool-desc">ATS, bullets, STAR-L</span></a>
+        <a href="https://resume-rockstar-kit.lovable.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Resume Rockstar Kit</span><span class="room-tool-desc">Application tracker</span></a>
       </div>
       <div class="room-cta">Begin here if you need to get hired</div>
     </div>
 
-    <!-- THINK -->
-    <div class="room-card think">
-      <span class="room-tag">Think Clearly</span>
-      <span class="room-icon">🌍</span>
+    <!-- III CROSSINGS -->
+    <div class="room-card crossings">
+      <div class="room-top"><span class="room-tag">Navigate the Transition</span><span class="room-num">III</span></div>
+      <h3 class="room-title">Crossings</h3>
+      <p class="room-question">&ldquo;You&rsquo;re leaving one world for another. What&rsquo;s the map?&rdquo;</p>
+      <div class="room-tools">
+        <a href="https://blue-canopy.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Blue Canopy</span><span class="room-tool-desc">Military → civilian</span></a>
+        <a href="https://orbit-transfer.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Orbit Transfer</span><span class="room-tool-desc">Deep-tech MBA</span></a>
+        <a href="https://pconpiee.github.io/nursing-roadmap/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Nursing Roadmap</span><span class="room-tool-desc">Int&rsquo;l → US BSN</span></a>
+      </div>
+      <div class="room-cta">Begin here if you&rsquo;re crossing into a new field</div>
+    </div>
+
+    <!-- IV STRATEGY -->
+    <div class="room-card strategy">
+      <div class="room-top"><span class="room-tag">Think Clearly</span><span class="room-num">IV</span></div>
       <h3 class="room-title">Strategy</h3>
       <p class="room-question">&ldquo;How do you reason well about the world you&rsquo;re sent into?&rdquo;</p>
       <div class="room-tools">
-        <a href="https://pconpiee.github.io/space-pmf/" class="room-tool">
-          <div class="room-tool-dot"></div>
-          <span class="room-tool-name">PMF Lab</span>
-          <span class="room-tool-desc">Parallax Earth</span>
-        </a>
-        <div class="room-tool" style="opacity:0.4;cursor:default;">
-          <div class="room-tool-dot"></div>
-          <span class="room-tool-name">More coming</span>
-          <span class="room-tool-desc">2025</span>
-        </div>
+        <a href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">PMF Lab</span><span class="room-tool-desc">Find product-market fit</span></a>
+        <a href="https://pconpiee.github.io/PMF/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">PMF Simulator</span><span class="room-tool-desc">Decide under pressure</span></a>
       </div>
       <div class="room-cta">Begin here if you need to think harder</div>
     </div>
 
-    <!-- LEAD -->
-    <div class="room-card lead">
-      <span class="room-tag">Lead &amp; Love Well</span>
-      <span class="room-icon">🕊️</span>
+    <!-- V FOUNDING -->
+    <div class="room-card founding">
+      <div class="room-top"><span class="room-tag">Build Something Real</span><span class="room-num">V</span></div>
+      <h3 class="room-title">Founding</h3>
+      <p class="room-question">&ldquo;You have a hunch. How do you turn it into a defensible bet?&rdquo;</p>
+      <div class="room-tools">
+        <a href="https://flight-map-gamma.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Hem / Flight Map</span><span class="room-tool-desc">A founder&rsquo;s nav system</span></a>
+        <a href="https://github.com/pconpiee/hem-skill" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">The Hem Method</span><span class="room-tool-desc">Open skill · GitHub</span></a>
+        <a href="aegis-eo-strategy-pack.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Aegis EO Strategy Pack</span><span class="room-tool-desc">Worked example</span></a>
+      </div>
+      <div class="room-cta">Begin here if you&rsquo;re building or want a mentor</div>
+    </div>
+
+    <!-- VI FORMATION -->
+    <div class="room-card formation">
+      <div class="room-top"><span class="room-tag">Lead &amp; Love Well</span><span class="room-num">VI</span></div>
       <h3 class="room-title">Formation</h3>
       <p class="room-question">&ldquo;How do you build a life and bring others with you?&rdquo;</p>
       <div class="room-tools">
-        <a href="https://pconpiee.github.io/TICOS/leadership-formation.html" class="room-tool">
-          <div class="room-tool-dot"></div>
-          <span class="room-tool-name">Leader Formation</span>
-          <span class="room-tool-desc">Six sessions</span>
-        </a>
-        <a href="https://pconpiee.github.io/TICOS/premarriage-counseling.html" class="room-tool">
-          <div class="room-tool-dot"></div>
-          <span class="room-tool-name">Pre-Marriage</span>
-          <span class="room-tool-desc">Six sessions</span>
-        </a>
+        <a href="https://pconpiee.github.io/TICOS/leadership-formation.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Leader Formation</span><span class="room-tool-desc">Six sessions</span></a>
+        <a href="https://pconpiee.github.io/TICOS/premarriage-counseling.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Pre-Marriage</span><span class="room-tool-desc">Six sessions</span></a>
       </div>
       <div class="room-cta">Begin here if you are raising up others</div>
     </div>
@@ -921,97 +480,75 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
   </div>
 </section>
 
+<!-- ══ LEGACY ══ -->
+<section class="legacy">
+  <div class="legacy-inner">
+    <a href="https://www.mobile-mis.net/" target="_blank" rel="noopener" class="legacy-card">
+      <div class="legacy-text">
+        <div class="legacy-kicker">Built with Family</div>
+        <div class="legacy-name">ILS International &mdash; Africa-MIS</div>
+        <div class="legacy-desc">Low-cost digital mapping and information systems for field workers in the least-reached corners of Sub-Saharan Africa &mdash; a nonprofit serving missionaries and aid teams since 1986. My grandfather&rsquo;s life&rsquo;s work; I keep the website.</div>
+      </div>
+      <span class="legacy-go">Visit →</span>
+    </a>
+  </div>
+</section>
+
 <!-- ══ INVITATION ══ -->
-<section class="invitation">
+<section class="section invitation">
   <div class="invitation-inner">
     <div class="invitation-rule"></div>
-    <h2 class="invitation-title">
-      Most people start somewhere
-      <em>in the middle.</em>
-    </h2>
-    <p class="invitation-body">You do not need to begin at the beginning. You need to begin where you actually are. These three paths meet most people where they are.</p>
-
+    <h2 class="invitation-title">Most people start somewhere <em>in the middle.</em></h2>
+    <p class="invitation-body">You don&rsquo;t need to begin at the beginning. You need to begin where you actually are. These three paths meet most people where they stand.</p>
     <div class="invitation-doors">
       <a href="the-table.html" class="inv-door">
         <div class="inv-door-num">I</div>
         <div class="inv-door-label">If you feel lost</div>
         <div class="inv-door-name">The Table</div>
       </a>
-      <a href="cv-guide.html" class="inv-door">
+      <a href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener" class="inv-door">
         <div class="inv-door-num">II</div>
         <div class="inv-door-label">If you need a job</div>
         <div class="inv-door-name">CV Guide</div>
       </a>
-      <a href="the-way.html" class="inv-door">
+      <a href="https://flight-map-gamma.vercel.app/" target="_blank" rel="noopener" class="inv-door">
         <div class="inv-door-num">III</div>
-        <div class="inv-door-label">If you know but aren&rsquo;t yet</div>
-        <div class="inv-door-name">The Way</div>
+        <div class="inv-door-label">If you&rsquo;re building</div>
+        <div class="inv-door-name">Hem / Flight Map</div>
       </a>
     </div>
-
-    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-style:italic;color:rgba(250,247,242,0.2);letter-spacing:0.03em;">Everything here is free. No login. No account. Your reflections stay on your device.</p>
+    <p class="invitation-fine">Everything here is free. No login. No account. Your reflections stay on your device.</p>
   </div>
 </section>
 
 <!-- ══ TESTIMONY ══ -->
-<section class="testimony">
+<section class="section testimony divider-top">
   <div class="testimony-inner">
-    <div style="margin-top:3rem;padding-top:3rem;border-top:1px solid var(--parchment);">
-      <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;color:var(--smoke);line-height:1.7;max-width:520px;">
-        &ldquo;The place God calls you to is the place where your deep gladness and the world&rsquo;s deep hunger meet.&rdquo;
-      </p>
-      <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sand);margin-top:0.6rem;">Frederick Buechner</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══ WHERE ══ -->
-<section class="where-section">
-  <div class="where-inner">
-    <div style="text-align:center;margin-bottom:1rem;">
-      <p class="section-eyebrow" style="color:var(--ember);">Where This Has Happened</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--warm-white);font-style:italic;">The streets where wisdom cries out</h2>
-    </div>
-    <div class="where-grid">
-      <div class="where-item">
-        <div class="where-place">Addis Ababa</div>
-        <div class="where-what">Praying with master&rsquo;s-degree Ride drivers. Asking names, stories, dreams, detours. Every day for two months.</div>
-      </div>
-      <div class="where-item">
-        <div class="where-place">Leanspace</div>
-        <div class="where-what">40 people, 20 countries, space software. Career coaching, life conversations, enduring hardship with the team.</div>
-      </div>
-      <div class="where-item">
-        <div class="where-place">ISU Strasbourg</div>
-        <div class="where-what">International Space University. Executive courses, strategic partnerships, lecturing on mission, product, and calling.</div>
-      </div>
-      <div class="where-item">
-        <div class="where-place">Friday Nights</div>
-        <div class="where-what">10&ndash;20 people from 6&ndash;13 nations. Dinner, worship, whiteboard, breakout, prayer pairs. Every week.</div>
-      </div>
-      <div class="where-item">
-        <div class="where-place">The Air Force</div>
-        <div class="where-what">Where the discipline was built. Where the calling became clear. Where leaving was the first act of obedience.</div>
-      </div>
-      <div class="where-item">
-        <div class="where-place">Your Screen</div>
-        <div class="where-what">Right now. Wherever you are. The tools travel. The question is the same everywhere: what were you made for?</div>
-      </div>
-    </div>
+    <p class="testimony-quote">&ldquo;The place God calls you to is the place where your deep gladness and the world&rsquo;s deep hunger meet.&rdquo;</p>
+    <p class="testimony-source">Frederick Buechner</p>
   </div>
 </section>
 
 <!-- ══ FOOTER ══ -->
 <footer class="footer">
-  <div class="footer-brand">Pat &mdash; <em>Tools for becoming</em></div>
+  <div class="footer-brand">J. Patrick Connolly &mdash; <em>Tools for becoming</em></div>
   <p class="footer-tagline">I see you. Your story isn&rsquo;t finished. Here is the door.</p>
   <div class="footer-links">
     <a href="the-table.html" class="footer-link">The Table</a>
     <a href="the-way.html" class="footer-link">The Way</a>
-    <a href="cv-guide.html" class="footer-link">CV Guide</a>
-    <a href="interview-prep.html" class="footer-link">Interview Prep</a>
-    <a href="https://pconpiee.github.io/space-pmf/" class="footer-link">PMF Lab</a>
-    <a href="https://pconpiee.github.io/TICOS/" class="footer-link">TICOS</a>
+    <a href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener" class="footer-link">CV Guide</a>
+    <a href="https://resume-rockstar-kit.lovable.app/" target="_blank" rel="noopener" class="footer-link">Resume Kit</a>
+    <a href="https://blue-canopy.vercel.app/" target="_blank" rel="noopener" class="footer-link">Blue Canopy</a>
+    <a href="https://orbit-transfer.vercel.app/" target="_blank" rel="noopener" class="footer-link">Orbit Transfer</a>
+    <a href="https://pconpiee.github.io/nursing-roadmap/" target="_blank" rel="noopener" class="footer-link">Nursing</a>
+    <a href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener" class="footer-link">PMF Lab</a>
+    <a href="https://flight-map-gamma.vercel.app/" target="_blank" rel="noopener" class="footer-link">Hem / Flight Map</a>
+    <a href="https://pconpiee.github.io/TICOS/" target="_blank" rel="noopener" class="footer-link">TICOS</a>
+    <a href="https://www.mobile-mis.net/" target="_blank" rel="noopener" class="footer-link">ILS International</a>
+  </div>
+  <div class="footer-contact">
+    <a href="https://www.linkedin.com/in/patrick-connolly-bs487" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/pconpiee" target="_blank" rel="noopener">GitHub</a>
   </div>
 </footer>
 
