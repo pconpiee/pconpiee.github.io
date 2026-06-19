@@ -127,6 +127,9 @@ a{color:inherit;}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3.2rem;}
 .step{border-top:1px solid rgba(255,255,255,0.13);padding-top:1.3rem;}
 .step-n{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--ember);}
+.step-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;}
+.step-ico{color:var(--amber);}
+.step-ico svg{width:26px;height:26px;}
 .step h4{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:400;color:#fbfaf7;margin:0.4rem 0 0.6rem;}
 .step p{font-size:0.88rem;color:#b3a995;margin:0;line-height:1.6;}
 @media(max-width:760px){.steps{grid-template-columns:1fr 1fr;gap:1.8rem 1.4rem;}}
@@ -295,22 +298,22 @@ a{color:inherit;}
     <p class="section-sub">No guru, no dependency. The win is yours, and you walk out lighter than you came in.</p>
     <div class="steps">
       <div class="step">
-        <div class="step-n">01</div>
+        <div class="step-head"><div class="step-n">01</div><span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 13a7 7 0 0 1 7-7"/><path d="M8 13a4 4 0 0 1 4-4"/><circle cx="12" cy="13" r="1.6" fill="currentColor" stroke="none"/></svg></span></div>
         <h4>I listen</h4>
         <p>Really listen — before advice, before frameworks. The seat beside you, first.</p>
       </div>
       <div class="step">
-        <div class="step-n">02</div>
+        <div class="step-head"><div class="step-n">02</div><span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.6"/></svg></span></div>
         <h4>I show you what I see</h4>
         <p>The gift, the pattern, the thread you're too close to notice in yourself.</p>
       </div>
       <div class="step">
-        <div class="step-n">03</div>
+        <div class="step-head"><div class="step-n">03</div><span class="step-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 7.2L21 11l-7.2 1.8L12 20l-1.8-7.2L3 11l7.2-1.8z"/></svg></span></div>
         <h4>I point you to what's true</h4>
         <p>Not what's flattering — what's real, and where it actually leads next.</p>
       </div>
       <div class="step">
-        <div class="step-n">04</div>
+        <div class="step-head"><div class="step-n">04</div><span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M21 3L10.5 13.5"/><path d="M21 3l-6.5 18-4-8.5L2 8.5z"/></svg></span></div>
         <h4>I send you on</h4>
         <p>Better than before, and on your own way. You won't need me for long.</p>
       </div>
