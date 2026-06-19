@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who's behind this — Patrick Connolly · Threshed</title>
+<meta name="description" content="The person behind Threshed: Patrick Connolly — USAF Academy grad and Space Force–era operator, deep-tech builder, and a coach whose real job has always been the same — help the person in front of him see what's true about themselves and take the next step.">
+<link rel="canonical" href="https://pconpiee.github.io/threshed/about.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbfaf7; --paper-2:#f4efe6; --paper-3:#efe8db; --card:#ffffff;
+  --ink:#23201b; --ink-body:#4a443b; --ink-soft:#7d7568;
+  --ember:#c0552a; --ember-deep:#a8461e; --ember-tint:#f3e2d6;
+  --bark:#6b5840; --sage:#5f7150; --gold:#9b7a32;
+  --line:#e7dfd1; --line-soft:#efe9dd; --radius:6px; --shadow:rgba(35,32,27,0.07);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink-body);line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:var(--ember-deep);}
+.wrap{width:min(720px,90%);margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ember-deep);}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav-inner{width:min(1080px,90%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--ink);text-decoration:none;}
+.brand .dot{color:var(--ember);}
+.back{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;}
+.back:hover{color:var(--ember-deep);}
+/* hero */
+.a-hero{padding:6rem 0 2.5rem;}
+.a-hero .wrap{width:min(720px,90%);}
+.a-hero .eyebrow{display:block;margin-bottom:1.4rem;}
+.a-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:300;line-height:1.05;color:var(--ink);margin:0 0 1.1rem;letter-spacing:-0.015em;}
+.a-hero h1 em{font-style:italic;color:var(--ember);}
+.a-hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:var(--ink-soft);max-width:30em;line-height:1.6;margin:0;}
+/* body */
+.a-body{padding:2.5rem 0 4rem;}
+.lead-graf{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;line-height:1.55;color:var(--ink);margin:0 0 1.6rem;}
+.graf{font-size:1.04rem;color:var(--ink-body);margin:0 0 1.4rem;}
+.graf strong{color:var(--ink);font-weight:600;}
+.graf em{font-style:italic;color:var(--ember-deep);}
+.shead{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage);margin:2.8rem 0 1rem;padding-top:1.6rem;border-top:1px solid var(--line);}
+.pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:300;font-style:italic;line-height:1.35;color:var(--ink);border-left:2px solid var(--ember);padding:0.4rem 0 0.4rem 1.6rem;margin:2.2rem 0;}
+.closing{text-align:center;padding:3.4rem 0 1rem;}
+.closing p{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:var(--ink-soft);max-width:26em;margin:0 auto 2rem;line-height:1.5;}
+.btn-primary{display:inline-block;font-size:0.82rem;font-weight:500;padding:0.95rem 2.1rem;background:var(--ember);color:#fff;border-radius:var(--radius);text-decoration:none;transition:.2s;}
+.btn-primary:hover{background:var(--ember-deep);transform:translateY(-2px);}
+.btn-ghost{display:inline-block;font-size:0.82rem;font-weight:500;padding:0.95rem 2.1rem;background:transparent;color:var(--ink-body);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;margin-left:0.5rem;}
+.btn-ghost:hover{border-color:var(--ink-soft);color:var(--ink);}
+/* footer */
+.footer{background:var(--ink);color:#a89e8e;padding:3rem 0;text-align:center;}
+.footer a{color:#a89e8e;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;margin:0 0.7rem;}
+.footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Threshed<span class="dot">.</span></a>
+    <a href="index.html" class="back">← Back to the practice</a>
+  </div>
+</nav>
+
+<header class="a-hero">
+  <div class="wrap">
+    <span class="eyebrow">Who's behind this</span>
+    <h1>I'm Patrick Connolly. I've been in the <em>hard middle</em> too.</h1>
+    <p class="sub">A Space Force–era operator and deep-tech builder — but that's not the reason I do this work.</p>
+  </div>
+</header>
+
+<section class="a-body">
+  <div class="wrap">
+    <p class="lead-graf">I commissioned out of the US Air Force Academy in 2016, spent five years as a Space Operations Officer, and have spent the decade since moving through humanitarian work, a startup that failed, and the full commercial arc of a deep-tech company. Today I run commercial and partnerships at the International Space University and I'm in the inaugural Coller Deep-Tech MBA at Tel Aviv University.</p>
+    <p class="graf">None of that is why Threshed exists. Here's the actual story.</p>
+
+    <p class="shead">The actual story</p>
+    <p class="graf"><strong>I started inside the machine.</strong> At the Combined Space Operations Center I helped operate the <strong>$17.5B US Space Surveillance Network</strong> — the sensor network that tracks every object in orbit — directing tasking and reporting threats to senior leaders. I saw firsthand what happens when critical systems run on siloed data, legacy tools, and people duct-taping workflows together.</p>
+    <p class="graf"><strong>Then I taught it.</strong> I took the lowest-ranked unit in a 44-unit command and made it <strong>Team of the Year — twice.</strong> Not through optimization. Through listening to people, finding the one thing that made each of them come alive, clearing what stood in their way, and reflecting their spark back loudly enough that they believed it. (I once taught a terrified 18-year-old who'd never been on a plane to jump out of one, solo. She became a fighter pilot.)</p>
+    <p class="graf"><strong>I left to test myself.</strong> In 2021 my wife and I went to Ethiopia during the civil war. I stocked a hospital's medical warehouse and helped deliver <strong>$1.5M in supplies</strong> before we were evacuated.</p>
+    <p class="graf"><strong>I tried to build something, and it failed.</strong> I co-founded a leadership consultancy with my brother-in-law. Nine months in: zero customers, broke and scared, my family in a hard season. I shut it down. That failure taught me more than any win — the difference between a good idea and a viable one, and exactly what it feels like to be in the <em>hard middle</em> with no map and no one who sees you.</p>
+    <p class="graf"><strong>Then I rebuilt inside deep tech.</strong> I joined a French satellite-software startup, Leanspace, as a product manager and climbed to solutions architect and US business development — launching new product lines, co-authoring <strong>€14.5M in grants</strong>, opening the US office, and building the partnerships that became its Series A investors. Today I run the commercial engine of a global space institution and mentor founders building their own.</p>
+
+    <p class="shead">What I'm actually good at</p>
+    <p class="graf">The thread through all of it isn't space. It's <strong>people.</strong> In every role, my real job was the same: sit at the seam between what someone can already do and what they can't yet see about themselves — and help them cross it. Translate the technical to the executive, the messy to the clear, the half-buried gift to the obvious one.</p>
+    <p class="pull">The recommendation letters all say a version of the same line: "Patrick elevates the people around him." That's the one I care about.</p>
+
+    <p class="shead">Why Threshed exists</p>
+    <p class="graf">Because I've been the talented person the system wouldn't receive — <strong>55 rejected applications</strong> in one stretch — and I've been the founder whose bet didn't work. I know the hard middle from the inside. And I know exactly what it's worth to have <em>one</em> person sit beside you, tell you the truth about what they see, and point you to your next step.</p>
+    <p class="graf">That's the whole job. I help job-seekers and founders <strong>separate the seed from the chaff</strong> — the real gift from the noise and fear around it — and go on their way, better than before. I do it because I believe the work you choose should be worth its cost, and because I've been handed exactly this kind of help when I needed it most. I'd like to hand it on.</p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p>If you're at a threshold — between roles, or at a fork in a build — let's talk.</p>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Book a free conversation</a>
+    <a href="roots.html" class="btn-ghost">The deeper why →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>
+    <a href="index.html">Threshed</a>
+    <a href="roots.html">Roots</a>
+    <a href="https://www.linkedin.com/in/patrick-connolly-bs487" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed">Book a conversation</a>
+  </div>
+</footer>
+</body>
+</html>

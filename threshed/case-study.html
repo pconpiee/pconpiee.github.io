@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Re-aiming a strong candidate — a worked example · Threshed</title>
+<meta name="description" content="A representative worked example of the Threshed method for job-seekers: read the role through its four decision-makers, then re-aim a strong candidate's story — without rewriting who they are.">
+<link rel="canonical" href="https://pconpiee.github.io/threshed/case-study.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbfaf7; --paper-2:#f4efe6; --paper-3:#efe8db; --card:#ffffff;
+  --ink:#23201b; --ink-body:#4a443b; --ink-soft:#7d7568;
+  --ember:#c0552a; --ember-deep:#a8461e; --ember-tint:#f3e2d6;
+  --bark:#6b5840; --sage:#5f7150; --gold:#9b7a32;
+  --line:#e7dfd1; --line-soft:#efe9dd; --radius:6px; --shadow:rgba(35,32,27,0.07);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink-body);line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:var(--ember-deep);}
+.wrap{width:min(720px,90%);margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ember-deep);}
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav-inner{width:min(1080px,90%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--ink);text-decoration:none;}
+.brand .dot{color:var(--ember);}
+.back{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;}
+.back:hover{color:var(--ember-deep);}
+.c-hero{padding:5.5rem 0 2.2rem;}
+.c-hero .eyebrow{display:block;margin-bottom:1.3rem;}
+.c-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.3rem,5.2vw,3.4rem);font-weight:300;line-height:1.08;color:var(--ink);margin:0 0 1rem;letter-spacing:-0.015em;}
+.c-hero h1 em{font-style:italic;color:var(--ember);}
+.c-hero .note{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink-soft);max-width:36em;line-height:1.55;}
+.c-body{padding:2rem 0 4rem;}
+.kv{margin:0 0 1.6rem;}
+.kv p{font-size:1.04rem;color:var(--ink-body);margin:0 0 0.7rem;}
+.kv strong{color:var(--ink);font-weight:600;}
+.shead{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage);margin:2.6rem 0 0.4rem;padding-top:1.6rem;border-top:1px solid var(--line);}
+.shead + .ssub{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink);margin:0 0 1.1rem;line-height:1.25;}
+.graf{font-size:1.02rem;color:var(--ink-body);margin:0 0 1.3rem;}
+.graf strong{color:var(--ink);font-weight:600;}
+.graf em{font-style:italic;color:var(--ember-deep);}
+table{width:100%;border-collapse:collapse;margin:1.2rem 0 1.6rem;font-size:0.92rem;}
+th,td{text-align:left;padding:0.7rem 0.8rem;border-bottom:1px solid var(--line);vertical-align:top;}
+th{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;}
+td:nth-child(2){font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ember-deep);white-space:nowrap;}
+td:first-child{font-weight:600;color:var(--ink);white-space:nowrap;}
+td em{font-style:italic;color:var(--ink-soft);}
+.score-call{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--ink);margin:0 0 1.4rem;}
+ol.moves{list-style:none;counter-reset:m;padding:0;margin:0 0 1.4rem;}
+ol.moves li{counter-increment:m;position:relative;padding:0 0 1.1rem 2.4rem;}
+ol.moves li::before{content:counter(m);position:absolute;left:0;top:0;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--ember);line-height:1;}
+ol.moves li strong{color:var(--ink);}
+.kept{background:var(--paper-2);border-radius:8px;padding:1.2rem 1.4rem;font-size:0.96rem;color:var(--ink-body);margin:0.6rem 0 1.4rem;}
+.kept strong{color:var(--ink);}
+ul.deliv{margin:0 0 1.4rem;padding-left:1.2rem;}
+ul.deliv li{font-size:1rem;color:var(--ink-body);margin:0.3rem 0;}
+.pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.8vw,1.9rem);font-weight:300;font-style:italic;line-height:1.35;color:var(--ink);border-left:2px solid var(--ember);padding:0.4rem 0 0.4rem 1.6rem;margin:2rem 0;}
+.closing{text-align:center;padding:3.2rem 0 1rem;}
+.closing p{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--ink-soft);max-width:26em;margin:0 auto 2rem;line-height:1.5;}
+.btn-primary{display:inline-block;font-size:0.82rem;font-weight:500;padding:0.95rem 2.1rem;background:var(--ember);color:#fff;border-radius:var(--radius);text-decoration:none;transition:.2s;}
+.btn-primary:hover{background:var(--ember-deep);transform:translateY(-2px);}
+.footer{background:var(--ink);color:#a89e8e;padding:3rem 0;text-align:center;}
+.footer a{color:#a89e8e;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;margin:0 0.7rem;}
+.footer a:hover{color:#fff;}
+@media(max-width:600px){td:nth-child(2){font-size:1.1rem;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Threshed<span class="dot">.</span></a>
+    <a href="index.html" class="back">← Back to the practice</a>
+  </div>
+</nav>
+
+<header class="c-hero">
+  <div class="wrap">
+    <span class="eyebrow">A worked example · for the job-seeker</span>
+    <h1>Re-aiming a strong candidate — <em>without rewriting them.</em></h1>
+    <p class="note">A representative worked example: a composite drawn from real engagements, with every identifying detail changed. It shows the process and the before/after — not a specific person.</p>
+  </div>
+</header>
+
+<section class="c-body">
+  <div class="wrap">
+    <div class="kv">
+      <p><strong>The candidate.</strong> A space-industry product manager — ~7 years, came up through systems engineering and grew into product, has shipped satellite and ground-segment products end to end. A metrics-dense CV: features delivered, roadmaps run, uptime and adoption numbers, cross-functional teams led.</p>
+      <p><strong>The role.</strong> Senior Product Manager at an Earth-observation analytics company — freshly Series-B funded and pushing its platform into a new commercial vertical (non-space enterprise buyers). The job description leaned on customer discovery, owning <em>commercial</em> outcomes, taking a product from PMF into scale, and translating deep-tech into language a non-technical buyer trusts.</p>
+      <p><strong>The situation.</strong> A strong builder, aimed at the wrong target. The CV read <em>"excellent feature-shipper."</em> The role wanted <em>"owns commercial outcomes."</em> An aim problem, not a substance problem.</p>
+    </div>
+
+    <p class="shead">The read</p>
+    <p class="ssub">Four decision-makers, scored separately.</p>
+    <p class="graf">Before touching the CV, I read the role the way it's actually decided — through the four people in the hiring loop, each weighted by influence.</p>
+    <table>
+      <thead><tr><th>Who's deciding</th><th>Score</th><th>What they were thinking</th></tr></thead>
+      <tbody>
+        <tr><td>Hiring manager (VP Product)</td><td>80</td><td>"Clearly technical and ships — but show me a commercial outcome they <em>owned</em>, not just a roadmap they ran."</td></tr>
+        <tr><td>The team (peer PM / eng)</td><td>84</td><td>"Speaks engineering fluently, credible — easy yes on respect."</td></tr>
+        <tr><td>Recruiter / TA</td><td>80</td><td>"Solid PM and real space domain — but I'm not seeing the enterprise-SaaS / new-vertical signal."</td></tr>
+        <tr><td>Senior leadership (CPO)</td><td>76</td><td>"Can they take us from PMF into a new vertical, and sell the value to non-space enterprise buyers?"</td></tr>
+      </tbody>
+    </table>
+    <p class="score-call">Composite: 79/100 — strong. The pattern was clean: everyone rated the craft high and flagged the <em>same</em> gap — the commercial half of the story was buried.</p>
+
+    <p class="shead">The diagnosis</p>
+    <p class="ssub">Re-aim, don't rewrite.</p>
+    <p class="graf">The work didn't need fixing. It needed pointing at the right people. Three moves:</p>
+    <ol class="moves">
+      <li><strong>Lead with outcomes, not features.</strong> The CV opened with engineering depth and delivery — true, but it made them read as a builder, not an owner. Re-order so the adoption, retention, and revenue impact comes first, engineering second, so the VP Product sees <em>"owns commercial results"</em> in the first five seconds.</li>
+      <li><strong>Surface the discovery work.</strong> They had actually run dozens of customer interviews and shaped the roadmap from them — but it was filed under "engineering" language. Relabel it honestly as <em>product discovery / customer development with enterprise buyers</em> — the exact new-vertical signal the company was screening for. No invention; just stop hiding the commercial half of the job they already did.</li>
+      <li><strong>The one honest tightening.</strong> The CV said <em>"led product strategy."</em> The scope they truly <em>owned</em> end-to-end was one product line; the broader strategy they <em>contributed to.</em> A sharp VP Product notices that gap — and if it reads as inflated, it quietly discounts everything else. So lead with the product they genuinely owned 0→1 / PMF→scale (a line they grew from pilot to seven-figure ARR), and present the wider strategy work separately, labelled as "contributed to." Honest — and still strong.</li>
+    </ol>
+    <div class="kept"><strong>What stayed untouched:</strong> the technical credibility, the shipped record, the cross-functional trust, the metrics. The bones were strong. You don't sand down what's already load-bearing.</div>
+
+    <p class="shead">The output</p>
+    <p class="ssub">What they walked away with.</p>
+    <ul class="deliv">
+      <li>A tailored CV, re-aimed against the three moves</li>
+      <li>A cover letter addressed to the named hiring manager</li>
+      <li>Outreach drafted for each of the four stakeholders</li>
+      <li>The two questions that would sharpen it further (the largest outcome they truly <em>owned</em>; any prior non-space / enterprise buyer touchpoint)</li>
+      <li>A warm-introduction angle into the hiring manager's network — better than a cold apply, every time</li>
+    </ul>
+
+    <p class="pull">I didn't turn this person into someone else. I helped them see what was already true about their own work — and aim it at the people actually deciding.</p>
+    <p class="graf">That's the whole job: separate the signal from the noise, point it at the truth, and send them in stronger than they came.</p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p>Between roles, or aiming at one that matters? Let's re-aim it together.</p>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Book a free conversation</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>
+    <a href="index.html">Threshed</a>
+    <a href="about.html">About</a>
+    <a href="https://github.com/pconpiee/resume-rockstar-skill" target="_blank" rel="noopener">The open skill</a>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed">Book a conversation</a>
+  </div>
+</footer>
+</body>
+</html>
