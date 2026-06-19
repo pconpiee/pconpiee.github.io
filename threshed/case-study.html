@@ -20,8 +20,9 @@
 :root{
   --paper:#fbfaf7; --paper-2:#f4efe6; --paper-3:#efe8db; --card:#ffffff;
   --ink:#23201b; --ink-body:#4a443b; --ink-soft:#7d7568;
-  --ember:#c0552a; --ember-deep:#a8461e; --ember-tint:#f3e2d6;
-  --bark:#6b5840; --sage:#5f7150; --gold:#9b7a32;
+  --ember:#c2760b; --ember-deep:#9c5d06; --ember-tint:#f3e2d6;
+  --amber:#f39b13;
+  --bark:#6b5840; --sage:#147639; --gold:#9b7a32;
   --line:#e7dfd1; --line-soft:#efe9dd; --radius:6px; --shadow:rgba(35,32,27,0.07);
 }
 *{box-sizing:border-box;}
@@ -36,6 +37,13 @@ a{color:var(--ember-deep);}
 .brand .dot{color:var(--ember);}
 .brand{display:inline-flex;align-items:center;}
 .brand-ico{height:1.4em;width:auto;margin-right:0.42rem;}
+.brand-lockup{height:1.85rem;width:auto;display:block;}
+.nav-links{display:flex;gap:1.5rem;align-items:center;}
+.nav-links a{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--ember-deep);}
+.nav-cta{font-family:'DM Sans',sans-serif!important;font-size:0.72rem!important;letter-spacing:0!important;text-transform:none!important;font-weight:500;color:#fff!important;background:var(--ember);padding:0.5rem 1.05rem;border-radius:var(--radius);}
+.nav-cta:hover{background:var(--ember-deep);}
+@media(max-width:760px){.nav-links a:not(.nav-cta){display:none;}}
 .back{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;}
 .back:hover{color:var(--ember-deep);}
 .c-hero{padding:5.5rem 0 2.2rem;}
@@ -81,8 +89,15 @@ ul.deliv li{font-size:1rem;color:var(--ink-body);margin:0.3rem 0;}
 <body>
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand"><img src="threshed-icon.png" alt="Threshed" class="brand-ico">Threshed<span class="dot">.</span></a>
-    <a href="index.html" class="back">← Back to the practice</a>
+    <a href="index.html" class="brand"><img src="threshed-lockup.png" alt="Threshed" class="brand-lockup"></a>
+    <div class="nav-links">
+      <a href="index.html#doors">Two doors</a>
+      <a href="index.html#method">How it works</a>
+      <a href="index.html#proof">Proof</a>
+      <a href="about.html">About</a>
+      <a href="roots.html">Roots</a>
+      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="nav-cta">Start a conversation</a>
+    </div>
   </div>
 </nav>
 
@@ -144,7 +159,7 @@ ul.deliv li{font-size:1rem;color:var(--ink-body);margin:0.3rem 0;}
 <section class="closing">
   <div class="wrap">
     <p>Between roles, or aiming at one that matters? Let's re-aim it together.</p>
-    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Book a free conversation</a>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Start a conversation</a>
   </div>
 </section>
 
@@ -153,7 +168,7 @@ ul.deliv li{font-size:1rem;color:var(--ink-body);margin:0.3rem 0;}
     <a href="index.html">Threshed</a>
     <a href="about.html">About</a>
     <a href="https://github.com/pconpiee/resume-rockstar-skill" target="_blank" rel="noopener">The open skill</a>
-    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed">Book a conversation</a>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed">Start a conversation</a>
   </div>
 </footer>
 </body>

@@ -24,14 +24,18 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Threshed","description":"A small advisory practice for talented job-seekers and founders at a turning point — separate who you really are from the noise, find the next right move, and go on your way better than before.","url":"https://pconpiee.github.io/threshed/","image":"https://pconpiee.github.io/threshed/og-card.png","areaServed":"Worldwide","serviceType":["Career advisory","Job-search coaching","Founder advisory","Startup strategy"],"founder":{"@type":"Person","name":"Patrick Connolly","jobTitle":"Advisor","alumniOf":["United States Air Force Academy","Tel Aviv University — Coller Deep-Tech MBA"],"sameAs":["https://www.linkedin.com/in/patrick-connolly-bs487","https://github.com/pconpiee"]}}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --paper:#fbfaf7; --paper-2:#f4efe6; --paper-3:#efe8db; --card:#ffffff;
   --ink:#23201b; --ink-body:#4a443b; --ink-soft:#7d7568;
-  --ember:#c0552a; --ember-deep:#a8461e; --ember-tint:#f3e2d6;
-  --bark:#6b5840; --sky:#3f6585; --sage:#5f7150; --gold:#9b7a32; --wine:#8a4a52;
+  --ember:#c2760b; --ember-deep:#9c5d06; --ember-tint:#f3e2d6;
+  --amber:#f39b13;
+  --bark:#6b5840; --sky:#3f6585; --sage:#147639; --gold:#9b7a32; --wine:#8a4a52;
   --line:#e7dfd1; --line-soft:#efe9dd;
   --radius:6px; --shadow:rgba(35,32,27,0.07); --shadow-deep:rgba(35,32,27,0.13);
 }
@@ -49,6 +53,7 @@ a{color:inherit;}
 .brand .dot{color:var(--ember);}
 .brand{display:inline-flex;align-items:center;}
 .brand-ico{height:1.4em;width:auto;margin-right:0.42rem;}
+.brand-lockup{height:1.85rem;width:auto;display:block;}
 .nav-links{display:flex;gap:1.7rem;align-items:center;}
 .nav-links a{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--ember-deep);}
@@ -58,7 +63,7 @@ a{color:inherit;}
 
 /* buttons */
 .btn-primary{display:inline-block;font-size:0.82rem;font-weight:500;letter-spacing:0.01em;padding:0.95rem 2.1rem;background:var(--ember);color:#fff;border:none;border-radius:var(--radius);cursor:pointer;text-decoration:none;transition:.2s;}
-.btn-primary:hover{background:var(--ember-deep);transform:translateY(-2px);box-shadow:0 10px 28px rgba(192,85,42,0.22);}
+.btn-primary:hover{background:var(--ember-deep);transform:translateY(-2px);box-shadow:0 10px 28px rgba(194,118,11,0.22);}
 .btn-ghost{display:inline-block;font-size:0.82rem;font-weight:500;padding:0.95rem 2.1rem;background:transparent;color:var(--ink-body);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;transition:.2s;}
 .btn-ghost:hover{border-color:var(--ink-soft);color:var(--ink);}
 
@@ -152,7 +157,7 @@ a{color:inherit;}
 .offer{background:var(--paper-3);}
 .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
 .offer-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:2.2rem;}
-.offer-card.lead{border-color:var(--ember);box-shadow:0 12px 34px rgba(192,85,42,0.10);}
+.offer-card.lead{border-color:var(--ember);box-shadow:0 12px 34px rgba(194,118,11,0.10);}
 .offer-tag{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ember-deep);}
 .offer-card h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--ink);margin:0.6rem 0 0.7rem;}
 .offer-card p{font-size:0.9rem;color:var(--ink-body);margin:0;}
@@ -188,14 +193,14 @@ a{color:inherit;}
 <!-- NAV -->
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a href="#top" class="brand"><img src="threshed-icon.png" alt="Threshed" class="brand-ico">Threshed<span class="dot">.</span></a>
+    <a href="#top" class="brand"><img src="threshed-lockup.png" alt="Threshed" class="brand-lockup"></a>
     <div class="nav-links">
       <a href="#doors">Two doors</a>
       <a href="#method">How it works</a>
       <a href="#proof">Proof</a>
       <a href="about.html">About</a>
       <a href="roots.html">Roots</a>
-      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="nav-cta"><!--BOOK_LINK-->Book a conversation</a>
+      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="nav-cta"><!--BOOK_LINK-->Start a conversation</a>
     </div>
   </div>
 </nav>
@@ -207,7 +212,7 @@ a{color:inherit;}
     <h1 class="hero-title">You're more than your résumé — <em>or your pitch deck.</em></h1>
     <p class="hero-sub">I help talented, driven people get to their next level — by separating who you really are from the noise around it, showing you what I see, and sending you on your way better than before.</p>
     <div class="hero-actions">
-      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Book a free conversation</a>
+      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Start a conversation</a>
       <a href="#doors" class="btn-ghost">See the two doors</a>
     </div>
     <div class="hero-floor"><span>For</span> job-seekers &nbsp;·&nbsp; <span>and</span> founders &nbsp;·&nbsp; <span>at</span> a turning point</div>
@@ -489,7 +494,7 @@ a{color:inherit;}
   <div class="wrap">
     <h2>You're at the edge of something.<br><em>Let's get you across it.</em></h2>
     <p>One conversation is all it takes to start. It's free, and you'll leave with something real.</p>
-    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Book a free conversation</a>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Start a conversation</a>
   </div>
 </section>
 
@@ -504,7 +509,7 @@ a{color:inherit;}
       <a href="about.html">About</a>
       <a href="case-study.html">Case study</a>
       <a href="roots.html">Roots</a>
-      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed"><!--BOOK_LINK-->Book a conversation</a>
+      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed"><!--BOOK_LINK-->Start a conversation</a>
       <a href="https://pconpiee.github.io/" target="_blank" rel="noopener">pconpiee.github.io</a>
       <a href="https://www.linkedin.com/in/patrick-connolly-bs487" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/pconpiee" target="_blank" rel="noopener">GitHub</a>

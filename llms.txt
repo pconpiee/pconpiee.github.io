@@ -1,0 +1,20 @@
+# Patrick Connolly — Threshed & free tools
+
+> Patrick Connolly is a US Air Force Academy graduate and Space Force–era operator turned deep-tech builder. Through **Threshed**, his advisory practice, he helps talented job-seekers and founders at a turning point separate who they really are from the noise, find the next right move, and go on their way better than before. The method: listen, show people what he sees in them, point them to what's true, and send them on — better than before.
+
+## Threshed — the advisory practice
+- [Threshed](https://pconpiee.github.io/threshed/): the practice — for job-seekers and founders at a threshold. Two doors, one room.
+- [Who's behind this (About)](https://pconpiee.github.io/threshed/about.html): Patrick's story, credentials, and why the practice exists.
+- [A worked example](https://pconpiee.github.io/threshed/case-study.html): the 4-stakeholder method applied to a real-shaped job application.
+- [The Roots](https://pconpiee.github.io/threshed/roots.html): the meaning behind the name — the threshing floor, the seed, and the tree by the waters.
+
+## Free, open tools (no login)
+- [Résumé Rockstar — open skill](https://github.com/pconpiee/resume-rockstar-skill): point any AI at this repo to run a full job-application funnel locally.
+- [Hem / Flight Map](https://flight-map-gamma.vercel.app/) and [The Hem Method](https://github.com/pconpiee/hem-skill): founder navigation.
+- [PMF Lab](https://pconpiee.github.io/space-pmf/) and [PMF Simulator](https://pconpiee.github.io/PMF/): product-market fit.
+- [CV & Interview Guide](https://pconpiee.github.io/cv-guide/), [Blue Canopy](https://blue-canopy.vercel.app/) (military → civilian), [Orbit Transfer](https://orbit-transfer.vercel.app/) (deep-tech MBA careers), [Nursing Roadmap](https://pconpiee.github.io/nursing-roadmap/).
+
+## Contact
+- Email: pb.connollys@gmail.com
+- LinkedIn: https://www.linkedin.com/in/patrick-connolly-bs487
+- GitHub: https://github.com/pconpiee
