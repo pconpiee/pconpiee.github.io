@@ -131,6 +131,13 @@ a{color:inherit;}
 .work-card p{font-size:0.84rem;color:var(--ink-body);margin:0;line-height:1.55;}
 .work-card .pdf{display:inline-block;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.05em;color:var(--ink-soft);}
 @media(max-width:760px){.work-grid{grid-template-columns:1fr;}}
+.lib-feature{display:flex;justify-content:space-between;align-items:center;gap:2rem;background:var(--ink);color:#e8e2d6;border-radius:10px;padding:1.8rem 2rem;text-decoration:none;margin-top:1.4rem;transition:.22s;}
+.lib-feature:hover{transform:translateY(-3px);box-shadow:0 16px 40px var(--shadow-deep);}
+.lib-feature .lf-kind{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.14em;text-transform:uppercase;color:#d98a5f;}
+.lib-feature h5{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:#fbfaf7;margin:0.3rem 0 0.4rem;}
+.lib-feature p{font-size:0.86rem;color:#b3a995;margin:0;max-width:48em;line-height:1.55;}
+.lib-feature .lf-go{font-family:'DM Mono',monospace;font-size:0.66rem;color:#e8e2d6;white-space:nowrap;}
+@media(max-width:760px){.lib-feature{flex-direction:column;align-items:flex-start;gap:1rem;}}
 
 /* offer */
 .offer{background:var(--paper-3);}
@@ -306,8 +313,8 @@ a{color:inherit;}
     </div>
 
     <div class="work-head">
-      <h4>Worked examples &amp; deep guides &middot; for the founder</h4>
-      <p>The actual artifacts — strategy packs, a validation sprint, and the playbooks behind them. The same depth I bring to a build, written out in full. Several were built as worked teaching examples for graduate programs at ISU and Tel Aviv University.</p>
+      <h4>Worked examples &middot; for the founder</h4>
+      <p>Real strategy and validation work, start to finish — what the thinking looks like on the page. Built as worked teaching examples for graduate programs at ISU and Tel Aviv University.</p>
     </div>
     <div class="work-grid">
       <a class="work-card" href="resources/aegis-eo-strategy-pack.pdf" target="_blank" rel="noopener">
@@ -328,17 +335,74 @@ a{color:inherit;}
         <p>A full external/internal analysis and a defended recommendation — how to read a market and pick the one viable move.</p>
         <span class="pdf">PDF · 2 pp ↗</span>
       </a>
+    </div>
+
+    <div class="work-head">
+      <h4>Founder Toolkit Library &middot; ideation → Series A</h4>
+      <p>Companion guides for building a venture, mapped to the stage you're in. Developed for founders I mentor at the International Space University and ISU Incubator.</p>
+    </div>
+    <a class="lib-feature" href="resources/toolkit-stage-map.pdf" target="_blank" rel="noopener">
+      <div>
+        <span class="lf-kind">Start here · the map</span>
+        <h5>The Stage Map — the whole flight on one map</h5>
+        <p>Which guide answers which question, in what order, from ideation to Series A. Start anywhere; the map shows you what comes before and after.</p>
+      </div>
+      <span class="lf-go">Open the map ↗</span>
+    </a>
+    <div class="work-grid" style="margin-top:1rem;">
+      <a class="work-card" href="resources/product-market-fit-toolkit.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Validate · find PMF</span>
+        <h5>Product-Market Fit</h5>
+        <p>Prove people actually want it — before you build the company around it.</p>
+        <span class="pdf">PDF ↗</span>
+      </a>
       <a class="work-card" href="resources/product-design-toolkit.pdf" target="_blank" rel="noopener">
-        <span class="work-kind">Playbook · ISU guide</span>
-        <h5>Product Design Toolkit</h5>
-        <p>From understanding the user to writing the spec — four altitudes, one descent. The companion to a real build.</p>
-        <span class="pdf">PDF · 18 pp ↗</span>
+        <span class="work-kind">Validate · design</span>
+        <h5>Product Design</h5>
+        <p>From understanding the user to writing the spec — four altitudes, one descent.</p>
+        <span class="pdf">PDF ↗</span>
+      </a>
+      <a class="work-card" href="resources/pilot-playbook.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Validate · first customers</span>
+        <h5>Pilot Playbook</h5>
+        <p>Land and run the first paid pilots that prove the bet is real.</p>
+        <span class="pdf">PDF ↗</span>
+      </a>
+      <a class="work-card" href="resources/legal-incorporation-toolkit.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Build · structure</span>
+        <h5>Legal &amp; Incorporation</h5>
+        <p>Incorporate cleanly and set the legal foundation right the first time.</p>
+        <span class="pdf">PDF ↗</span>
+      </a>
+      <a class="work-card" href="resources/people-equity-toolkit.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Build · team</span>
+        <h5>People &amp; Equity</h5>
+        <p>Hire, split equity, and design the team without future regret.</p>
+        <span class="pdf">PDF ↗</span>
       </a>
       <a class="work-card" href="resources/business-operations-toolkit.pdf" target="_blank" rel="noopener">
-        <span class="work-kind">Playbook · ISU guide</span>
-        <h5>Business Operations Toolkit</h5>
-        <p>Direction, structure, visibility — how to make a company runnable so it no longer lives only in the founder's head.</p>
-        <span class="pdf">PDF · 16 pp ↗</span>
+        <span class="work-kind">Build · run it</span>
+        <h5>Business Operations</h5>
+        <p>Direction, structure, visibility — so the company runs beyond your head.</p>
+        <span class="pdf">PDF ↗</span>
+      </a>
+      <a class="work-card" href="resources/go-to-market-toolkit.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Grow · GTM</span>
+        <h5>Go-to-Market</h5>
+        <p>Turn first sales into a repeatable motion that doesn't depend on you.</p>
+        <span class="pdf">PDF ↗</span>
+      </a>
+      <a class="work-card" href="resources/financial-modeling-toolkit.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Grow · model</span>
+        <h5>Financial Modeling</h5>
+        <p>Build the numbers that show the business works — and what it needs next.</p>
+        <span class="pdf">PDF ↗</span>
+      </a>
+      <a class="work-card" href="resources/fundraising-capital-toolkit.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Grow · raise</span>
+        <h5>Fundraising &amp; Capital</h5>
+        <p>Run a raise on your terms — the story, the process, and the capital stack.</p>
+        <span class="pdf">PDF ↗</span>
       </a>
     </div>
 
