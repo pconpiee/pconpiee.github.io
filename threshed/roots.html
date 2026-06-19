@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Roots — why it's called Threshed · The Tree by the Waters</title>
+<meta name="description" content="The deeper why beneath Threshed: the threshing floor, the seed, and the tree planted by the waters — six scriptures on the flourishing tree, with commentary and a binding narrative.">
+<link rel="canonical" href="https://pconpiee.github.io/threshed/roots.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbfaf7; --paper-2:#f4efe6; --paper-3:#efe8db; --card:#ffffff;
+  --ink:#23201b; --ink-body:#4a443b; --ink-soft:#7d7568;
+  --ember:#c0552a; --ember-deep:#a8461e; --ember-tint:#f3e2d6;
+  --bark:#6b5840; --sage:#5f7150; --gold:#9b7a32;
+  --line:#e7dfd1; --line-soft:#efe9dd; --radius:6px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink-body);line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:var(--ember-deep);}
+.wrap{width:min(760px,90%);margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ember-deep);}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav-inner{width:min(1080px,90%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--ink);text-decoration:none;}
+.brand .dot{color:var(--ember);}
+.back{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;}
+.back:hover{color:var(--ember-deep);}
+
+/* hero */
+.r-hero{padding:6rem 0 3rem;text-align:center;background:var(--bark);color:#f2ecdd;}
+.r-hero .wrap{width:min(760px,90%);}
+.r-hero .eyebrow{color:#d8c8a8;display:block;margin-bottom:1.4rem;}
+.r-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,3.8rem);font-weight:300;line-height:1.08;color:#fbf6ea;margin:0 0 1.3rem;}
+.r-hero h1 em{font-style:italic;color:#e8a877;}
+.r-hero p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;color:#ddd0b8;max-width:30em;margin:0 auto;line-height:1.6;}
+
+/* body */
+.r-body{padding:4.5rem 0 5rem;}
+.lead-graf{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;line-height:1.6;color:var(--ink);margin:0 0 1.6rem;}
+.graf{font-size:1.02rem;color:var(--ink-body);margin:0 0 1.4rem;}
+.graf strong{color:var(--ink);font-weight:600;}
+.graf em{font-style:italic;color:var(--ember-deep);}
+
+.thread-stages{display:flex;align-items:center;justify-content:center;gap:0.5rem;flex-wrap:wrap;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin:2.5rem 0;padding:1.4rem;background:var(--paper-2);border-radius:8px;}
+.thread-stages b{color:var(--ember-deep);font-weight:400;}
+.thread-stages .arw{color:var(--line);font-size:0.95rem;}
+
+.divider{width:60px;height:1px;background:var(--ember);margin:3.5rem auto;opacity:0.5;}
+
+.passage{margin:3rem 0;}
+.passage-num{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ember-deep);}
+.passage h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.6vw,2.3rem);font-weight:400;color:var(--ink);line-height:1.15;margin:0.5rem 0 1.4rem;}
+.scripture{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;font-style:italic;line-height:1.55;color:var(--ink);border-left:2px solid var(--ember);padding:0.4rem 0 0.4rem 1.6rem;margin:0 0 0.7rem;}
+.ref{font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.5rem;}
+.analysis-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage);margin-bottom:0.6rem;}
+
+.binding{background:var(--paper-2);padding:4.5rem 0;margin-top:1rem;}
+.binding h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:300;font-style:italic;color:var(--ink);text-align:center;margin:0 0 2.4rem;}
+
+.closing{text-align:center;padding:4rem 0 1rem;}
+.closing p{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--ink-soft);max-width:24em;margin:0 auto 2rem;line-height:1.5;}
+.btn-primary{display:inline-block;font-size:0.82rem;font-weight:500;padding:0.95rem 2.1rem;background:var(--ember);color:#fff;border-radius:var(--radius);text-decoration:none;transition:.2s;}
+.btn-primary:hover{background:var(--ember-deep);transform:translateY(-2px);}
+
+/* footer */
+.footer{background:var(--ink);color:#a89e8e;padding:3rem 0;text-align:center;}
+.footer a{color:#a89e8e;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;margin:0 0.7rem;}
+.footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Threshed<span class="dot">.</span></a>
+    <a href="index.html" class="back">← Back to the practice</a>
+  </div>
+</nav>
+
+<header class="r-hero">
+  <div class="wrap">
+    <span class="eyebrow">The roots · the deeper why</span>
+    <h1>The Tree by <em>the Waters</em></h1>
+    <p>Where the name comes from, and the reason I do this work at all.</p>
+  </div>
+</header>
+
+<section class="r-body">
+  <div class="wrap">
+    <p class="lead-graf">The work has a surface and it has a root system. On the surface it's plain: I help people separate who they are from the noise around it, and take the next step. Underneath is an older picture that runs from the first psalm to the last page of the Bible — one image, deepening.</p>
+
+    <p class="graf">It starts on a <strong>threshing floor</strong>. Threshing is how the harvest is freed: you beat the cut stalk until the true seed falls loose from the chaff — the husk, the dust, everything that isn't the grain. That's the moment most people are in when they come to me. A real gift, tangled up with fear and other people's expectations and a dozen wrong directions, and no easy way to tell, from the inside, which part is seed.</p>
+
+    <p class="graf">But threshing is never the end of the story. The chaff blows away; the good seed is kept — and the seed is <em>planted</em>. And what it's planted by changes everything.</p>
+
+    <div class="thread-stages">
+      <b>Threshed</b><span class="arw">→</span><b>the seed</b><span class="arw">→</span><b>planted by water</b><span class="arw">→</span><b>the tree</b><span class="arw">→</span><b>fruit · shade · healing</b>
+    </div>
+
+    <p class="graf">What follows are six passages on that tree, each in full from the King James Version, with a short note on what it's doing — and then a single narrative that threads them together, from root to healing leaf.</p>
+
+    <div class="divider"></div>
+
+    <article class="passage">
+      <div class="passage-num">I · The rooted one</div>
+      <h2>Planted by the rivers of water</h2>
+      <p class="scripture">Blessed is the man that walketh not in the counsel of the ungodly, nor standeth in the way of sinners, nor sitteth in the seat of the scornful. But his delight is in the law of the LORD; and in his law doth he meditate day and night. And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.</p>
+      <p class="ref">Psalm 1:1–3 (KJV)</p>
+      <p class="analysis-label">What it's doing</p>
+      <p class="graf">Psalm 1 is the doorway to the whole Psalter. Notice the verbs around the tree: the man is <em>planted</em>, not self-sprung. He doesn't strive to be near water; he is set there. His fruit and his unwithering leaf are the overflow of where his roots are. This is the seedbed for everything that follows — a person whose inner life is anchored in something outside the reach of drought.</p>
+    </article>
+
+    <article class="passage">
+      <div class="passage-num">II · Tested</div>
+      <h2>The tree that does not fear drought</h2>
+      <p class="scripture">Blessed is the man that trusteth in the LORD, and whose hope the LORD is. For he shall be as a tree planted by the waters, and that spreadeth out her roots by the river, and shall not see when heat cometh, but her leaf shall be green; and shall not be careful in the year of drought, neither shall cease from yielding fruit.</p>
+      <p class="ref">Jeremiah 17:7–8 (KJV)</p>
+      <p class="analysis-label">What it's doing</p>
+      <p class="graf">Jeremiah takes the picture of Psalm 1 and presses it into crisis. The psalm describes the tree in fair weather; Jeremiah describes it when the heat comes and the drought arrives — and they do arrive. The difference is the roots, spread out by the river to a source the surface can't dry up. Trust relocates a life to water it cannot see, and so it keeps bearing fruit when everything visible says it should stop.</p>
+    </article>
+
+    <article class="passage">
+      <div class="passage-num">III · Grown old and large</div>
+      <h2>The cedar of Lebanon</h2>
+      <p class="scripture">The righteous shall flourish like the palm tree: he shall grow like a cedar in Lebanon. Those that be planted in the house of the LORD shall flourish in the courts of our God. They shall still bring forth fruit in old age; they shall be fat and flourishing;</p>
+      <p class="ref">Psalm 92:12–14 (KJV)</p>
+      <p class="analysis-label">What it's doing</p>
+      <p class="graf">The cedar was the ancient world's image of permanence — slow-growing, enormous, the timber of temples. Psalm 92 pairs it with the palm, which fruits even in the desert, to make one claim: the flourishing life is both grand and fruitful, and it does not taper off. <em>Fruit in old age</em> — the opposite of natural decline. The greatness is borrowed from the soil it stands in, not generated from itself.</p>
+    </article>
+
+    <article class="passage">
+      <div class="passage-num">IV · Turned outward</div>
+      <h2>Home for the birds, shade for the beasts</h2>
+      <p class="scripture">In the mountain of the height of Israel will I plant it: and it shall bring forth boughs, and bear fruit, and be a goodly cedar: and under it shall dwell all fowl of every wing; in the shadow of the branches thereof shall they dwell.</p>
+      <p class="ref">Ezekiel 17:23 (KJV)</p>
+      <p class="scripture">The leaves thereof were fair, and the fruit thereof much, and in it was meat for all: the beasts of the field had shadow under it, and the fowls of the heaven dwelt in the boughs thereof, and all flesh was fed of it.</p>
+      <p class="ref">Daniel 4:12 (KJV)</p>
+      <p class="analysis-label">What it's doing</p>
+      <p class="graf">Here the tree becomes a home and a shelter for others. Birds find a dwelling in its branches; the beasts of the field rest in its shade; all flesh is fed from its fruit. A truly flourishing tree is never merely for itself. Its size becomes hospitality — its fruitfulness turns outward into shelter.</p>
+    </article>
+
+    <article class="passage">
+      <div class="passage-num">V · Healing begins</div>
+      <h2>Fruit every month, leaves for medicine</h2>
+      <p class="scripture">And by the river upon the bank thereof, on this side and on that side, shall grow all trees for meat, whose leaf shall not fade, neither shall the fruit thereof be consumed: it shall bring forth new fruit according to his months, because their waters they issued out of the sanctuary: and the fruit thereof shall be for meat, and the leaf thereof for medicine.</p>
+      <p class="ref">Ezekiel 47:12 (KJV)</p>
+      <p class="analysis-label">What it's doing</p>
+      <p class="graf">Ezekiel's temple vision ends with a river flowing out from under the sanctuary, and these trees on its banks. Two details: <em>fruit according to his months</em> — unceasing, in and out of season, because the water never fails; and <em>the leaf thereof for medicine</em>. For the first time the leaves don't merely stay green — they heal. And the source of the water is named: the holy place itself.</p>
+    </article>
+
+    <article class="passage">
+      <div class="passage-num">VI · Everything arrives</div>
+      <h2>The tree of life, and the healing of the nations</h2>
+      <p class="scripture">And he shewed me a pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb. In the midst of the street of it, and on either side of the river, was there the tree of life, which bare twelve manner of fruits, and yielded her fruit every month: and the leaves of the tree were for the healing of the nations.</p>
+      <p class="ref">Revelation 22:1–2 (KJV)</p>
+      <p class="analysis-label">What it's doing</p>
+      <p class="graf">This is where every earlier image arrives. The river flows from the throne, as Ezekiel's flowed from the sanctuary. The tree yields fruit every month — Ezekiel's exact phrase. Its leaves heal not one land but all the nations. And by calling it the <em>tree of life</em>, John reaches back past every prophet to Eden — the tree first lost in Genesis, now restored, unguarded, freely available. The single tree of Psalm 1 has become the tree at the center of a renewed creation, fed by a river that cannot run dry.</p>
+    </article>
+  </div>
+</section>
+
+<section class="binding">
+  <div class="wrap">
+    <h2>The thread that runs through all of it</h2>
+    <p class="graf">Read together, these are not six trees but one image deepening — and the thread is water, and where the water comes from.</p>
+    <p class="graf">It begins with a single person. <strong>Psalm 1</strong> plants a man like a tree by the rivers of water, and flourishing follows — not because he is strong, but because of where he is planted. Then the weather turns. <strong>Jeremiah</strong> keeps the same tree but moves it into the year of drought; the heat comes, the surface dries, and still it is green, because its roots reach a source the drought cannot touch.</p>
+    <p class="graf"><strong>Psalm 92</strong> lets that tree grow old and large — a cedar and a fruiting palm at once, bearing even in old age. Once it is great, <strong>Ezekiel and Daniel</strong> turn it outward: birds nest in its branches, the beasts rest in its shade, all flesh is fed from it. Its growth was never for itself.</p>
+    <p class="graf">Then <strong>Ezekiel 47</strong> shows where the water has been coming from all along — out from under the sanctuary — and the green leaf becomes a healing leaf. And <strong>Revelation</strong> completes the picture: the river now flows from the throne, and the tree standing over it is the tree of life, its leaves for the healing of the nations. Every earlier image is there at once, resolved into one tree at the center of a healed world.</p>
+    <p class="graf">So the narrative runs from a single rooted soul to the renewal of all nations. The tree never changes its nature; it only grows into what it always was. It is planted by water, it does not fear the drought because its roots run deep, it bears fruit in and out of season, it gives shade and a home and food to others, and in the end its leaves heal the world — because from first psalm to last vision it is drawing on a river that flows from God himself, and that river never dries.</p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p>That's the whole reason for the practice: to help one person thresh out the seed, and get it planted by the water — so that one day it shelters others too.</p>
+    <a href="index.html" class="btn-primary">← Back to Threshed</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>
+    <a href="index.html">Threshed</a>
+    <a href="https://pconpiee.github.io/" target="_blank" rel="noopener">pconpiee</a>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed">Book a conversation</a>
+  </div>
+</footer>
+
+</body>
+</html>

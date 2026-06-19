@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Threshed — advisory for people at a threshold · J. Patrick Connolly</title>
+<meta name="description" content="Threshed is a small advisory practice by J. Patrick Connolly. For talented job-seekers and founders at a turning point: separate who you really are from the noise around it, find the next right move, and go on your way better than before.">
+<link rel="canonical" href="https://pconpiee.github.io/threshed/">
+<meta property="og:title" content="Threshed — advisory for people at a threshold">
+<meta property="og:description" content="Separate the seed from the chaff. Find the next right move. Go on your way better than before. A small advisory practice for job-seekers and founders.">
+<meta property="og:type" content="website">
+
+<!-- ============================================================
+     EDIT ME: swap this mailto for a Calendly/Cal.com link when ready.
+     Search "BOOK_LINK" to find every call-to-action button.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#fbfaf7; --paper-2:#f4efe6; --paper-3:#efe8db; --card:#ffffff;
+  --ink:#23201b; --ink-body:#4a443b; --ink-soft:#7d7568;
+  --ember:#c0552a; --ember-deep:#a8461e; --ember-tint:#f3e2d6;
+  --bark:#6b5840; --sky:#3f6585; --sage:#5f7150; --gold:#9b7a32; --wine:#8a4a52;
+  --line:#e7dfd1; --line-soft:#efe9dd;
+  --radius:6px; --shadow:rgba(35,32,27,0.07); --shadow-deep:rgba(35,32,27,0.13);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink-body);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.wrap{width:min(1080px,90%);margin:0 auto;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ember-deep);}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,0.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:0.01em;color:var(--ink);text-decoration:none;}
+.brand .dot{color:var(--ember);}
+.nav-links{display:flex;gap:1.7rem;align-items:center;}
+.nav-links a{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--ember-deep);}
+.nav-cta{font-family:'DM Sans',sans-serif!important;font-size:0.72rem!important;letter-spacing:0!important;text-transform:none!important;font-weight:500;color:#fff!important;background:var(--ember);padding:0.5rem 1.05rem;border-radius:var(--radius);}
+.nav-cta:hover{background:var(--ember-deep);}
+@media(max-width:760px){.nav-links a:not(.nav-cta){display:none;}}
+
+/* buttons */
+.btn-primary{display:inline-block;font-size:0.82rem;font-weight:500;letter-spacing:0.01em;padding:0.95rem 2.1rem;background:var(--ember);color:#fff;border:none;border-radius:var(--radius);cursor:pointer;text-decoration:none;transition:.2s;}
+.btn-primary:hover{background:var(--ember-deep);transform:translateY(-2px);box-shadow:0 10px 28px rgba(192,85,42,0.22);}
+.btn-ghost{display:inline-block;font-size:0.82rem;font-weight:500;padding:0.95rem 2.1rem;background:transparent;color:var(--ink-body);border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;transition:.2s;}
+.btn-ghost:hover{border-color:var(--ink-soft);color:var(--ink);}
+
+/* section frame */
+.section{padding:5.5rem 0;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.1rem);font-weight:300;line-height:1.1;color:var(--ink);letter-spacing:-0.015em;margin:0 0 1rem;}
+.section-title em{font-style:italic;color:var(--ember);}
+.section-sub{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;font-style:italic;color:var(--ink-soft);line-height:1.6;max-width:34em;}
+.divider-top{border-top:1px solid var(--line);}
+
+/* hero */
+.hero{padding:6.5rem 0 5rem;position:relative;overflow:hidden;}
+.hero .eyebrow{display:block;margin-bottom:1.6rem;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,7vw,5rem);font-weight:300;line-height:1.04;letter-spacing:-0.02em;color:var(--ink);margin:0 0 1.6rem;max-width:13em;}
+.hero-title em{font-style:italic;color:var(--ember);}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.3vw,1.55rem);font-weight:400;color:var(--ink-soft);max-width:33em;line-height:1.6;margin:0 0 2.6rem;}
+.hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;}
+.hero-floor{display:flex;gap:0.55rem;align-items:baseline;margin-top:3.2rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--ink-soft);}
+.hero-floor span{color:var(--ember-deep);}
+
+/* the name / threshing */
+.thresh{background:var(--paper-2);}
+.thresh-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:3.5rem;align-items:center;}
+.thresh-graf{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.1vw,1.4rem);font-weight:400;line-height:1.7;color:var(--ink-body);margin:0 0 1.4rem;}
+.thresh-graf strong{font-weight:600;color:var(--ink);}
+.thresh-graf em{font-style:italic;color:var(--ember-deep);}
+.thresh-stages{display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:0.5rem;}
+.thresh-stages b{color:var(--ember-deep);font-weight:400;}
+.thresh-stages .arw{color:var(--line);font-size:0.9rem;}
+@media(max-width:760px){.thresh-grid{grid-template-columns:1fr;gap:2rem;}}
+
+/* two doors */
+.doors-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+.door{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:2.4rem 2.2rem;transition:.25s;}
+.door:hover{transform:translateY(-3px);box-shadow:0 16px 40px var(--shadow);border-color:var(--ember-tint);}
+.door-num{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-style:italic;font-weight:300;color:var(--ember);line-height:1;}
+.door-kicker{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin:0.9rem 0 0.3rem;}
+.door h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;color:var(--ink);margin:0 0 0.8rem;}
+.door p{font-size:0.95rem;color:var(--ink-body);margin:0 0 1.3rem;}
+.door .who{font-size:0.84rem;color:var(--ink-soft);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.05rem;margin-bottom:1.2rem;}
+.door-away{list-style:none;padding:0;margin:0;border-top:1px solid var(--line-soft);padding-top:1.2rem;}
+.door-away li{font-size:0.88rem;color:var(--ink-body);padding:0.32rem 0 0.32rem 1.3rem;position:relative;}
+.door-away li::before{content:"";position:absolute;left:0;top:0.85rem;width:6px;height:6px;border-radius:50%;background:var(--ember);}
+@media(max-width:760px){.doors-grid{grid-template-columns:1fr;}}
+
+/* method */
+.method{background:var(--ink);color:#e8e2d6;}
+.method .section-title{color:#fbfaf7;}
+.method .section-title em{color:var(--ember);}
+.method .section-sub{color:#b3a995;}
+.method .eyebrow{color:#d98a5f;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3.2rem;}
+.step{border-top:1px solid rgba(255,255,255,0.13);padding-top:1.3rem;}
+.step-n{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--ember);}
+.step h4{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:400;color:#fbfaf7;margin:0.4rem 0 0.6rem;}
+.step p{font-size:0.88rem;color:#b3a995;margin:0;line-height:1.6;}
+@media(max-width:760px){.steps{grid-template-columns:1fr 1fr;gap:1.8rem 1.4rem;}}
+
+/* proof */
+.proof-cols{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;margin-top:2.8rem;}
+.proof-col h4{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:0.7rem;margin:0 0 0.4rem;}
+.tool{display:flex;align-items:baseline;gap:0.7rem;padding:0.7rem 0;border-bottom:1px solid var(--line-soft);text-decoration:none;transition:.2s;}
+.tool:hover{padding-left:0.4rem;}
+.tool-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);flex:none;transform:translateY(-1px);}
+.tool-name{font-weight:500;color:var(--ink);font-size:0.92rem;}
+.tool-desc{font-size:0.78rem;color:var(--ink-soft);margin-left:auto;font-family:'DM Mono',monospace;letter-spacing:0.03em;}
+.proof-note{margin-top:2.4rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--ink-soft);}
+.proof-note a{color:var(--ember-deep);text-decoration:underline;text-underline-offset:3px;}
+@media(max-width:760px){.proof-cols{grid-template-columns:1fr;gap:2rem;}}
+
+/* offer */
+.offer{background:var(--paper-3);}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+.offer-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:2.2rem;}
+.offer-card.lead{border-color:var(--ember);box-shadow:0 12px 34px rgba(192,85,42,0.10);}
+.offer-tag{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ember-deep);}
+.offer-card h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--ink);margin:0.6rem 0 0.7rem;}
+.offer-card p{font-size:0.9rem;color:var(--ink-body);margin:0;}
+.offer-meta{margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid var(--line-soft);font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.06em;color:var(--ink-soft);text-transform:uppercase;}
+@media(max-width:760px){.offer-grid{grid-template-columns:1fr;}}
+
+/* roots teaser */
+.roots-teaser{background:var(--bark);color:#f0e9da;text-align:center;}
+.roots-teaser .eyebrow{color:#d8c8a8;display:block;margin-bottom:1.2rem;}
+.roots-teaser h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.7rem);font-weight:300;font-style:italic;line-height:1.25;color:#fbf6ea;max-width:18em;margin:0 auto 1.6rem;}
+.roots-teaser p{max-width:34em;margin:0 auto 2rem;color:#ddd0b8;font-size:1rem;}
+.roots-teaser .btn-ghost{color:#f0e9da;border-color:rgba(255,255,255,0.25);}
+.roots-teaser .btn-ghost:hover{border-color:#f0e9da;color:#fff;}
+
+/* final cta */
+.final{text-align:center;}
+.final h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:300;color:var(--ink);line-height:1.1;margin:0 0 1.3rem;}
+.final h2 em{font-style:italic;color:var(--ember);}
+.final p{font-size:1.05rem;color:var(--ink-soft);max-width:30em;margin:0 auto 2.4rem;}
+
+/* footer */
+.footer{background:var(--ink);color:#a89e8e;padding:3.5rem 0 2.5rem;}
+.footer-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;color:#e8e2d6;margin:0 0 1.6rem;}
+.footer-links{display:flex;flex-wrap:wrap;gap:1.3rem;margin-bottom:1.6rem;}
+.footer-links a{font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:#a89e8e;text-decoration:none;transition:.2s;}
+.footer-links a:hover{color:#fff;}
+.footer-fine{font-size:0.74rem;color:#736b5d;border-top:1px solid rgba(255,255,255,0.1);padding-top:1.4rem;}
+.footer-fine a{color:#a89e8e;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Threshed<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="#doors">Two doors</a>
+      <a href="#method">How it works</a>
+      <a href="#proof">Proof</a>
+      <a href="roots.html">Roots</a>
+      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="nav-cta"><!--BOOK_LINK-->Book a conversation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Threshed · advisory for people at a threshold</span>
+    <h1 class="hero-title">You're more than your résumé — <em>or your pitch deck.</em></h1>
+    <p class="hero-sub">I help talented, driven people get to their next level — by separating who you really are from the noise around it, showing you what I see, and sending you on your way better than before.</p>
+    <div class="hero-actions">
+      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Book a free conversation</a>
+      <a href="#doors" class="btn-ghost">See the two doors</a>
+    </div>
+    <div class="hero-floor"><span>For</span> job-seekers &nbsp;·&nbsp; <span>and</span> founders &nbsp;·&nbsp; <span>at</span> a turning point</div>
+  </div>
+</header>
+
+<!-- THE NAME / THRESHING -->
+<section class="section thresh" id="why-threshed">
+  <div class="wrap thresh-grid">
+    <div>
+      <span class="eyebrow">Why it's called Threshed</span>
+      <h2 class="section-title" style="margin-top:1rem;">Separate the seed<br><em>from the chaff.</em></h2>
+    </div>
+    <div>
+      <p class="thresh-graf">Threshing is the old work of the harvest: you beat the cut stalk until the <strong>true seed</strong> falls free of the chaff — the husk, the dust, everything that isn't the grain.</p>
+      <p class="thresh-graf">Most people at a turning point are carrying both at once: a real gift tangled up with fear, other people's expectations, and a dozen wrong directions. It's hard to tell the seed from the husk when it's your own.</p>
+      <p class="thresh-graf">The work is simple to name and hard to do alone: <em>separate the seed from the chaff — then plant it where it can grow.</em></p>
+      <div class="thresh-stages">
+        <b>Threshed</b><span class="arw">→</span><b>the seed</b><span class="arw">→</span><b>planted</b><span class="arw">→</span><b>grown</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO DOORS -->
+<section class="section" id="doors">
+  <div class="wrap">
+    <span class="eyebrow">Two doors, one room</span>
+    <h2 class="section-title" style="margin-top:1rem;">Where do you need to <em>cross?</em></h2>
+    <p class="section-sub">The same work, through two doors. Most people come for one and find they needed a little of both.</p>
+    <div class="doors-grid">
+      <article class="door">
+        <div class="door-num">I</div>
+        <div class="door-kicker">The job-seeker</div>
+        <h3>Land the right role</h3>
+        <p class="who">For talented people who are between roles, underplaced, or crossing into something new — and tired of disappearing into the pile.</p>
+        <p>We separate your real story from résumé noise, find the roles that actually fit who you are, and get you ready to win them — not just apply.</p>
+        <ul class="door-away">
+          <li>Clarity on the direction that's truly yours</li>
+          <li>A story that lands in a room and on a page</li>
+          <li>A focused search campaign that moves</li>
+        </ul>
+      </article>
+      <article class="door">
+        <div class="door-num">II</div>
+        <div class="door-kicker">The founder</div>
+        <h3>Build the company</h3>
+        <p class="who">For builders carrying an idea, an early company, or a fork in the road — and too close to it to see the next step clearly.</p>
+        <p>We separate the real signal from the noise, find the next right move, and get you going with conviction instead of second-guessing.</p>
+        <ul class="door-away">
+          <li>A sharper thesis and a clearer "why now"</li>
+          <li>The next right step, named and sized</li>
+          <li>A navigator in your corner for the season</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="section method" id="method">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2 class="section-title" style="margin-top:1rem;">I come <em>alongside</em> — then I send you on.</h2>
+    <p class="section-sub">No guru, no dependency. The win is yours, and you walk out lighter than you came in.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <h4>I listen</h4>
+        <p>Really listen — before advice, before frameworks. The seat beside you, first.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <h4>I show you what I see</h4>
+        <p>The gift, the pattern, the thread you're too close to notice in yourself.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <h4>I point you to what's true</h4>
+        <p>Not what's flattering — what's real, and where it actually leads next.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <h4>I send you on</h4>
+        <p>Better than before, and on your own way. You won't need me for long.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section divider-top" id="proof">
+  <div class="wrap">
+    <span class="eyebrow">Proof · built from the same work</span>
+    <h2 class="section-title" style="margin-top:1rem;">Free tools I've <em>built</em> for each door.</h2>
+    <p class="section-sub">Everything here is free and no-login — the same thinking I bring one-on-one, made open so you can start today.</p>
+    <div class="proof-cols">
+      <div class="proof-col">
+        <h4>For the job-seeker</h4>
+        <a class="tool" href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">CV &amp; Interview Guide</span><span class="tool-desc">ATS · STAR-L</span></a>
+        <a class="tool" href="https://resume-rockstar-kit.lovable.app/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Resume Rockstar Kit</span><span class="tool-desc">Tracker</span></a>
+        <a class="tool" href="https://blue-canopy.vercel.app/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Blue Canopy</span><span class="tool-desc">Mil → civ</span></a>
+        <a class="tool" href="https://orbit-transfer.vercel.app/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Orbit Transfer</span><span class="tool-desc">Deep-tech MBA</span></a>
+        <a class="tool" href="https://pconpiee.github.io/nursing-roadmap/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Nursing Roadmap</span><span class="tool-desc">Int'l → US BSN</span></a>
+      </div>
+      <div class="proof-col">
+        <h4>For the founder</h4>
+        <a class="tool" href="https://flight-map-gamma.vercel.app/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Hem / Flight Map</span><span class="tool-desc">Founder nav</span></a>
+        <a class="tool" href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">PMF Lab</span><span class="tool-desc">Find PMF</span></a>
+        <a class="tool" href="https://pconpiee.github.io/PMF/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">PMF Simulator</span><span class="tool-desc">Decide</span></a>
+        <a class="tool" href="https://github.com/pconpiee/hem-skill" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">The Hem Method</span><span class="tool-desc">Open skill</span></a>
+        <a class="tool" href="https://pconpiee.github.io/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Aegis EO Strategy Pack</span><span class="tool-desc">Worked example</span></a>
+      </div>
+    </div>
+    <p class="proof-note">Want the longer story of the work? See <a href="https://pconpiee.github.io/" target="_blank" rel="noopener">selected work &amp; the person behind this →</a></p>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="section offer" id="work">
+  <div class="wrap">
+    <span class="eyebrow">Working together</span>
+    <h2 class="section-title" style="margin-top:1rem;">Start with a <em>conversation.</em></h2>
+    <p class="section-sub">It begins free — we see if there's a fit, and you leave with at least one real thing either way.</p>
+    <div class="offer-grid">
+      <article class="offer-card lead">
+        <span class="offer-tag">Start here · free</span>
+        <h3>The first conversation</h3>
+        <p>Thirty minutes. You talk, I listen, and I tell you honestly what I see and whether I'm the right person to help. No pitch, no obligation.</p>
+        <div class="offer-meta">30 min · video or call · no cost</div>
+      </article>
+      <article class="offer-card">
+        <span class="offer-tag">The intensive</span>
+        <h3>The Threshing</h3>
+        <p>A focused engagement to do the real work — separate the seed from the chaff, name the direction, and build the plan to move on it. For the job-seeker or the founder ready to act.</p>
+        <div class="offer-meta">Scope &amp; rate set together</div>
+      </article>
+      <article class="offer-card">
+        <span class="offer-tag">For a season</span>
+        <h3>Accompaniment</h3>
+        <p>Ongoing counsel through a transition or a build — a navigator in your corner, on a rhythm that fits your pace. Until you're standing on your own, better than before.</p>
+        <div class="offer-meta">Monthly · by arrangement</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ROOTS TEASER -->
+<section class="section roots-teaser">
+  <div class="wrap">
+    <span class="eyebrow">The deeper why</span>
+    <h2>There's an older picture beneath all of this — a seed, separated, planted by water, that grows into a tree whose leaves end up healing whole nations.</h2>
+    <p>It's where the name comes from, and the reason I do this work at all. It's not on the surface of the practice — but it's the root system underneath it, here for anyone who wants to see it.</p>
+    <a href="roots.html" class="btn-ghost">Read the roots →</a>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final divider-top">
+  <div class="wrap">
+    <h2>You're at the edge of something.<br><em>Let's get you across it.</em></h2>
+    <p>One conversation is all it takes to start. It's free, and you'll leave with something real.</p>
+    <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed" class="btn-primary"><!--BOOK_LINK-->Book a free conversation</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-tag">Separate the seed from the chaff. Plant it by the waters.</p>
+    <div class="footer-links">
+      <a href="#doors">Two doors</a>
+      <a href="#method">How it works</a>
+      <a href="#proof">Proof</a>
+      <a href="roots.html">Roots</a>
+      <a href="mailto:pb.connollys@gmail.com?subject=A%20conversation%20%E2%80%94%20Threshed"><!--BOOK_LINK-->Book a conversation</a>
+      <a href="https://pconpiee.github.io/" target="_blank" rel="noopener">pconpiee.github.io</a>
+      <a href="https://www.linkedin.com/in/patrick-connolly-bs487" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/pconpiee" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="footer-fine">Threshed — a small advisory practice by J. Patrick Connolly. Part of the <a href="https://pconpiee.github.io/" target="_blank" rel="noopener">pconpiee</a> ecosystem.</p>
+  </div>
+</footer>
+
+</body>
+</html>
