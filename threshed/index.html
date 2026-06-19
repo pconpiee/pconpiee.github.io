@@ -119,6 +119,18 @@ a{color:inherit;}
 .proof-note{margin-top:2.4rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--ink-soft);}
 .proof-note a{color:var(--ember-deep);text-decoration:underline;text-underline-offset:3px;}
 @media(max-width:760px){.proof-cols{grid-template-columns:1fr;gap:2rem;}}
+/* worked examples */
+.work-head{margin-top:3.4rem;}
+.work-head h4{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:0.7rem;margin:0 0 0.4rem;}
+.work-head p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink-soft);margin:0.6rem 0 0;}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.4rem;}
+.work-card{display:block;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:1.5rem 1.4rem;text-decoration:none;transition:.22s;}
+.work-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px var(--shadow);border-color:var(--ember-tint);}
+.work-kind{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--ember-deep);}
+.work-card h5{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--ink);margin:0.5rem 0 0.45rem;line-height:1.2;}
+.work-card p{font-size:0.84rem;color:var(--ink-body);margin:0;line-height:1.55;}
+.work-card .pdf{display:inline-block;margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.05em;color:var(--ink-soft);}
+@media(max-width:760px){.work-grid{grid-template-columns:1fr;}}
 
 /* offer */
 .offer{background:var(--paper-3);}
@@ -279,7 +291,7 @@ a{color:inherit;}
       <div class="proof-col">
         <h4>For the job-seeker</h4>
         <a class="tool" href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">CV &amp; Interview Guide</span><span class="tool-desc">ATS · STAR-L</span></a>
-        <a class="tool" href="https://resume-rockstar-kit.lovable.app/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Resume Rockstar Kit</span><span class="tool-desc">Tracker</span></a>
+        <a class="tool" href="https://github.com/pconpiee/resume-rockstar-skill" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Résumé Rockstar — Skill</span><span class="tool-desc">Open skill · GitHub</span></a>
         <a class="tool" href="https://blue-canopy.vercel.app/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Blue Canopy</span><span class="tool-desc">Mil → civ</span></a>
         <a class="tool" href="https://orbit-transfer.vercel.app/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Orbit Transfer</span><span class="tool-desc">Deep-tech MBA</span></a>
         <a class="tool" href="https://pconpiee.github.io/nursing-roadmap/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Nursing Roadmap</span><span class="tool-desc">Int'l → US BSN</span></a>
@@ -290,9 +302,46 @@ a{color:inherit;}
         <a class="tool" href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">PMF Lab</span><span class="tool-desc">Find PMF</span></a>
         <a class="tool" href="https://pconpiee.github.io/PMF/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">PMF Simulator</span><span class="tool-desc">Decide</span></a>
         <a class="tool" href="https://github.com/pconpiee/hem-skill" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">The Hem Method</span><span class="tool-desc">Open skill</span></a>
-        <a class="tool" href="https://pconpiee.github.io/" target="_blank" rel="noopener"><span class="tool-dot"></span><span class="tool-name">Aegis EO Strategy Pack</span><span class="tool-desc">Worked example</span></a>
       </div>
     </div>
+
+    <div class="work-head">
+      <h4>Worked examples &amp; deep guides &middot; for the founder</h4>
+      <p>The actual artifacts — strategy packs, a validation sprint, and the playbooks behind them. The same depth I bring to a build, written out in full. Several were built as worked teaching examples for graduate programs at ISU and Tel Aviv University.</p>
+    </div>
+    <div class="work-grid">
+      <a class="work-card" href="resources/aegis-eo-strategy-pack.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Strategy pack · ISU worked example</span>
+        <h5>Aegis EO — Strategy Pack</h5>
+        <p>One venture, eight strategy lenses applied end to end — what a defended bet looks like once the conversations are done.</p>
+        <span class="pdf">PDF · 10 pp ↗</span>
+      </a>
+      <a class="work-card" href="resources/airmo-pmf-sprint.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Validation · ISU worked example</span>
+        <h5>AIRMO — PMF Sprint</h5>
+        <p>A 10-day, 48-conversation product-market-fit sprint: the bet, the evidence, what it killed, and the next test.</p>
+        <span class="pdf">PDF · 6 pp ↗</span>
+      </a>
+      <a class="work-card" href="resources/netflix-strategy-brief.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Strategy · TAU MBA teardown</span>
+        <h5>Netflix — Strategy Brief</h5>
+        <p>A full external/internal analysis and a defended recommendation — how to read a market and pick the one viable move.</p>
+        <span class="pdf">PDF · 2 pp ↗</span>
+      </a>
+      <a class="work-card" href="resources/product-design-toolkit.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Playbook · ISU guide</span>
+        <h5>Product Design Toolkit</h5>
+        <p>From understanding the user to writing the spec — four altitudes, one descent. The companion to a real build.</p>
+        <span class="pdf">PDF · 18 pp ↗</span>
+      </a>
+      <a class="work-card" href="resources/business-operations-toolkit.pdf" target="_blank" rel="noopener">
+        <span class="work-kind">Playbook · ISU guide</span>
+        <h5>Business Operations Toolkit</h5>
+        <p>Direction, structure, visibility — how to make a company runnable so it no longer lives only in the founder's head.</p>
+        <span class="pdf">PDF · 16 pp ↗</span>
+      </a>
+    </div>
+
     <p class="proof-note">Want the longer story of the work? See <a href="https://pconpiee.github.io/" target="_blank" rel="noopener">selected work &amp; the person behind this →</a></p>
   </div>
 </section>
