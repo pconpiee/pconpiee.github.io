@@ -93,6 +93,15 @@ a{color:inherit;}
 .thresh-stages{display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;font-family:'DM Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:0.5rem;}
 .thresh-stages b{color:var(--ember-deep);font-weight:400;}
 .thresh-stages .arw{color:var(--line);font-size:0.9rem;}
+.thresh-journey{display:flex;align-items:flex-start;gap:0.4rem;flex-wrap:wrap;margin-top:1.8rem;}
+.tj-node{display:flex;flex-direction:column;align-items:center;gap:0.55rem;text-align:center;flex:1;min-width:60px;}
+.tj-ico{width:46px;height:46px;display:grid;place-items:center;border-radius:50%;background:var(--card);border:1px solid var(--line);color:var(--sage);}
+.tj-ico svg{width:24px;height:24px;}
+.tj-node b{font-family:'DM Mono',monospace;font-size:0.53rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;line-height:1.3;}
+.tj-arw{color:var(--amber);font-size:1.1rem;align-self:center;margin-top:11px;font-weight:700;}
+.door-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem;}
+.door-ico{color:var(--sage);}
+.door-ico svg{width:30px;height:30px;}
 @media(max-width:760px){.thresh-grid{grid-template-columns:1fr;gap:2rem;}}
 
 /* two doors */
@@ -230,8 +239,14 @@ a{color:inherit;}
       <p class="thresh-graf">Threshing is the old work of the harvest: you beat the cut stalk until the <strong>true seed</strong> falls free of the chaff — the husk, the dust, everything that isn't the grain.</p>
       <p class="thresh-graf">Most people at a turning point are carrying both at once: a real gift tangled up with fear, other people's expectations, and a dozen wrong directions. It's hard to tell the seed from the husk when it's your own.</p>
       <p class="thresh-graf">The work is simple to name and hard to do alone: <em>separate the seed from the chaff — then plant it where it can grow.</em></p>
-      <div class="thresh-stages">
-        <b>Threshed</b><span class="arw">→</span><b>the seed</b><span class="arw">→</span><b>planted</b><span class="arw">→</span><b>grown</b>
+      <div class="thresh-journey">
+        <div class="tj-node"><span class="tj-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 22V9"/><path d="M12 9c0-2.5 1.6-4.2 3.6-4.8C15.6 6.7 14 8.4 12 9Z" fill="currentColor" stroke="none"/><path d="M12 9C12 6.5 10.4 4.8 8.4 4.2 8.4 6.7 10 8.4 12 9Z" fill="currentColor" stroke="none"/><path d="M12 14c0-2.5 1.6-4.2 3.6-4.8C15.6 11.7 14 13.4 12 14Z" fill="currentColor" stroke="none"/><path d="M12 14c0-2.5-1.6-4.2-3.6-4.8C8.4 11.7 10 13.4 12 14Z" fill="currentColor" stroke="none"/></svg></span><b>Threshed</b></div>
+        <span class="tj-arw">&rarr;</span>
+        <div class="tj-node"><span class="tj-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c4 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 2-7 6-10Z"/></svg></span><b>The seed</b></div>
+        <span class="tj-arw">&rarr;</span>
+        <div class="tj-node"><span class="tj-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0"/><path d="M3 14c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0"/><path d="M3 19c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0"/></svg></span><b>Planted by water</b></div>
+        <span class="tj-arw">&rarr;</span>
+        <div class="tj-node"><span class="tj-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 22v-7"/><circle cx="12" cy="9" r="6"/></svg></span><b>Grown &mdash; fruit &amp; shade</b></div>
       </div>
     </div>
   </div>
@@ -245,7 +260,7 @@ a{color:inherit;}
     <p class="section-sub">The same work, through two doors. Most people come for one and find they needed a little of both.</p>
     <div class="doors-grid">
       <article class="door">
-        <div class="door-num">I</div>
+        <div class="door-top"><div class="door-num">I</div><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span></div>
         <div class="door-kicker">The job-seeker</div>
         <h3>Land the right role</h3>
         <p class="who">For talented people who are between roles, underplaced, or crossing into something new — and tired of disappearing into the pile.</p>
@@ -257,7 +272,7 @@ a{color:inherit;}
         </ul>
       </article>
       <article class="door">
-        <div class="door-num">II</div>
+        <div class="door-top"><div class="door-num">II</div><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 21v-9"/><path d="M12 13c-1.2-3.2-4-4.4-7.2-4.4C4.8 11.8 7 14 12 14"/><path d="M12 11c1.2-3.2 4-4.4 7.2-4.4C19.2 9.8 17 12 12 12"/></svg></span></div>
         <div class="door-kicker">The founder</div>
         <h3>Build the company</h3>
         <p class="who">For builders carrying an idea, an early company, or a fork in the road — and too close to it to see the next step clearly.</p>
