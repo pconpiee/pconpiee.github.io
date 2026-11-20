@@ -189,46 +189,99 @@ a{color:inherit;}
 .arc-now .arc-place { color:var(--ember-deep); }
 
 /* ══ THE TOOLS ══ */
-.rooms { background:var(--paper); }
-.rooms-header { max-width:680px; margin:0 auto 4rem; text-align:center; }
-.rooms-grid { max-width:1080px; margin:0 auto; display:grid; grid-template-columns:repeat(2,1fr); gap:1.75rem; }
+.rooms { background:var(--paper); padding-bottom:5rem; }
+.rooms-header { max-width:680px; margin:0 auto 2.5rem; text-align:center; }
 
-.room-card {
-  background:var(--card); border:1px solid var(--line); border-radius:12px;
-  padding:2.5rem 2.4rem; position:relative; overflow:hidden; transition:all 0.25s;
-  border-top:3px solid var(--rc,#ccc);
+/* intent picker */
+.intent-label { text-align:center; font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:1rem; }
+.intent { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; max-width:900px; margin:0 auto 3.5rem; }
+.intent a {
+  display:inline-flex; align-items:center; gap:0.6rem; padding:0.5rem 1.05rem 0.5rem 0.5rem;
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  font-size:0.9rem; font-weight:500; color:var(--ink); text-decoration:none; transition:all 0.18s;
 }
-.room-card:hover{ transform:translateY(-4px); box-shadow:0 16px 44px var(--shadow-deep); }
-.room-card.vocation { --rc:var(--ember); }
-.room-card.career   { --rc:var(--bark); }
-.room-card.crossings{ --rc:var(--sky); }
-.room-card.strategy { --rc:var(--sage); }
-.room-card.founding { --rc:var(--gold); }
-.room-card.formation{ --rc:var(--wine); }
-.room-card.follow   { --rc:var(--ember-deep); }
-.room-card.marriage { --rc:var(--sky); }
-.room-card.library  { --rc:var(--bark); }
-.room-card.lib-strat{ --rc:var(--sage); }
-.room-card.lib-faith{ --rc:var(--wine); }
-.room-card.lib-more { --rc:var(--gold); }
-.guides-section { padding-top:0; }
+.intent a:hover { border-color:var(--dc); box-shadow:0 6px 18px var(--shadow); transform:translateY(-1px); }
+.intent-ico { width:30px; height:30px; border-radius:50%; background:var(--dc); color:#fff; display:grid; place-items:center; flex-shrink:0; }
+.intent-ico svg { width:16px; height:16px; }
 
-.room-top { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem; }
-.room-tag { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); }
-.room-num { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:400; font-style:italic; color:var(--rc); line-height:1; }
-.room-title { font-family:'Cormorant Garamond',serif; font-size:1.85rem; font-weight:500; font-style:italic; color:var(--ink); margin-bottom:0.4rem; line-height:1.1; }
-.room-question { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; color:var(--ink-soft); margin-bottom:1.4rem; line-height:1.5; }
-.room-tools { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.6rem; }
-.room-tool {
-  display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; color:var(--ink-body);
-  text-decoration:none; padding:0.65rem 0.8rem; border-radius:var(--radius);
-  background:var(--paper); transition:all 0.15s;
+/* doors */
+.d-vocation  { --dc:#c0552a; --dt:#f9ece4; }
+.d-career    { --dc:#2f5d7c; --dt:#e8eff4; }
+.d-crossings { --dc:#2c7a73; --dt:#e5f1ef; }
+.d-lead      { --dc:#a5741f; --dt:#f6eedd; }
+.d-founding  { --dc:#4f7248; --dt:#eaf0e6; }
+.d-follow    { --dc:#8a3f4d; --dt:#f5e8ea; }
+.d-beloved   { --dc:#6f5591; --dt:#eeeaf4; }
+
+.doors { max-width:1120px; margin:0 auto; display:flex; flex-direction:column; gap:1.4rem; }
+.door {
+  display:grid; grid-template-columns:330px 1fr; background:var(--card);
+  border:1px solid var(--line); border-radius:18px; overflow:hidden;
+  box-shadow:0 1px 2px var(--shadow); scroll-margin-top:1.5rem; transition:box-shadow 0.25s;
 }
-.room-tool:hover{ background:var(--paper-3); transform:translateX(3px); }
-.room-tool-dot{ width:6px; height:6px; border-radius:50%; flex-shrink:0; background:var(--rc); }
-.room-tool-name{ font-weight:500; color:var(--ink); }
-.room-tool-desc{ font-size:0.74rem; color:var(--ink-soft); margin-left:auto; white-space:nowrap; }
-.room-cta { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--ink-soft); }
+.door:hover { box-shadow:0 14px 40px var(--shadow); }
+.door-head { background:var(--dt); padding:1.8rem 1.9rem 1.7rem; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+.door-id { display:flex; align-items:center; gap:0.95rem; margin-bottom:1rem; }
+.door-num {
+  position:absolute; right:1.5rem; top:1.25rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500;
+  font-size:1.7rem; line-height:1; color:var(--dc); opacity:0.5; pointer-events:none; user-select:none;
+}
+.door-ico { width:48px; height:48px; border-radius:50%; background:var(--dc); color:#fff; display:grid; place-items:center; flex-shrink:0; box-shadow:0 6px 16px rgba(35,32,27,0.14); }
+.door-ico svg { width:24px; height:24px; }
+.door-tag { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--dc); margin-bottom:0.2rem; }
+.door-title { font-family:'Cormorant Garamond',serif; font-size:2.05rem; font-weight:500; font-style:italic; color:var(--ink); line-height:1.05; }
+.door-q { font-family:'Cormorant Garamond',serif; font-size:1.14rem; font-style:italic; color:var(--ink-body); line-height:1.45; margin-bottom:1.1rem; position:relative; }
+.door-cta { margin-top:auto; font-size:0.8rem; color:var(--ink-body); line-height:1.45; position:relative; }
+.door-cta strong { color:var(--dc); font-weight:500; }
+.door-count { display:none; }
+.door-body { padding:1.5rem; display:grid; grid-template-columns:repeat(auto-fill,minmax(245px,1fr)); gap:0.7rem; align-content:start; }
+
+.tile {
+  display:flex; flex-direction:column; gap:0.2rem; padding:0.95rem 1.05rem 1rem;
+  background:var(--paper); border:1px solid var(--line-soft); border-radius:11px;
+  text-decoration:none; transition:all 0.16s; min-height:76px;
+}
+.tile:hover { background:#fff; border-color:var(--dc); box-shadow:0 8px 22px var(--shadow); transform:translateY(-2px); }
+.tile-top { display:flex; align-items:baseline; justify-content:space-between; gap:0.6rem; }
+.tile-name { font-size:0.96rem; font-weight:500; color:var(--ink); line-height:1.3; }
+.tile-name::after { content:'\2192'; margin-left:0.4rem; color:var(--dc); opacity:0; transition:opacity 0.16s; }
+.tile:hover .tile-name::after { opacity:1; }
+.tile-kind { font-family:'DM Mono',monospace; font-size:0.54rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--dc); border:1px solid var(--dc); border-radius:999px; padding:0.1rem 0.45rem; white-space:nowrap; opacity:0.85; flex-shrink:0; }
+.tile-desc { font-size:0.82rem; color:#6a6257; line-height:1.45; }
+
+.shelf { max-width:1120px; margin:2rem auto 0; text-align:center; font-size:0.9rem; color:var(--ink-body); }
+.shelf span { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); margin-right:0.6rem; }
+.shelf a { color:var(--ink); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:4px; transition:all 0.15s; }
+.shelf a:hover { color:var(--ember-deep); text-decoration-color:var(--ember); }
+.shelf i { color:var(--ink-soft); font-style:normal; margin:0 0.5rem; }
+
+@media(max-width:860px){
+  .m-collapse .intent, .m-collapse .intent-label { display:none; }
+  .intent { gap:0.5rem; margin-bottom:2.25rem; }
+  .intent a { font-size:0.84rem; padding:0.4rem 0.85rem 0.4rem 0.4rem; }
+  .intent-ico { width:26px; height:26px; }
+  .shelf span { display:block; margin:0 0 0.5rem; }
+  .shelf a { display:inline-block; margin:0.15rem 0; }
+  .doors { gap:0.8rem; }
+  .door { grid-template-columns:1fr; border-radius:14px; }
+  .door-head { padding:1.1rem 3rem 1.1rem 1.1rem; }
+  .door-id { gap:0.8rem; margin-bottom:0.55rem; }
+  .door-ico { width:42px; height:42px; }
+  .door-ico svg { width:21px; height:21px; }
+  .door-num { display:none; }
+  .door-tag { font-size:0.54rem; }
+  .door-title { font-size:1.65rem; }
+  .door-q { font-size:1rem; margin-bottom:0; }
+  .door-cta { margin-top:0.7rem; }
+  .door-body { grid-template-columns:1fr; padding:0.9rem; gap:0.55rem; }
+  .m-collapse .door-head { cursor:pointer; }
+  .m-collapse .door-head::after { content:''; position:absolute; right:1.25rem; top:50%; width:9px; height:9px; border-right:2px solid var(--dc); border-bottom:2px solid var(--dc); transform:translateY(-70%) rotate(45deg); transition:transform 0.2s; }
+  .m-collapse .door.open .door-head::after { transform:translateY(-30%) rotate(-135deg); }
+  .m-collapse .door:not(.open) .door-body, .m-collapse .door:not(.open) .door-cta { display:none; }
+  .m-collapse .door-count { display:block; font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); margin-top:0.35rem; position:relative; }
+  .m-collapse .door.open .door-count { display:none; }
+  .shelf i { display:block; height:0.3rem; visibility:hidden; }
+}
 
 /* ══ LEGACY ══ */
 .legacy { background:var(--paper); padding:0 2rem 8rem; }
@@ -288,10 +341,8 @@ a{color:inherit;}
 /* ── RESPONSIVE ── */
 @media(max-width:760px){
   .section{ padding:5.5rem 1.5rem; }
-  .rooms-grid{ grid-template-columns:1fr; }
   .arc-grid{ grid-template-columns:1fr; }
   .invitation-doors{ grid-template-columns:1fr; }
-  .room-tool-desc{ display:none; }
 }
 @media(max-width:480px){
   .hero-title{ font-size:2.7rem; }
@@ -409,170 +460,134 @@ a{color:inherit;}
     <p class="section-sub">Each door opens a different part of the same journey. Most people find they need more than one. Everything is free, nothing asks you to log in, and what you write stays on your device.</p>
   </div>
 
-  <div class="rooms-grid">
+  <p class="intent-label">Start with what&rsquo;s true of you</p>
+  <nav class="intent" aria-label="Choose a starting point">
+    <a class="d-vocation" href="#door-vocation"><span class="intent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></svg></span>I feel stuck</a>
+    <a class="d-career" href="#door-career"><span class="intent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 13h18"/></svg></span>I need to get hired</a>
+    <a class="d-crossings" href="#door-crossings"><span class="intent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17.5h19M5.5 17.5V8M18.5 17.5V8M5.5 8.5c2.4 4.6 10.6 4.6 13 0M9 17.5v-5.4M12 17.5v-4.6M15 17.5v-5.4"/></svg></span>I&rsquo;m changing fields</a>
+    <a class="d-lead" href="#door-lead"><span class="intent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 20l6.5-10.5 3.6 5.6 2-3.1L21.5 20z"/><path d="M9 9.5V3l4.2 1.6L9 6.3"/></svg></span>I&rsquo;m leading people</a>
+    <a class="d-founding" href="#door-founding"><span class="intent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8c3 2.2 4.4 5.6 4.4 9.2l-1.9 3H9.5l-1.9-3c0-3.6 1.4-7 4.4-9.2z"/><circle cx="12" cy="9.8" r="1.6"/><path d="M9.5 15l-2 3.6M14.5 15l2 3.6M12 17.5V21"/></svg></span>I&rsquo;m building something</a>
+    <a class="d-follow" href="#door-follow"><span class="intent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 18.5h19M6 18.5a6 6 0 0 1 12 0M12 5v3.2M4.4 9.4l2.2 2.2M19.6 9.4l-2.2 2.2"/></svg></span>I&rsquo;m exploring faith</a>
+    <a class="d-beloved" href="#door-beloved"><span class="intent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.8" cy="13" r="5.6"/><circle cx="15.2" cy="13" r="5.6"/></svg></span>I&rsquo;m dating, engaged or married</a>
+  </nav>
 
-    <!-- I VOCATION -->
-    <div class="room-card vocation">
-      <div class="room-top"><span class="room-tag">Know Yourself</span><span class="room-num">I</span></div>
-      <h3 class="room-title">Vocation</h3>
-      <p class="room-question">&ldquo;Who were you made to be &mdash; and are you becoming it?&rdquo;</p>
-      <div class="room-tools">
-        <a href="the-table.html" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">The Table</span><span class="room-tool-desc">Four conversations</span></a>
-        <a href="the-way.html" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">The Way</span><span class="room-tool-desc">Twelve weeks</span></a>
+  <div class="doors" id="guides">
+    <article class="door d-vocation" id="door-vocation">
+      <header class="door-head">
+        <span class="door-num" aria-hidden="true">I</span>
+        <div class="door-id"><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></svg></span><div><p class="door-tag">Know Yourself</p><h3 class="door-title">Vocation</h3></div></div>
+        <p class="door-q">&ldquo;Who were you made to be &mdash; and are you becoming it?&rdquo;</p>
+        <p class="door-count">3 tools &amp; guides</p>
+        <p class="door-cta"><strong>Begin here</strong> if you feel stuck or unseen.</p>
+      </header>
+      <div class="door-body">
+        <a class="tile" href="the-table.html"><span class="tile-top"><span class="tile-name">The Table</span><span class="tile-kind">App</span></span><span class="tile-desc">Four conversations</span></a>
+        <a class="tile" href="the-way.html"><span class="tile-top"><span class="tile-name">The Way</span><span class="tile-kind">App</span></span><span class="tile-desc">Twelve weeks</span></a>
+        <a class="tile" href="guides/christ-led-career-os.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Christ-Led Career OS</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Your career, with Christ at the centre</span></a>
       </div>
-      <div class="room-cta">Begin here if you feel stuck or unseen</div>
-    </div>
-
-    <!-- II CAREER -->
-    <div class="room-card career">
-      <div class="room-top"><span class="room-tag">Articulate Yourself</span><span class="room-num">II</span></div>
-      <h3 class="room-title">Career</h3>
-      <p class="room-question">&ldquo;How do you tell your story and get in the room?&rdquo;</p>
-      <div class="room-tools">
-        <a href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">CV &amp; Interview Guide</span><span class="room-tool-desc">ATS, bullets, STAR-L</span></a>
-        <a href="https://resume-rockstar-kit.lovable.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Resume Rockstar Kit</span><span class="room-tool-desc">Application tracker</span></a>
-        <a href="https://github.com/pconpiee/resume-rockstar-skill" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Resume Rockstar Skill</span><span class="room-tool-desc">Point your AI at it · GitHub</span></a>
+    </article>
+    <article class="door d-career" id="door-career">
+      <header class="door-head">
+        <span class="door-num" aria-hidden="true">II</span>
+        <div class="door-id"><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 13h18"/></svg></span><div><p class="door-tag">Articulate Yourself</p><h3 class="door-title">Career</h3></div></div>
+        <p class="door-q">&ldquo;How do you tell your story and get in the room?&rdquo;</p>
+        <p class="door-count">7 tools &amp; guides</p>
+        <p class="door-cta"><strong>Begin here</strong> if you need to get hired.</p>
+      </header>
+      <div class="door-body">
+        <a class="tile" href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">CV &amp; Interview Guide</span><span class="tile-kind">Guide</span></span><span class="tile-desc">ATS, bullets, STAR-L</span></a>
+        <a class="tile" href="https://resume-rockstar-kit.lovable.app/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Resume Rockstar Kit</span><span class="tile-kind">App</span></span><span class="tile-desc">Application tracker</span></a>
+        <a class="tile" href="https://github.com/pconpiee/resume-rockstar-skill" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Resume Rockstar Skill</span><span class="tile-kind">AI skill</span></span><span class="tile-desc">Point your AI at it &middot; GitHub</span></a>
+        <a class="tile" href="guides/networking-negotiation-field-guide.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Networking &amp; Negotiation</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Outreach, interviews, salary</span></a>
+        <a class="tile" href="guides/conference-playbook.html" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Conference Playbook</span><span class="tile-kind">App</span></span><span class="tile-desc">Prep, floor, follow-up &middot; on your phone</span></a>
+        <a class="tile" href="guides/conference-field-guide.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Conference Field Guide</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Decide, prepare, follow up</span></a>
+        <a class="tile" href="guides/conference-cheat-sheet.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Conference Cheat Sheet</span><span class="tile-kind">PDF</span></span><span class="tile-desc">One printable page</span></a>
       </div>
-      <div class="room-cta">Begin here if you need to get hired</div>
-    </div>
-
-    <!-- III CROSSINGS -->
-    <div class="room-card crossings">
-      <div class="room-top"><span class="room-tag">Navigate the Transition</span><span class="room-num">III</span></div>
-      <h3 class="room-title">Crossings</h3>
-      <p class="room-question">&ldquo;You&rsquo;re leaving one world for another. What&rsquo;s the map?&rdquo;</p>
-      <div class="room-tools">
-        <a href="https://blue-canopy.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Blue Canopy</span><span class="room-tool-desc">Military → civilian</span></a>
-        <a href="https://orbit-transfer.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Orbit Transfer</span><span class="room-tool-desc">Deep-tech MBA</span></a>
-        <a href="https://pconpiee.github.io/nursing-roadmap/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Nursing Roadmap</span><span class="room-tool-desc">Int&rsquo;l → US BSN</span></a>
+    </article>
+    <article class="door d-crossings" id="door-crossings">
+      <header class="door-head">
+        <span class="door-num" aria-hidden="true">III</span>
+        <div class="door-id"><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17.5h19M5.5 17.5V8M18.5 17.5V8M5.5 8.5c2.4 4.6 10.6 4.6 13 0M9 17.5v-5.4M12 17.5v-4.6M15 17.5v-5.4"/></svg></span><div><p class="door-tag">Navigate the Transition</p><h3 class="door-title">Crossings</h3></div></div>
+        <p class="door-q">&ldquo;You&rsquo;re leaving one world for another. What&rsquo;s the map?&rdquo;</p>
+        <p class="door-count">3 tools &amp; guides</p>
+        <p class="door-cta"><strong>Begin here</strong> if you&rsquo;re crossing into a new field.</p>
+      </header>
+      <div class="door-body">
+        <a class="tile" href="https://blue-canopy.vercel.app/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Blue Canopy</span><span class="tile-kind">App</span></span><span class="tile-desc">Military &rarr; civilian</span></a>
+        <a class="tile" href="https://orbit-transfer.vercel.app/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Orbit Transfer</span><span class="tile-kind">App</span></span><span class="tile-desc">Deep-tech MBA</span></a>
+        <a class="tile" href="https://pconpiee.github.io/nursing-roadmap/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Nursing Roadmap</span><span class="tile-kind">Guide</span></span><span class="tile-desc">Int&rsquo;l &rarr; US BSN</span></a>
       </div>
-      <div class="room-cta">Begin here if you&rsquo;re crossing into a new field</div>
-    </div>
-
-    <!-- IV STRATEGY -->
-    <div class="room-card strategy">
-      <div class="room-top"><span class="room-tag">Think Clearly</span><span class="room-num">IV</span></div>
-      <h3 class="room-title">Strategy</h3>
-      <p class="room-question">&ldquo;How do you reason well about the world you&rsquo;re sent into?&rdquo;</p>
-      <div class="room-tools">
-        <a href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">PMF Lab</span><span class="room-tool-desc">Find product-market fit</span></a>
-        <a href="https://pconpiee.github.io/PMF/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">PMF Simulator</span><span class="room-tool-desc">Decide under pressure</span></a>
+    </article>
+    <article class="door d-lead" id="door-lead">
+      <header class="door-head">
+        <span class="door-num" aria-hidden="true">IV</span>
+        <div class="door-id"><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 20l6.5-10.5 3.6 5.6 2-3.1L21.5 20z"/><path d="M9 9.5V3l4.2 1.6L9 6.3"/></svg></span><div><p class="door-tag">Lead Well</p><h3 class="door-title">Leadership</h3></div></div>
+        <p class="door-q">&ldquo;How do you lead well and bring others with you?&rdquo;</p>
+        <p class="door-count">4 tools &amp; guides</p>
+        <p class="door-cta"><strong>Begin here</strong> if you are raising up others.</p>
+      </header>
+      <div class="door-body">
+        <a class="tile" href="guides/made-not-born.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Made, Not Born</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Leadership is a learnable skill</span></a>
+        <a class="tile" href="guides/leadership-field-guide.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Leadership &amp; Network Guide</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Leadership, networks, five years</span></a>
+        <a class="tile" href="guides/legacy-org-field-guide.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Reading the Absence</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Leading an under-documented organisation</span></a>
+        <a class="tile" href="https://pconpiee.github.io/TICOS/leadership-formation.html" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Leader Formation</span><span class="tile-kind">Guide</span></span><span class="tile-desc">Six sessions</span></a>
       </div>
-      <div class="room-cta">Begin here if you need to think harder</div>
-    </div>
-
-    <!-- V FOUNDING -->
-    <div class="room-card founding">
-      <div class="room-top"><span class="room-tag">Build Something Real</span><span class="room-num">V</span></div>
-      <h3 class="room-title">Founding</h3>
-      <p class="room-question">&ldquo;You have a hunch. How do you turn it into a defensible bet?&rdquo;</p>
-      <div class="room-tools">
-        <a href="https://flight-map-gamma.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Hem / Flight Map</span><span class="room-tool-desc">A founder&rsquo;s nav system</span></a>
-        <a href="https://github.com/pconpiee/hem-skill" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">The Hem Method</span><span class="room-tool-desc">Open skill · GitHub</span></a>
-        <a href="aegis-eo-strategy-pack.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Aegis EO Strategy Pack</span><span class="room-tool-desc">Worked example</span></a>
+    </article>
+    <article class="door d-founding" id="door-founding">
+      <header class="door-head">
+        <span class="door-num" aria-hidden="true">V</span>
+        <div class="door-id"><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8c3 2.2 4.4 5.6 4.4 9.2l-1.9 3H9.5l-1.9-3c0-3.6 1.4-7 4.4-9.2z"/><circle cx="12" cy="9.8" r="1.6"/><path d="M9.5 15l-2 3.6M14.5 15l2 3.6M12 17.5V21"/></svg></span><div><p class="door-tag">Build Something Real</p><h3 class="door-title">Founding</h3></div></div>
+        <p class="door-q">&ldquo;You have a hunch. How do you turn it into a defensible bet?&rdquo;</p>
+        <p class="door-count">8 tools &amp; guides</p>
+        <p class="door-cta"><strong>Begin here</strong> if you&rsquo;re building or want a mentor.</p>
+      </header>
+      <div class="door-body">
+        <a class="tile" href="https://flight-map-gamma.vercel.app/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Hem / Flight Map</span><span class="tile-kind">App</span></span><span class="tile-desc">A founder&rsquo;s nav system</span></a>
+        <a class="tile" href="https://github.com/pconpiee/hem-skill" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">The Hem Method</span><span class="tile-kind">AI skill</span></span><span class="tile-desc">Open skill &middot; GitHub</span></a>
+        <a class="tile" href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">PMF Lab</span><span class="tile-kind">App</span></span><span class="tile-desc">Find product-market fit</span></a>
+        <a class="tile" href="https://pconpiee.github.io/PMF/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">PMF Simulator</span><span class="tile-kind">App</span></span><span class="tile-desc">Decide under pressure</span></a>
+        <a class="tile" href="guides/pmf-field-guide.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">PMF Field Guide</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Diagnosing product-market fit</span></a>
+        <a class="tile" href="guides/pmf-mission-handbook.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">PMF Mission Handbook</span><span class="tile-kind">PDF</span></span><span class="tile-desc">OPORD template, 30 tools</span></a>
+        <a class="tile" href="guides/european-defence-entry-guide.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Entering European Defence</span><span class="tile-kind">PDF</span></span><span class="tile-desc">For US space start-ups</span></a>
+        <a class="tile" href="aegis-eo-strategy-pack.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Aegis EO Strategy Pack</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Worked example</span></a>
       </div>
-      <div class="room-cta">Begin here if you&rsquo;re building or want a mentor</div>
-    </div>
-
-    <!-- VI FORMATION -->
-    <div class="room-card formation">
-      <div class="room-top"><span class="room-tag">Lead &amp; Love Well</span><span class="room-num">VI</span></div>
-      <h3 class="room-title">Formation</h3>
-      <p class="room-question">&ldquo;How do you build a life and bring others with you?&rdquo;</p>
-      <div class="room-tools">
-        <a href="https://pconpiee.github.io/TICOS/leadership-formation.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Leader Formation</span><span class="room-tool-desc">Six sessions</span></a>
-        <a href="https://pconpiee.github.io/TICOS/premarriage-counseling.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Pre-Marriage</span><span class="room-tool-desc">Six sessions</span></a>
+    </article>
+    <article class="door d-follow" id="door-follow">
+      <header class="door-head">
+        <span class="door-num" aria-hidden="true">VI</span>
+        <div class="door-id"><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 18.5h19M6 18.5a6 6 0 0 1 12 0M12 5v3.2M4.4 9.4l2.2 2.2M19.6 9.4l-2.2 2.2"/></svg></span><div><p class="door-tag">Know Jesus</p><h3 class="door-title">Follow</h3></div></div>
+        <p class="door-q">&ldquo;Who is Jesus &mdash; and what does it mean to follow him?&rdquo;</p>
+        <p class="door-count">5 tools &amp; guides</p>
+        <p class="door-cta"><strong>Begin here</strong> if you&rsquo;re exploring faith or ready for baptism.</p>
+      </header>
+      <div class="door-body">
+        <a class="tile" href="https://into-christ.vercel.app/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Into Christ</span><span class="tile-kind">Course</span></span><span class="tile-desc">Jesus &amp; baptism &middot; 10 units + leader&rsquo;s guide</span></a>
+        <a class="tile" href="https://repairers.vercel.app/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Repairers</span><span class="tile-kind">Course</span></span><span class="tile-desc">Teens &middot; 21 days in Psalm 130 &amp; Isaiah 58</span></a>
+        <a class="tile" href="guides/where-are-you.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Where Are You?</span><span class="tile-kind">PDF</span></span><span class="tile-desc">The questions God asks</span></a>
+        <a class="tile" href="guides/discipleship-guide.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Fruit That Will Remain</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Making disciples, start to multiplication</span></a>
+        <a class="tile" href="guides/understanding-peace-leaders-guide.pdf" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Understanding Peace</span><span class="tile-kind">PDF</span></span><span class="tile-desc">Small-group leaders&rsquo; guide</span></a>
       </div>
-      <div class="room-cta">Begin here if you are raising up others</div>
-    </div>
-
-    <!-- VII FOLLOW -->
-    <div class="room-card follow">
-      <div class="room-top"><span class="room-tag">Know Jesus</span><span class="room-num">VII</span></div>
-      <h3 class="room-title">Follow</h3>
-      <p class="room-question">&ldquo;Who is Jesus &mdash; and what does it mean to follow him?&rdquo;</p>
-      <div class="room-tools">
-        <a href="https://into-christ.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Into Christ</span><span class="room-tool-desc">Jesus &amp; baptism · 10 units + leader&rsquo;s guide</span></a>
-        <a href="https://repairers.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Repairers</span><span class="room-tool-desc">Teens · 21 days in Psalm 130 &amp; Isaiah 58</span></a>
+    </article>
+    <article class="door d-beloved" id="door-beloved">
+      <header class="door-head">
+        <span class="door-num" aria-hidden="true">VII</span>
+        <div class="door-id"><span class="door-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.8" cy="13" r="5.6"/><circle cx="15.2" cy="13" r="5.6"/></svg></span><div><p class="door-tag">The Beloved Series</p><h3 class="door-title">Beloved</h3></div></div>
+        <p class="door-q">&ldquo;How do you build a Christ-centred life and marriage?&rdquo;</p>
+        <p class="door-count">6 tools &amp; guides</p>
+        <p class="door-cta"><strong>Begin here</strong> if you&rsquo;re single, dating, engaged or married.</p>
+      </header>
+      <div class="door-body">
+        <a class="tile" href="https://beloved-silk.vercel.app/" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Beloved</span><span class="tile-kind">Course</span></span><span class="tile-desc">Identity in Christ &middot; 14 days</span></a>
+        <a class="tile" href="https://beloved-silk.vercel.app/mystery.html" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">The Profound Mystery</span><span class="tile-kind">Course</span></span><span class="tile-desc">What marriage is &middot; 7 days</span></a>
+        <a class="tile" href="https://beloved-silk.vercel.app/prepare.html" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Prepare the Way</span><span class="tile-kind">Course</span></span><span class="tile-desc">Single, dating, engaged &middot; 21 days</span></a>
+        <a class="tile" href="https://beloved-silk.vercel.app/built.html" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Built on the Rock</span><span class="tile-kind">Course</span></span><span class="tile-desc">The early years &middot; 21 days</span></a>
+        <a class="tile" href="https://beloved-silk.vercel.app/waters.html" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Through the Waters</span><span class="tile-kind">Course</span></span><span class="tile-desc">Every season &middot; 6 modules</span></a>
+        <a class="tile" href="https://pconpiee.github.io/TICOS/premarriage-counseling.html" target="_blank" rel="noopener"><span class="tile-top"><span class="tile-name">Pre-Marriage</span><span class="tile-kind">Guide</span></span><span class="tile-desc">Six sessions</span></a>
       </div>
-      <div class="room-cta">Begin here if you&rsquo;re exploring faith or ready for baptism</div>
-    </div>
-
-    <!-- VIII MARRIAGE -->
-    <div class="room-card marriage">
-      <div class="room-top"><span class="room-tag">The Beloved Series</span><span class="room-num">VIII</span></div>
-      <h3 class="room-title">Beloved</h3>
-      <p class="room-question">&ldquo;How do you build a Christ-centred life and marriage?&rdquo;</p>
-      <div class="room-tools">
-        <a href="https://beloved-silk.vercel.app/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Beloved</span><span class="room-tool-desc">Identity in Christ · 14 days</span></a>
-        <a href="https://beloved-silk.vercel.app/mystery.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">The Profound Mystery</span><span class="room-tool-desc">What marriage is · 7 days</span></a>
-        <a href="https://beloved-silk.vercel.app/prepare.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Prepare the Way</span><span class="room-tool-desc">Single, dating, engaged · 21 days</span></a>
-        <a href="https://beloved-silk.vercel.app/built.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Built on the Rock</span><span class="room-tool-desc">The early years · 21 days</span></a>
-        <a href="https://beloved-silk.vercel.app/waters.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Through the Waters</span><span class="room-tool-desc">Every season · 6 modules</span></a>
-      </div>
-      <div class="room-cta">Begin here if you&rsquo;re single, dating, engaged or married</div>
-    </div>
-
+    </article>
   </div>
-</section>
 
-<!-- ══ FIELD GUIDES ══ -->
-<section class="section rooms guides-section" id="guides">
-  <div class="rooms-header">
-    <p class="eyebrow section-eyebrow">The Field Guides · Free · Download &amp; Print</p>
-    <h2 class="section-title">Field guides for the <em>road</em></h2>
-    <p class="section-sub">The longer companions to the tools above: written to be printed, marked up and carried. Free to read and share.</p>
-  </div>
-  <div class="rooms-grid">
-    <div class="room-card library">
-      <div class="room-top"><span class="room-tag">Career &amp; Leadership</span><span class="room-num">PDF</span></div>
-      <h3 class="room-title">Work the room</h3>
-      <p class="room-question">&ldquo;How do you show up, connect and lead well?&rdquo;</p>
-      <div class="room-tools">
-        <a href="guides/conference-playbook.html" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Conference Playbook</span><span class="room-tool-desc">Phone-ready: prep, floor, follow-up</span></a>
-        <a href="guides/conference-field-guide.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Conference Field Guide</span><span class="room-tool-desc">Decide, prepare, follow up</span></a>
-        <a href="guides/conference-cheat-sheet.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Conference Cheat Sheet</span><span class="room-tool-desc">One printable page</span></a>
-        <a href="guides/networking-negotiation-field-guide.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Networking &amp; Negotiation</span><span class="room-tool-desc">Outreach, interviews, salary</span></a>
-        <a href="guides/leadership-field-guide.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Leadership &amp; Network Guide</span><span class="room-tool-desc">Leadership, networks, five years</span></a>
-        <a href="guides/made-not-born.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Made, Not Born</span><span class="room-tool-desc">Leadership is learnable</span></a>
-      </div>
-      <div class="room-cta">For professionals and future leaders</div>
-    </div>
-    <div class="room-card lib-strat">
-      <div class="room-top"><span class="room-tag">Strategy &amp; Founding</span><span class="room-num">PDF</span></div>
-      <h3 class="room-title">Build and steer</h3>
-      <p class="room-question">&ldquo;How do you find fit, enter markets and lead old institutions?&rdquo;</p>
-      <div class="room-tools">
-        <a href="guides/pmf-field-guide.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">PMF Field Guide</span><span class="room-tool-desc">Diagnosing product-market fit</span></a>
-        <a href="guides/pmf-mission-handbook.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">PMF Mission Handbook</span><span class="room-tool-desc">OPORD template, 30 tools</span></a>
-        <a href="guides/european-defence-entry-guide.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Entering European Defence</span><span class="room-tool-desc">For US space start-ups</span></a>
-        <a href="guides/legacy-org-field-guide.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Reading the Absence</span><span class="room-tool-desc">Leading an under-documented organisation</span></a>
-      </div>
-      <div class="room-cta">For founders and new leaders</div>
-    </div>
-    <div class="room-card lib-faith">
-      <div class="room-top"><span class="room-tag">Faith &amp; Formation</span><span class="room-num">PDF</span></div>
-      <h3 class="room-title">Walk it out</h3>
-      <p class="room-question">&ldquo;How do you follow Jesus and help others follow him?&rdquo;</p>
-      <div class="room-tools">
-        <a href="guides/christ-led-career-os.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Christ-Led Career OS</span><span class="room-tool-desc">Your career, with Christ at the centre</span></a>
-        <a href="guides/discipleship-guide.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Fruit That Will Remain</span><span class="room-tool-desc">Making disciples, start to multiplication</span></a>
-        <a href="guides/where-are-you.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Where Are You?</span><span class="room-tool-desc">The questions God asks</span></a>
-        <a href="guides/understanding-peace-leaders-guide.pdf" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Understanding Peace</span><span class="room-tool-desc">Small-group leaders&rsquo; guide</span></a>
-      </div>
-      <div class="room-cta">For disciples and those who lead them</div>
-    </div>
-    <div class="room-card lib-more">
-      <div class="room-top"><span class="room-tag">Study &amp; Explore</span><span class="room-num">+</span></div>
-      <h3 class="room-title">And more</h3>
-      <p class="room-question">&ldquo;Something to study, something to enjoy.&rdquo;</p>
-      <div class="room-tools">
-        <a href="guides/vascular-neurology-trainer/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Vascular Neurology Trainer</span><span class="room-tool-desc">Board-exam study, works offline</span></a>
-        <a href="https://pconpiee.github.io/strasbourg-tour/" target="_blank" rel="noopener" class="room-tool"><span class="room-tool-dot"></span><span class="room-tool-name">Strasbourg Tour</span><span class="room-tool-desc">One afternoon, on foot</span></a>
-      </div>
-      <div class="room-cta">Free, no login</div>
-    </div>
-  </div>
+  <p class="shelf"><span>Also on the shelf</span><a href="guides/vascular-neurology-trainer/" target="_blank" rel="noopener">Vascular Neurology Board Trainer</a><i>&middot;</i><a href="https://pconpiee.github.io/strasbourg-tour/" target="_blank" rel="noopener">Strasbourg in an afternoon</a></p>
 </section>
 
 <!-- ══ LEGACY ══ -->
@@ -629,16 +644,14 @@ a{color:inherit;}
   <div class="footer-brand">J. Patrick Connolly &mdash; <em>Tools for becoming</em></div>
   <p class="footer-tagline">I see you. Your story isn&rsquo;t finished. Here is the door.</p>
   <div class="footer-links">
-    <a href="the-table.html" class="footer-link">The Table</a>
-    <a href="the-way.html" class="footer-link">The Way</a>
-    <a href="https://pconpiee.github.io/cv-guide/" target="_blank" rel="noopener" class="footer-link">CV Guide</a>
-    <a href="https://resume-rockstar-kit.lovable.app/" target="_blank" rel="noopener" class="footer-link">Resume Kit</a>
-    <a href="https://blue-canopy.vercel.app/" target="_blank" rel="noopener" class="footer-link">Blue Canopy</a>
-    <a href="https://orbit-transfer.vercel.app/" target="_blank" rel="noopener" class="footer-link">Orbit Transfer</a>
-    <a href="https://pconpiee.github.io/nursing-roadmap/" target="_blank" rel="noopener" class="footer-link">Nursing</a>
-    <a href="https://pconpiee.github.io/space-pmf/" target="_blank" rel="noopener" class="footer-link">PMF Lab</a>
-    <a href="https://flight-map-gamma.vercel.app/" target="_blank" rel="noopener" class="footer-link">Hem / Flight Map</a>
-    <a href="https://pconpiee.github.io/TICOS/" target="_blank" rel="noopener" class="footer-link">TICOS</a>
+    <a href="#door-vocation" class="footer-link">Vocation</a>
+    <a href="#door-career" class="footer-link">Career</a>
+    <a href="#door-crossings" class="footer-link">Crossings</a>
+    <a href="#door-lead" class="footer-link">Leadership</a>
+    <a href="#door-founding" class="footer-link">Founding</a>
+    <a href="#door-follow" class="footer-link">Follow</a>
+    <a href="#door-beloved" class="footer-link">Beloved</a>
+    <a href="threshed/" class="footer-link">Threshed</a>
     <a href="https://www.mobile-mis.net/" target="_blank" rel="noopener" class="footer-link">ILS International</a>
   </div>
   <div class="footer-contact">
@@ -647,5 +660,17 @@ a{color:inherit;}
   </div>
 </footer>
 
+<script>
+(function(){
+  var mq = window.matchMedia('(max-width:860px)');
+  function setup(){ document.documentElement.classList.toggle('m-collapse', mq.matches); }
+  setup(); if (mq.addEventListener) mq.addEventListener('change', setup);
+  document.querySelectorAll('.door-head').forEach(function(h){
+    h.addEventListener('click', function(){ if (mq.matches) h.parentNode.classList.toggle('open'); });
+  });
+  function openFromHash(){ var d = location.hash && document.querySelector(location.hash + '.door'); if (d) d.classList.add('open'); }
+  window.addEventListener('hashchange', openFromHash); openFromHash();
+})();
+</script>
 </body>
 </html>
