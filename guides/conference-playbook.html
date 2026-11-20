@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Conference Playbook — Prep · Floor · Follow-up</title>
+<style>
+  :root {
+    --ink: #14181f;
+    --ink-2: #2c3340;
+    --paper: #faf8f3;
+    --paper-2: #f2ede1;
+    --rule: #d9d2bf;
+    --accent: #b5430a;
+    --accent-soft: #f3e3cf;
+    --good: #1f6f3f;
+    --good-soft: #dff1e3;
+    --bad: #9a2222;
+    --bad-soft: #f6dede;
+    --muted: #6b6356;
+    --grad: #1f5f8b;
+    --grad-soft: #dcebf6;
+    --founder: #7a2d86;
+    --founder-soft: #efdcf3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 24px 80px; }
+  header.masthead { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 18px; }
+  header.masthead .eyebrow {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase; letter-spacing: 0.15em; font-size: 11px; color: var(--accent); font-weight: 700;
+  }
+  h1 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 32px; line-height: 1.12; margin: 6px 0 8px; letter-spacing: -0.01em; }
+  h2 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 22px; margin: 14px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+  h3 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 17px; margin: 24px 0 8px; }
+  h4 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 13px; margin: 16px 0 6px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  p { margin: 10px 0; }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code { font-family: "SF Mono", Menlo, monospace; font-size: 13px; background: var(--paper-2); padding: 1px 5px; border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+  th, td { border-bottom: 1px solid var(--rule); padding: 7px 9px; text-align: left; vertical-align: top; }
+  th { font-family: "Helvetica Neue", Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.07em; font-size: 11px; color: var(--muted); border-bottom: 2px solid var(--ink); }
+
+  /* ---- Role toggle ---- */
+  .rolebar { position: sticky; top: 0; z-index: 50; background: var(--paper); padding: 10px 0 8px; margin-bottom: 4px; border-bottom: 1px solid var(--rule); }
+  .rolewrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .rolewrap .lbl { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .roletoggle { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; background: white; }
+  .roletoggle button {
+    border: none; background: white; cursor: pointer; font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px; font-weight: 600; padding: 7px 18px; color: var(--ink-2); transition: all 0.12s;
+  }
+  body.role-grad .roletoggle button.r-grad { background: var(--grad); color: white; }
+  body.role-founder .roletoggle button.r-founder { background: var(--founder); color: white; }
+  .rolehint { font-size: 13px; color: var(--muted); font-style: italic; }
+
+  /* role-conditional content */
+  .grad-only, .founder-only { display: none; }
+  body.role-grad .grad-only { display: block; }
+  body.role-founder .founder-only { display: block; }
+  span.grad-only, span.founder-only, em.grad-only, em.founder-only, strong.grad-only, strong.founder-only { display: none; }
+  body.role-grad span.grad-only, body.role-grad em.grad-only, body.role-grad strong.grad-only { display: inline; }
+  body.role-founder span.founder-only, body.role-founder em.founder-only, body.role-founder strong.founder-only { display: inline; }
+  li.grad-only, li.founder-only { display: none; }
+  body.role-grad li.grad-only { display: list-item; }
+  body.role-founder li.founder-only { display: list-item; }
+
+  /* ---- Phase nav ---- */
+  .phasebar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 16px 0 6px; }
+  .phasebar a {
+    background: var(--paper-2); color: var(--ink-2); text-decoration: none; padding: 8px 6px; text-align: center;
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 3px solid var(--rule);
+  }
+  .phasebar a:hover { background: var(--accent-soft); border-bottom-color: var(--accent); color: var(--ink); }
+  .phasebar span.num { display: block; font-size: 17px; font-family: Georgia, serif; color: var(--accent); font-weight: 700; }
+
+  /* ---- TLDR / hero ---- */
+  .tldr { background: var(--ink); color: var(--paper); padding: 18px 22px; border-radius: 8px; margin: 14px 0 22px; }
+  .tldr h4 { color: #ffd2a3; margin: 0 0 8px; }
+  .tldr ol { margin: 6px 0 0; padding-left: 22px; }
+  .tldr li { margin: 7px 0; }
+  .tldr strong { color: #ffd2a3; }
+
+  /* ---- Cards / callouts ---- */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .card { background: white; border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; }
+  .card h4 { margin: 0 0 6px; color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .card ul { margin: 4px 0; padding-left: 18px; font-size: 15px; }
+
+  .callout { background: var(--accent-soft); border: 1px solid #e6c5a0; border-radius: 6px; padding: 13px 17px; margin: 14px 0; }
+  .callout .label { font-family: "Helvetica Neue", Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; color: var(--accent); font-weight: 700; display: block; margin-bottom: 4px; }
+
+  .evidence { background: #eef3ee; border-left: 3px solid var(--good); padding: 8px 13px; font-size: 13.5px; color: var(--ink-2); margin: 10px 0; border-radius: 0 4px 4px 0; }
+  .evidence b { color: var(--good); font-family: "Helvetica Neue", Arial, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .script { background: #fffdf6; border: 1px dashed var(--accent); border-radius: 6px; padding: 8px 14px; margin: 8px 0; font-size: 15px; font-style: italic; color: var(--ink-2); }
+  .script:before { content: "✎ "; color: var(--accent); font-style: normal; }
+
+  .hero-step { border: 2px solid var(--accent); background: #fff7ee; }
+
+  /* ---- Checklist ---- */
+  .checklist { background: white; border: 1px solid var(--rule); border-radius: 6px; padding: 14px 18px; margin: 12px 0; }
+  .checklist .crawl-head { font-family:"Helvetica Neue",Arial,sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color: var(--accent); font-weight:700; margin: 2px 0 6px; }
+  .checklist label { display: flex; align-items: flex-start; gap: 9px; padding: 6px 0; cursor: pointer; font-size: 15.5px; }
+  .checklist input { margin-top: 4px; transform: scale(1.15); flex-shrink: 0; }
+  .checklist label.done { color: var(--muted); text-decoration: line-through; }
+  .checklist .sub { font-size: 13px; color: var(--muted); font-style: italic; }
+
+  /* ---- Lean inputs (job aid, not ledger) ---- */
+  .miniform { background: white; border: 1px solid var(--rule); border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+  .miniform .row { display: flex; gap: 8px; margin: 6px 0; align-items: center; }
+  .miniform .row .n { font-family:"Helvetica Neue",Arial,sans-serif; color: var(--muted); font-size: 13px; width: 18px; flex-shrink: 0; }
+  .miniform input[type=text] { flex: 1; border: none; border-bottom: 1px solid var(--rule); background: transparent; font-family: Georgia, serif; font-size: 15px; padding: 4px 2px; }
+  .miniform input[type=text]:focus { outline: none; border-bottom-color: var(--accent); }
+  .miniform .opt { font-size: 12px; color: var(--muted); font-style: italic; }
+  textarea.note { width: 100%; min-height: 70px; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font-family: Georgia, serif; font-size: 15px; background: #fffdf6; resize: vertical; }
+
+  /* ---- Reveal ---- */
+  details.reveal { background: white; border: 1px solid var(--rule); border-radius: 6px; padding: 8px 16px; margin: 9px 0; }
+  details.reveal > summary { cursor: pointer; font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 600; font-size: 15px; padding: 4px 0; list-style: none; color: var(--ink); }
+  details.reveal > summary::before { content: "▸ "; color: var(--accent); font-weight: 700; }
+  details.reveal[open] > summary::before { content: "▾ "; }
+  details.reveal[open] > summary { border-bottom: 1px solid var(--rule); margin-bottom: 8px; padding-bottom: 6px; }
+
+  .qbank { font-size: 15px; }
+  .qbank .lvl { font-family:"Helvetica Neue",Arial,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color: var(--accent); font-weight:700; margin: 12px 0 2px; }
+  .qbank ul { margin: 2px 0 8px; }
+
+  .pill { display: inline-block; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 10px; margin-right: 4px; vertical-align: middle; }
+  .pill.grad { background: var(--grad-soft); color: var(--grad); }
+  .pill.founder { background: var(--founder-soft); color: var(--founder); }
+  .pill.both { background: var(--paper-2); color: var(--ink-2); }
+
+  .resetbtn { font-family:"Helvetica Neue",Arial,sans-serif; font-size:12px; background: none; border: 1px solid var(--rule); color: var(--muted); border-radius: 4px; padding: 4px 10px; cursor: pointer; }
+  .resetbtn:hover { border-color: var(--bad); color: var(--bad); }
+
+  footer { margin-top: 50px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted); }
+
+  /* cheat sheet */
+  #cheat .card { border-color: var(--ink); }
+  #cheat h4 { color: var(--accent); }
+
+  @media (max-width: 680px) {
+    .cards { grid-template-columns: 1fr; }
+    .phasebar { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 25px; }
+    .wrap { padding: 20px 16px 70px; }
+  }
+  @media print {
+    body { background: white; font-size: 12px; }
+    .wrap { max-width: none; padding: 8px; }
+    .rolebar, .phasebar, .resetbtn, textarea.note, .miniform input { display: none !important; }
+    .printhide { display: none !important; }
+    #cheat { page-break-before: always; }
+    details.reveal { border: 1px solid #999; }
+    details.reveal:not([open]) > :not(summary) { display: none; }
+    .grad-only, .founder-only { display: block !important; }
+  }
+</style>
+</head>
+<body class="role-grad">
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Conference Playbook · Prep → Floor → Follow-up · keep this open on your phone</div>
+  <h1>The Conference Playbook</h1>
+  <p style="margin:0; color: var(--muted); font-size: 15px;">A lean, do-it tool for working a space conference. Built to be <em>used at the event</em>, not read once. Evidence-backed; nothing to install; your ticks save automatically on this device.</p>
+</header>
+
+<!-- ROLE TOGGLE -->
+<div class="rolebar">
+  <div class="rolewrap">
+    <span class="lbl">I'm going as a:</span>
+    <div class="roletoggle" role="group" aria-label="Choose your role">
+      <button class="r-grad" onclick="setRole('grad')">🎓 New grad / job-seeker</button>
+      <button class="r-founder" onclick="setRole('founder')">🚀 Founder / startup</button>
+    </div>
+    <span class="rolehint" id="rolehint">Tailors your goals, scripts &amp; "the ask." Switch anytime.</span>
+  </div>
+</div>
+
+<!-- HERO / TLDR -->
+<div class="tldr">
+  <h4>If you read nothing else — the whole game in 3 moves</h4>
+  <ol>
+    <li><strong>BEFORE:</strong> Pick 5 people you want to meet. Message <strong>3 lapsed contacts</strong> who'll be there ("I'll be at X — coffee?"). That's the highest-return hour you'll spend.</li>
+    <li><strong>DURING:</strong> Go to <strong>give, not get</strong>. Ask questions, listen, make one intro a day. Log every real contact <strong>within 5 minutes</strong> — your memory is gone by the coffee break.</li>
+    <li><strong>AFTER:</strong> Follow up <strong>within 48 hours</strong>. <strong>80% of leads get zero follow-up</strong> — just doing this beats almost everyone in the room.</li>
+  </ol>
+</div>
+
+<div class="phasebar">
+  <a href="#mindset"><span class="num">0</span>Mindset</a>
+  <a href="#prep"><span class="num">1</span>Prep</a>
+  <a href="#floor"><span class="num">2</span>Floor</a>
+  <a href="#follow"><span class="num">3</span>Follow-up</a>
+  <a href="#cheat"><span class="num">★</span>Cheat sheet</a>
+</div>
+<p style="text-align:center; color: var(--muted); font-size: 13px; margin-top:6px;">Want the <em>why</em> behind all this? See the companion <a href="conference-field-guide.pdf">Conference Field Guide</a> (theory &amp; deep dive, PDF).</p>
+
+<!-- ================= PHASE 0 — MINDSET ================= -->
+<section id="mindset">
+<h2>0 · Mindset — read this on the train there <span style="font-size:13px;color:var(--muted);font-weight:normal;">(60 seconds)</span></h2>
+<p>Three ideas that fix the things that actually go wrong at conferences. They're not pep talk — each is a tested finding.</p>
+
+<div class="cards">
+  <div class="card">
+    <h4>It's going better than it feels</h4>
+    <p>You'll walk away from conversations sure you were awkward. You're wrong, and predictably so — people consistently <strong>underestimate how much a stranger liked talking to them.</strong> The cringe is a known glitch in self-perception, not feedback. So approach the next person anyway.</p>
+    <div class="evidence"><b>Evidence</b> · The "liking gap" — Boothby et al., 2018, <em>Psychological Science</em>. Held even among roommates for months.</div>
+  </div>
+  <div class="card">
+    <h4>Go to give, not to get</h4>
+    <p>Networking feels gross when you show up to <em>extract</em>. The fix isn't to push through it — it's to flip it: come to <strong>give</strong> an intro, a useful fact, a genuine question. The ick disappears and reciprocity does the rest. People help those who helped them.</p>
+    <div class="evidence"><b>Evidence</b> · Instrumental networking can feel "dirty" → people do less of it — Casciaro et al., 2014, <em>Admin. Science Quarterly</em>.</div>
+  </div>
+</div>
+
+<div class="callout">
+  <span class="label">Your one job on the floor</span>
+  Be the person the room is <em>better for having held</em> — curious, useful, easy to talk to. Do that and the <span class="grad-only">referrals, intros, and job leads</span><span class="founder-only">customers, intros, and investor interest</span> follow as a by-product. Chase the by-product directly and you'll close nothing. The space sector is tiny; today's stranger is next year's <span class="grad-only">hiring manager</span><span class="founder-only">customer, competitor, or co-investor</span>.
+</div>
+</section>
+
+<!-- ================= PHASE 1 — PREP ================= -->
+<section id="prep">
+<h2>1 · Prep — the conference is won here</h2>
+<p>Most people show up and hope. You won't. Do the <strong>crawl</strong> list and you're already ahead of the room. The rest is optional depth.</p>
+
+<div class="checklist" data-list="prep-crawl">
+  <div class="crawl-head">⏱ The 2-minute crawl — do at least this</div>
+  <label><input type="checkbox"> <span>Write your <strong>one goal</strong> for this event.
+    <span class="sub grad-only">e.g. "3 informational chats with people doing the job I want" / "meet someone at 2 target companies."</span>
+    <span class="sub founder-only">e.g. "5 qualified customer conversations" / "3 warm investor intros" / "validate the pricing hypothesis."</span></span></label>
+  <label><input type="checkbox"> <span>List the <strong>5 people or orgs</strong> you most want to meet (use the box below).</span></label>
+  <label><input type="checkbox"> <span>Message <strong>3 dormant contacts</strong> who'll be there — people you've lost touch with. This is the single highest-return move.</span></label>
+  <label><input type="checkbox"> <span>Send <strong>5 "I'll be there — coffee?"</strong> notes to priority targets. Pre-booked beats bumping-into.</span></label>
+  <label><input type="checkbox"> <span>Post that you're going + what you're interested in. It pulls people to <em>you</em>.</span></label>
+</div>
+
+<div class="evidence"><b>Why dormant ties</b> · Reconnecting once-close contacts you've drifted from gives you novelty <em>and</em> retained trust — the "best of both worlds," and they've accumulated fresh knowledge while you were out of touch. Levin, Walter &amp; Murnighan, 2011, <em>Organization Science</em>. Reactivating beats cold outreach every time.</div>
+
+<h3>Your top 5 targets <span class="opt" style="font-weight:normal;font-size:13px;color:var(--muted)">(optional — saves on this device)</span></h3>
+<div class="miniform" data-form="targets">
+  <div class="row"><span class="n">1</span><input type="text" data-key="t1" placeholder="Name / org — and your ONE desired outcome"></div>
+  <div class="row"><span class="n">2</span><input type="text" data-key="t2" placeholder="Name / org — and your ONE desired outcome"></div>
+  <div class="row"><span class="n">3</span><input type="text" data-key="t3" placeholder="Name / org — and your ONE desired outcome"></div>
+  <div class="row"><span class="n">4</span><input type="text" data-key="t4" placeholder="Name / org — and your ONE desired outcome"></div>
+  <div class="row"><span class="n">5</span><input type="text" data-key="t5" placeholder="Name / org — and your ONE desired outcome"></div>
+</div>
+
+<h4>Scripts — steal these</h4>
+<div class="script">Reconnect a lapsed contact: "Hi [name] — it's been too long! I saw you're going to [event]. I'd genuinely love to catch up — free for a coffee between sessions? Either way, good to be in the same place again."</div>
+<div class="script grad-only">Pre-book a target (grad): "Hi [name], I'm finishing my [degree / programme] at [university] and following [specific thing their team does]. I'll be at [event] on [dates] — could I grab 15 minutes to hear how you got into [their area]? Not asking for a job, just learning. Happy to work around you."</div>
+<div class="script founder-only">Pre-book a target (founder): "Hi [name], I'm building [one line on what you do] and [specific reason they'd care — their portfolio / their problem]. I'll be at [event] [dates] — worth 20 minutes to compare notes on [their world]? Happy to come to you."</div>
+
+<details class="reveal printhide">
+<summary>Optional depth — tiered objectives, meetings, go/no-go gut-check</summary>
+<div>
+<h4>Set tiered objectives (so you can tell if the trip worked)</h4>
+<ul>
+  <li><strong>P1 — Must</strong> (justifies the cost): <span class="grad-only">e.g. 2 informational conversations + 1 referral ask.</span><span class="founder-only">e.g. 3 qualified buyer convos + 1 investor follow-up secured.</span></li>
+  <li><strong>P2 — Should</strong>: <span class="grad-only">5 new contacts in target orgs; reconnect 5 alumni.</span><span class="founder-only">10 leads; 1 partnership conversation.</span></li>
+  <li><strong>P3 — Nice</strong>: a press/social mention; one new idea worth chasing.</li>
+</ul>
+<h4>Pre-book the high-value meetings</h4>
+<p>Senior people barely touch the open floor — they run on pre-booked coffees, dinners, and the invite-only room. Book your priority 2–3 conversations <em>before</em> you arrive (20–30 min each). Use the event's matchmaking app if it has one.</p>
+<h4>30-second go/no-go gut-check (before you commit budget)</h4>
+<ul>
+  <li>Can I name <em>one specific outcome</em> I'm going for? (If no → don't go.)</li>
+  <li>Will the people who can deliver it actually be there? (Verify, don't assume.)</li>
+  <li>Can I get into the <em>real</em> event — a meeting, a dinner, a warm intro? (That's where value lives.)</li>
+  <li>Is the true cost — ticket + travel + <em>your days</em> — worth that outcome?</li>
+</ul>
+<p class="sub" style="font-size:13px;color:var(--muted);font-style:italic;">Want the full weighted scorecard &amp; portfolio view? That's in the <a href="conference-field-guide.pdf">Field Guide</a> — but you don't need it to start. Crawl before you sprint.</p>
+</div>
+</details>
+</section>
+
+<!-- ================= PHASE 2 — FLOOR ================= -->
+<section id="floor">
+<h2>2 · Floor — what to do in the room</h2>
+
+<h3>Approach a stranger — the 5 steps</h3>
+<div class="checklist" data-list="floor-approach">
+  <label><input type="checkbox"> <span><strong>Read the formation.</strong> Two people leaning in = leave them. Someone alone scanning the room, or an open triangle = go.</span></label>
+  <label><input type="checkbox"> <span><strong>Open with low-stakes truth.</strong> "How's your conference going?" / "What brought you to this talk?" The badge gives you everything else.</span></label>
+  <label><input type="checkbox"> <span><strong>Pull the thread.</strong> "You're at [org] — are you working on [the thing they're known for]?"</span></label>
+  <label><input type="checkbox"> <span><strong>Name + one line, then back to them.</strong> They'll remember how you made them feel, not your title.</span></label>
+  <label><input type="checkbox"> <span><strong>Decide fit fast.</strong> Match → go deeper. No match → exit warmly (and ideally hand them off to someone).</span></label>
+</div>
+
+<h3>The question engine — your sharpest tool</h3>
+<p>Asking questions, especially <strong>follow-ups</strong>, is the cheapest way to be liked and remembered — it reads as listening. Talk less, ask more, chain the follow-up.</p>
+<div class="evidence"><b>Evidence</b> · Question-asking → liking, via perceived responsiveness — Huang et al., 2017, <em>JPSP</em>. More follow-up questions even won more second dates in a real speed-dating study.</div>
+
+<details class="reveal" open>
+<summary>The question bank — by what you're after</summary>
+<div class="qbank">
+  <div class="lvl">Professional <span class="pill both">everyone</span></div>
+  <ul>
+    <li>"What are you actually working on right now — and what's the hard part?"</li>
+    <li>"What's changed most in your corner of the sector this year?"</li>
+    <li>"What would make this conference a win for you?"</li>
+  </ul>
+  <div class="lvl">Build the human <span class="pill both">everyone</span></div>
+  <ul>
+    <li>"How did you end up in space? What was the path?"</li>
+    <li>"What's the part of the work you'd do even if no one paid you?"</li>
+  </ul>
+  <div class="lvl grad-only">Career &amp; foot-in-the-door <span class="pill grad">grad</span></div>
+  <ul class="grad-only">
+    <li>"If you were starting over in this sector today, what would you do differently?"</li>
+    <li>"What does someone need to be good at to thrive on your team — beyond the obvious?"</li>
+    <li><strong>"Who else should I be talking to?"</strong> — the highest-yield question at any conference. It compounds your network through theirs.</li>
+  </ul>
+  <div class="lvl founder-only">Customer validation <span class="pill founder">founder</span></div>
+  <ul class="founder-only">
+    <li>"How are you solving [problem] today? What does that cost you?"</li>
+    <li>"If something did [your value prop], would that change anything — or is it a vitamin, not a painkiller?"</li>
+    <li>"Who in your org would actually feel this pain? Who holds the budget?"</li>
+    <li>"What would have to be true for you to switch?"</li>
+  </ul>
+  <div class="lvl">Intelligence (open, never an interrogation) <span class="pill both">everyone</span></div>
+  <ul>
+    <li>"What are you hearing about where the funding's going next year?"</li>
+    <li>"What's overhyped here? What's underrated?"</li>
+    <li>"What surprised you at this event?"</li>
+  </ul>
+  <div class="lvl">Protect your own info (counter-intel posture) <span class="pill both">everyone</span></div>
+  <p style="font-size:14px;margin:2px 0 6px;">Decide <em>before</em> the event what's public, shareable, and confidential. If a friendly stranger digs into your <span class="grad-only">employer's</span><span class="founder-only">roadmap, pricing, or customers</span>, deflect smoothly: "We're not talking about that publicly yet — but how are <em>you</em> thinking about it?" Discreet, not paranoid.</p>
+</div>
+</details>
+
+<h3>Graceful exits — leave without being rude</h3>
+<ul>
+  <li>"I don't want to monopolise you — can I grab your details and follow up?"</li>
+  <li>"I promised myself I'd catch [session/person] — let's continue by email."</li>
+  <li><strong>The generous exit:</strong> introduce them to someone first — "You two should meet, you're both on [X]" — then go. You leave <em>and</em> bank goodwill.</li>
+</ul>
+
+<div class="founder-only">
+<h3>Working a booth <span class="pill founder">founder</span></h3>
+<p><strong>Attract → Understand → Explain → Decide.</strong> Never sit, never bury your face in your phone, never huddle with your team — it repels approach. Open with a question ("What brings you to the show?"), not a pitch. Qualify fast, then route or release.</p>
+<details class="reveal"><summary>Fast booth qualifying (30-second version)</summary><div>
+<p>You don't need the full framework on the floor — just triage. Quick additive score: <strong>Need +3 · Authority +2 · Timeline +2 · Engaged +1.</strong> 6+ = hot (book a meeting now), 3–5 = warm (capture + follow up), &lt;3 = friendly card, move on. (This is the booth-speed version of BANT/MEDDIC.)</p>
+</div></details>
+</div>
+<div class="grad-only">
+<h3>Working a booth as a job-seeker <span class="pill grad">grad</span></h3>
+<p>Booths are staffed by people who actually do the work — gold for you. Skip "are you hiring?" Instead: "What does your team actually work on?" → "What's the hard part of that?" → "How did <em>you</em> get into it?" You're having an informational conversation, not begging. Get a name and a reason to follow up.</p>
+</div>
+
+<h3 class="hero-floor">Capture every real contact — within 5 minutes <span style="font-size:13px;color:var(--accent);font-weight:normal;">(non-negotiable)</span></h3>
+<p>Your memory of who-was-who is <strong>gone by the next coffee break</strong>. Voice-note first if you must, then jot it. Minimum: <strong>name · org · the one next step · hot?</strong> A "send me something" = a hot signal → follow up within 24h.</p>
+<div class="miniform" data-form="capture">
+  <div class="row"><span class="n">1</span><input type="text" data-key="c1" placeholder="Name · org · next step · 🔥hot?"></div>
+  <div class="row"><span class="n">2</span><input type="text" data-key="c2" placeholder="Name · org · next step · 🔥hot?"></div>
+  <div class="row"><span class="n">3</span><input type="text" data-key="c3" placeholder="Name · org · next step · 🔥hot?"></div>
+  <div class="row"><span class="n">4</span><input type="text" data-key="c4" placeholder="Name · org · next step · 🔥hot?"></div>
+  <div class="row"><span class="n">5</span><input type="text" data-key="c5" placeholder="Name · org · next step · 🔥hot?"></div>
+  <div class="row"><span class="n">6</span><input type="text" data-key="c6" placeholder="Name · org · next step · 🔥hot?"></div>
+  <div class="row"><span class="n">7</span><input type="text" data-key="c7" placeholder="Name · org · next step · 🔥hot?"></div>
+  <div class="row"><span class="n">8</span><input type="text" data-key="c8" placeholder="Name · org · next step · 🔥hot?"></div>
+  <p class="opt" style="margin:6px 0 0">Tip: your phone's voice memo or notes app works too — the point is <em>now</em>, not the form.</p>
+</div>
+
+<div class="callout">
+  <span class="label">Energy &amp; the bar</span>
+  A 3-day conference is an endurance event. By day 2 afternoon, tired people make bad reads and forgettable impressions. <strong>Protect your energy like a budget</strong> — 8 good conversations beat 40 cards. The hotel bar builds relationships fast but has ended more careers than it's made: be warm, present, and remembered well — drink less than you want to.
+</div>
+</section>
+
+<!-- ================= PHASE 3 — FOLLOW-UP ================= -->
+<section id="follow">
+<h2>3 · Follow-up — where the ROI is actually won</h2>
+
+<div class="tldr">
+  <h4>The cheapest edge in this entire playbook</h4>
+  <p style="margin:6px 0 0; font-size:18px;"><strong>~80% of conference leads get no follow-up at all.</strong> Doing it <em>at all</em> puts you ahead of four out of five people. Doing it <strong>within 48 hours</strong> — 24h for anyone hot — is when it actually converts. This is the step everyone skips and you won't.</p>
+</div>
+<div class="evidence printhide"><b>Directional</b> · Trade-show data (Momencio 2026; vendor reports): ~80% of leads never followed up; within-48h contact converts several times better than week-later. Treat numbers as directional — the direction is unambiguous: <em>fast</em>.</div>
+
+<div class="checklist hero-step" data-list="follow-do">
+  <div class="crawl-head">⏱ Do this the day you get back</div>
+  <label><input type="checkbox"> <span><strong>Within 24h:</strong> message every 🔥hot contact — deliver what you promised + propose one concrete next step.</span></label>
+  <label><input type="checkbox"> <span><strong>Within 48h:</strong> a short personal note to every real contact. Reference something only the two of you discussed.</span></label>
+  <label><input type="checkbox"> <span>Connect on LinkedIn with a one-line personal note (not the blank request).</span></label>
+  <label><input type="checkbox"> <span><span class="grad-only">For anyone who offered a referral/intro: send them a 2-line blurb they can forward — make it effortless.</span><span class="founder-only">Send promised materials (deck / data-room link) same-day to interested investors — momentum is everything in a raise.</span></span></label>
+  <label><input type="checkbox"> <span>Do the 10-minute debrief below while it's fresh.</span></label>
+</div>
+
+<h4>Follow-up templates</h4>
+<div class="script grad-only">Grad: "Hi [name] — great to meet you at [event]; I really enjoyed hearing about [specific thing]. [As promised: the link / the question I mentioned.] If you're open to it, I'd love to stay in touch as I move toward [their area]. Thanks again — and if [the person you suggested] is worth an intro, I'd be grateful."</div>
+<div class="script founder-only">Founder: "Hi [name] — great talking at [event] about [specific pain/topic]. As promised, [deck / one-pager / data]. Worth a 30-min call on [date] to go deeper on [their problem]? Either way, glad we connected."</div>
+
+<h3>10-minute debrief <span style="font-size:13px;color:var(--muted);font-weight:normal;">(the part that makes you better next time)</span></h3>
+<p>The experience without the debrief is just an expensive trip. Answer three things:</p>
+<div class="miniform" data-form="debrief">
+  <p style="margin:2px 0"><strong>What worked / who mattered most?</strong></p>
+  <textarea class="note" data-key="d1" placeholder="The 2-3 conversations or moves that actually counted..."></textarea>
+  <p style="margin:10px 0 2px"><strong>What I'd do differently next time?</strong></p>
+  <textarea class="note" data-key="d2" placeholder="Booked more / wasted time on X / ran out of energy by..."></textarea>
+  <p style="margin:10px 0 2px"><strong>Verdict: worth coming back? (and did I hit my P1 goal?)</strong></p>
+  <textarea class="note" data-key="d3" placeholder="Yes / no / only if... — with the reason."></textarea>
+</div>
+</section>
+
+<!-- ================= CHEAT SHEET ================= -->
+<section id="cheat">
+<h2>★ One-page cheat sheet <span style="font-size:13px;color:var(--muted);font-weight:normal;">(print it / screenshot it)</span></h2>
+<div class="card">
+  <h4>Mindset</h4>
+  <p>It's going better than it feels (liking gap — approach anyway). Go to <strong>give, not get</strong>. Be the person the room is better for holding.</p>
+  <h4>Before</h4>
+  <p>One goal · 5 targets · message <strong>3 lapsed contacts</strong> who'll be there · send 5 "coffee?" notes · post that you're going.</p>
+  <h4>Approach (5 steps)</h4>
+  <p>Read the formation → "How's your conference going?" → pull the thread → name + one line, back to them → decide fit fast.</p>
+  <h4>Ask (talk less)</h4>
+  <p>"What are you working on — and what's hard about it?" · <span class="grad-only">"Who else should I talk to?"</span><span class="founder-only">"How do you solve this today, and what does it cost you?"</span> · "What's overhyped/underrated here?" · <em>chain the follow-up.</em></p>
+  <h4>Exit</h4>
+  <p>"Don't want to monopolise you — can I follow up?" · or introduce them to someone, then go.</p>
+  <h4>Capture</h4>
+  <p><strong>Within 5 min:</strong> name · org · next step · 🔥? Voice-note if needed. "Send me something" = hot.</p>
+  <h4>After (the edge)</h4>
+  <p><strong>80% never follow up.</strong> Hot contacts within 24h, everyone within 48h. Reference something specific. End with one next step.</p>
+  <h4>Golden rules</h4>
+  <p>Always end with a specific next step · quality &gt; quantity · warm intros beat cold approaches · the small rooms (coffees, dinners) beat the big hall.</p>
+</div>
+<p class="printhide" style="text-align:center;margin-top:14px;">
+  <button class="resetbtn" onclick="resetAll()">Reset all my ticks &amp; notes on this device</button>
+</p>
+</section>
+
+<footer>
+<p><strong>The Conference Playbook</strong> — companion to the <a href="conference-field-guide.pdf">Conference Field Guide</a> (theory and evidence). Evidence-strong findings: liking gap (Boothby 2018, <em>Psych Science</em>); question-asking→liking (Huang 2017, <em>JPSP</em>); networking-feels-dirty/give-don't-extract (Casciaro 2014, <em>ASQ</em>); dormant ties (Levin/Walter/Murnighan 2011, <em>Org Science</em>); conferences as temporary clusters (Maskell/Bathelt 2006). Follow-up stats are directional practitioner data. Your entries are stored only in this browser, on this device. © Patrick Connolly 2026.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  // ---- Role toggle (persisted) ----
+  window.setRole = function(role){
+    document.body.classList.remove('role-grad','role-founder');
+    document.body.classList.add('role-'+role);
+    try { localStorage.setItem('confpb-role', role); } catch(e){}
+    var hint = document.getElementById('rolehint');
+    if (hint) hint.textContent = role==='grad'
+      ? 'Tuned for job-seeking: referrals, informational chats, scouting employers.'
+      : 'Tuned for startups: customers, capital, validation, partnerships.';
+  };
+  try {
+    var savedRole = localStorage.getItem('confpb-role');
+    if (savedRole) setRole(savedRole);
+  } catch(e){}
+
+  // ---- Checklist persistence ----
+  document.querySelectorAll('.checklist').forEach(function(list){
+    var key = 'confpb-'+list.getAttribute('data-list');
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e){}
+    list.querySelectorAll('label').forEach(function(lab, i){
+      var input = lab.querySelector('input');
+      if (saved[i]) { input.checked = true; lab.classList.add('done'); }
+      input.addEventListener('change', function(){
+        lab.classList.toggle('done', input.checked);
+        saved[i] = input.checked;
+        try { localStorage.setItem(key, JSON.stringify(saved)); } catch(e){}
+      });
+    });
+  });
+
+  // ---- Text input / textarea persistence ----
+  document.querySelectorAll('[data-form]').forEach(function(form){
+    var fkey = 'confpb-form-'+form.getAttribute('data-form');
+    form.querySelectorAll('input[type=text], textarea').forEach(function(el){
+      var k = fkey+'-'+el.getAttribute('data-key');
+      try { el.value = localStorage.getItem(k) || ''; } catch(e){}
+      var t;
+      el.addEventListener('input', function(){
+        clearTimeout(t);
+        t = setTimeout(function(){ try { localStorage.setItem(k, el.value); } catch(e){} }, 250);
+      });
+    });
+  });
+
+  // ---- Reset ----
+  window.resetAll = function(){
+    if (!confirm('Clear every tick, target, captured contact and note saved on this device? (Your role stays.)')) return;
+    var role = null; try { role = localStorage.getItem('confpb-role'); } catch(e){}
+    try {
+      Object.keys(localStorage).forEach(function(k){ if (k.indexOf('confpb-')===0 && k!=='confpb-role') localStorage.removeItem(k); });
+    } catch(e){}
+    location.reload();
+  };
+})();
+</script>
+</body>
+</html>
