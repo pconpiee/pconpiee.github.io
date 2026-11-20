@@ -14,6 +14,11 @@
 - [PMF Lab](https://pconpiee.github.io/space-pmf/) and [PMF Simulator](https://pconpiee.github.io/PMF/): product-market fit.
 - [CV & Interview Guide](https://pconpiee.github.io/cv-guide/), [Blue Canopy](https://blue-canopy.vercel.app/) (military → civilian), [Orbit Transfer](https://orbit-transfer.vercel.app/) (deep-tech MBA careers), [Nursing Roadmap](https://pconpiee.github.io/nursing-roadmap/).
 
+## Faith courses (free, no login, private by design)
+- [Into Christ](https://into-christ.vercel.app/): following Jesus and the step of believer's baptism — 10 units, 5 group gatherings with a leader's guide.
+- [Repairers](https://repairers.vercel.app/): 21 days in Psalm 130 and Isaiah 58 for high schoolers (KJV).
+- The Beloved series toward a Christ-centred life and marriage: [Beloved](https://beloved-silk.vercel.app/) (identity in Christ), [The Profound Mystery](https://beloved-silk.vercel.app/mystery.html), [Prepare the Way](https://beloved-silk.vercel.app/prepare.html), [Built on the Rock](https://beloved-silk.vercel.app/built.html), [Through the Waters](https://beloved-silk.vercel.app/waters.html).
+
 ## Contact
 - Email: pb.connollys@gmail.com
 - LinkedIn: https://www.linkedin.com/in/patrick-connolly-bs487
